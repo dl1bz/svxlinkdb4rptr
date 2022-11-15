@@ -12,6 +12,7 @@ For hotspots please use the original codebase https://github.com/FM-POLAND/hs_da
 ## Requirements ##
 - a webserver with php activated
 - the webserver needs to be run as user svxlink, otherwise the DTMF controls via webinterface will be not working
+- activate/install php-curl for read the status from SVXReflector via his API
 
 Please add 2 new variables in your svxlink.conf:
 ```
