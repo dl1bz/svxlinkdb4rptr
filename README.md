@@ -26,6 +26,8 @@ API=https://status.thueringen.link
 
 After that you need to setup some things in include/config.php, depend on your setup/system.
 
+It is strongly recommended, for protect the SDCard if using a Raspberry Pi, that the logging from SVXLINK and from the httpd is running at a ramdisk and, if possible, turn off the swap.
+
 This program is free software; you can redistribute it and/or modify it.
 This codebase is a "work in progress","as is" without any kind of support.
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
