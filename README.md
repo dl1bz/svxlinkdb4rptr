@@ -4,6 +4,11 @@
 This is a rework, not fork, based at codebase https://github.com/FM-POLAND/hs_dashboard_pi (created by SP2ONG, SP0DZ).
 Many thanks to these guys for their excellent work.
 
+## Preamble
+
+This dashboard is re-designed for use with public repeaters in hamradio, less for hotspots.
+For hotspots please use the original codebase https://github.com/FM-POLAND/hs_dashboard_pi
+
 ## Requirements ##
 - a webserver with php activated
 - the webserver needs to be run as user svxlink, otherwise the DTMF controls via webinterface will be not working
@@ -19,7 +24,8 @@ API=https://status.thueringen.link
 ...
 ```
 
-This codebase is a "work in progress"...
+This program is free software; you can redistribute it and/or modify it.
+This codebase is a "work in progress","as is" without any kind of support.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 73 Heiko, DL1BZ
-
