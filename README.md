@@ -6,7 +6,7 @@ Many thanks to these guys for their excellent work.
 
 ## Requirements ##
 - a webserver with php activated
-- the webserver needs to be run with user svxlink, otherwise the DTMF controls via webinterface will be not working
+- the webserver needs to be run as user svxlink, otherwise the DTMF controls via webinterface will be not working
 
 Please add 2 new variables in your svxlink.conf:
 ```
