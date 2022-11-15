@@ -30,7 +30,7 @@ After that you need to setup some things in include/config.php, depend on your s
 It is strongly recommended, for protect the SDCard if using a Raspberry Pi, that the logging from SVXLINK and from the httpd is running at a ramdisk and, if possible, turn off the swap.
 You can change the logpath of SVXLINK in /etc/default/svxlink and restart SVXLINK for activation.
 
-A ramdisk can be added in /ets/fstab. For example,  add the following line there for a ramdisk with 64MB for new logfile in /var/log/dv/svxlink :
+A ramdisk can be added in /etc/fstab. For example, add the following line there for a ramdisk with 64MB for new logfile in /var/log/dv/svxlink :
 
 ```
 tmpfs           /var/log/dv     tmpfs   nodev,noatime,nosuid,mode=0777,size=64m         0       0
