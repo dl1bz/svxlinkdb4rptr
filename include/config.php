@@ -54,7 +54,7 @@ define("KEY5", array(' EL-SP ','*D2#','purple'));
 // additional DTMF keys
 define("KEY6", array(' EL-TUD ','*D3#','purple'));
 define("KEY7", array(' D7 ','D7#','purple'));
-define("KEY8", array(' D8 ','D8#','purple'));
+define("KEY8", array(' INFO ','*#','blue'));
 //
 // Set SHOWPTT to TRUE if you want use microphone connected
 // to sound card and use buttons on dashboard PTT ON & PTT OFF
@@ -62,7 +62,7 @@ define("KEY8", array(' D8 ','D8#','purple'));
 // In most cases you can switch to FALSE
 //define("SHOWPTT","TRUE");
 //
-define("KEY9", array(' ECHO ','D9#','blue'));
+define("KEY9", array(' ECHO ','*1#','blue'));
 define("KEY10", array(' Refl OFF ','*D0#','red'));
 //
 ?>
