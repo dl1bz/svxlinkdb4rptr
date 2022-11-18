@@ -11,7 +11,8 @@ $net3= cidr_match($ip,"127.0.0.0/8");
 $net4= cidr_match($ip,"10.0.0.0/8");
 
 if ($net1 == TRUE || $net2 == TRUE || $net3 == TRUE || $net4 == TRUE) {
-	echo "<a href=\"/dtmf.php\" style=\"color: #0000ff;\">Dtmf</a> |";
+	echo "<a href=\"/nodeInfo.php\" style=\"color: #0000ff;\"> NodeInfo</a> |";
+	echo "<a href=\"/dtmf.php\" style=\"color: #0000ff;\"> Dtmf</a> |";
 	echo "<a href=\"/log.php\" style=\"color: #0000ff;\"> Log</a> |" ;
 	echo "<a href=\"/power.php\" style=\"color: #0000ff;\"> Power</a>" ;
 }
