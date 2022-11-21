@@ -288,7 +288,7 @@ function getTXInfo() {
 		// $diff=$tmst-$tmss;
 		// if ($diff>250) { $txs="<td style=\"background:#c3e5cc;\"><div style=\"margin-top:2px;margin-bottom:2px;color:#464646;font-weight:bold;\">TX OFF</div></td></tr>\n"; }
 		// else { 
-		$txs="<tr><td style=\"background:#ff6600;color:white;\"><div style=\"margin-top:2px;margin-bottom:2px;font-weight:bold;\">TX ON</div></td></tr>\n"; 
+		$txs="<tr><td style=\"background:#ff6600;color:white;\"><div style=\"margin-top:2px;margin-bottom:2px;font-weight:bold;\">TX ON</div></td></tr>\n";
 		//    }
 		return $txs;
 	}
