@@ -131,38 +131,59 @@ if ($net1 == TRUE || $net2 == TRUE || $net3 == TRUE || $net4 == TRUE) {
  </center>
     </form>
 <p style="margin: 0 auto;"></p>
+
+<table style="border-collapse: collapse; border: none; background-color:#e8e8e8e8;">
+<tr style="border: none;">
+
+<td style="border: none; background-color:#e8e8e8e8;">
 <form action="" method="POST" style="margin-top:4px;">
-  <center>
-  <label style="text-shadow: 1px 1px 1px Lightgrey, 0 0 0.5em LightGrey, 0 0 1em whitesmoke;font-weight:bold;color:#464646;" for="dtmfsvx">DTMF command (must end with #):</label>  
+  <label style="text-shadow: 1px 1px 1px Lightgrey, 0 0 0.5em LightGrey, 0 0 1em whitesmoke;font-weight:bold;color:#464646;" for="dtmfsvx">DTMF command (must end with #):<BR></label>
   <input type="text" id="dtmfsvx" name="dtmfsvx">
-  <input type="submit" value="Send DTMF code" class="green"><br>
-  </center>
+  <input type="submit" value="Send DTMF code" class="green">
 </form>
+</td>
+
+<td style="border: none; background-color:#e8e8e8e8;">
+<form action="" method="POST" style="margin-top:4px;">
+  <label style="text-shadow: 1px 1px 1px Lightgrey, 0 0 0.5em LightGrey, 0 0 1em whitesmoke;font-weight:bold;color:#464646;" for="jmpto">Change active TG:<BR></label>
+  <input type="text" id="jmpto" name="jmpto">
+  <input type="submit" value="Select TG" class="green">
+</form>
+</td>
+
+<td style="border: none;  background-color:#e8e8e8e8;">
+<form action="" method="POST" style="margin-top:4px;">
+  <label style="text-shadow: 1px 1px 1px Lightgrey, 0 0 0.5em LightGrey, 0 0 1em whitesmoke;font-weight:bold;color:#464646;" for="addMonTG">Add time-limited Monitor TG:<BR></label>
+  <input type="text" id="addMonTG" name="addMonTG">
+  <input type="submit" value="Add Monitor TG" class="green"><br>
+</form>
+
+</td></tr>
+</table>
+
 <?php
-  if (isset($_POST["dtmfsvx"])){
+  if ((isset($_POST["dtmfsvx"]) == true) && (trim($_POST["dtmfsvx"]) !=='')) {
    $exec= "echo '" . $_POST['dtmfsvx'] . "' > ".$dtmfctrl." 2>&1";
    exec($exec,$output);
    echo "<meta http-equiv='refresh' content='0'>";
     }
-  if (isset($_POST["jmpto"])) {
-   $exec= "echo '91" . $_POST['jmpto'] . "#' > ".$dtmfctrl." 2>&1";
+  if ((isset($_POST["jmpto"]) == true) && (trim($_POST["jmpto"]) !=='') && (preg_match('/^\d+$/',$_POST["jmpto"]))) {
+   $exec= "echo '*91" . $_POST['jmpto'] . "#' > ".$dtmfctrl." 2>&1";
    exec($exec,$output);
    echo "<meta http-equiv='refresh' content='0'>";
     }
- if (isset($_POST["jmptoA"])) {
+ if ((isset($_POST["jmptoA"]) == true) && (trim($_POST["jmptoA"]) !=='') && (preg_match('/^\d+$/',$_POST["jmptoA"]))) {
    $exec= "echo '91" . $_POST['jmptoA'] . "#' > ".$dtmfctrl." 2>&1";
    exec($exec,$output);
    echo "<meta http-equiv='refresh' content='0'>";
     }
-if (isset($_POST["jmptoM"])) {
-   $exec= "echo '94" . $_POST['jmptoM'] . "#' > ".$dtmfctrl." 2>&1";
+ if ((isset($_POST["addMonTG"]) == true) && (trim($_POST["addMonTG"]) !=='') && (preg_match('/^\d+$/',$_POST["addMonTG"]))) {
+   $exec= "echo '*94" . $_POST['addMonTG'] . "#' > ".$dtmfctrl." 2>&1";
    exec($exec,$output);
    echo "<meta http-equiv='refresh' content='0'>";
     }
-
-
 ?>
-<p style="margin-bottom:-2px;"></p>
+<p style="margin-bottom:-9px;"></p>
 </div>
 </fieldset>
 <?php
@@ -174,13 +195,13 @@ if (isset($_POST["jmptoM"])) {
 <p style="margin: 0 auto;"></p>
 <form action="" method="POST" style="margin-top:4px;">
   <center>
-  <label style="text-shadow: 1px 1px 1px Lightgrey, 0 0 0.5em LightGrey, 0 0 1em whitesmoke;font-weight:bold;color:#464646;" for="dtmfsvx">Select Talkgroup # : </label>  
+  <label style="text-shadow: 1px 1px 1px Lightgrey, 0 0 0.5em LightGrey, 0 0 1em whitesmoke;font-weight:bold;color:#464646;" for="dtmfsvx">Select Talkgroup # : </label>
   <input type="text" id="dtmfsvx" name="dtmfsvx">
   <input type="submit" value="Activate" class="green"><br>
   </center>
 </form>
 <?php
-  if (isset($_POST["dtmfsvx"])){
+  if ((isset($_POST["dtmfsvx"]) == true) && (trim($_POST["dtmfsvx"]) !=='') && (preg_match('/^\d+$/',$_POST["dtmfsvx"]))) {
    $exec= "echo '*91" . $_POST['dtmfsvx'] . "#' > ".$dtmfctrl." 2>&1";
    exec($exec,$output);
    echo "<meta http-equiv='refresh' content='0'>";

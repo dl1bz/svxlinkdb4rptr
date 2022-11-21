@@ -281,13 +281,15 @@ function getTXInfo() {
 	$logPath = SVXLOGPATH."/".SVXLOGPREFIX;
 	if (file_exists(SVXLOGPATH."/".SVXLOGPREFIX)) { $txstat = exec('egrep -a -h "Tx1: Turning the transmitter|squelch is|squelch for" '.$logPath.' | tail -1');}
 	if (strpos($txstat, 'ON') !== false) {
-		$timestamp = substr($txstat, 0, 19);
-                 //date_default_timezone_set('Europe/Warsaw');
-                 $tmss=strtotime($timestamp);
-                 $tmst=strtotime('now');
-		 $diff=$tmst-$tmss;
-		if ($diff>250) { $txs="<td style=\"background:#c3e5cc;\"><div style=\"margin-top:2px;margin-bottom:2px;color:#464646;font-weight:bold;\">TX OFF</div></td></tr>\n"; }
-		else { $txs="<tr><td style=\"background:#ff6600;color:white;\"><div style=\"margin-top:2px;margin-bottom:2px;font-weight:bold;\">TX ON</div></td></tr>\n"; }
+                // entferne Zeitcheck von 250s, macht nur Probleme
+		// $timestamp = substr($txstat, 0, 19);
+                // $tmss=strtotime($timestamp);
+                // $tmst=strtotime('now');
+		// $diff=$tmst-$tmss;
+		// if ($diff>250) { $txs="<td style=\"background:#c3e5cc;\"><div style=\"margin-top:2px;margin-bottom:2px;color:#464646;font-weight:bold;\">TX OFF</div></td></tr>\n"; }
+		// else { 
+		$txs="<tr><td style=\"background:#ff6600;color:white;\"><div style=\"margin-top:2px;margin-bottom:2px;font-weight:bold;\">TX ON</div></td></tr>\n"; 
+		//    }
 		return $txs;
 	}
 	elseif (strpos($txstat, 'OPEN') !== false) { return "<tr><td style=\"background:#4aa361;color:black;\"><div style=\"margin-top:2px;margin-bottom:2px;font-weight:bold;\">RX-SQL Open - TX ON</div></td></tr>\n"; }
