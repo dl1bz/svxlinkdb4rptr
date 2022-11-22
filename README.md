@@ -54,9 +54,10 @@ tmpfs           /var/log/dv     tmpfs   nodev,noatime,nosuid,mode=0777,size=64m 
 
 ## Installation ##
 
-As I say before, the httpd (webserver) needs to be run as user svxlink, otherwise the DTMF control function via webinterface don't work. As default the webserver run as user www-data.
-You need to change this the webserver config file, depend on httpd you use (ngninx, apache2, lighttpd). The user svxlink is not a privileged user and hasn't root rights. From the view
-of security this is not a problem, if the httpd/webserver runs as user svxlink.
+**As I say before, the httpd (webserver) needs to be run as user svxlink, otherwise the DTMF control function via webinterface don't work**.
+As default the webserver run as user www-data.
+You need to change this in the webserver config file, depend on httpd you use (ngninx, apache2, lighttpd).
+The user svxlink is not a privileged user and hasn't root rights. From the view of security this is not a problem, if the httpd/webserver runs as user svxlink.
 
 ```
 $ cd /var/www
