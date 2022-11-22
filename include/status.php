@@ -134,9 +134,20 @@ if ($system_type == "IS_SIMPLEX") {
    echo "Mode: simplex";
    echo "</div></td></tr>";
    }
-echo "</table>\n";
-} else {
 
+$ip = isset($_SERVER['HTTP_CLIENT_IP'])?$_SERVER['HTTP_CLIENT_IP']:isset($_SERVER['HTTP_X_FORWARDED_FOR'])?$_SERVER['HTTP_X_FORWARDED_FOR']:$_SERVER['REMOTE_ADDR'];
+$net1= cidr_match($ip,"192.168.0.0/16");
+$net2= cidr_match($ip,"172.16.0.0/12");
+$net3= cidr_match($ip,"127.0.0.0/8");
+$net4= cidr_match($ip,"10.0.0.0/8");
+
+if ($net1 == TRUE || $net2 == TRUE || $net3 == TRUE || $net4 == TRUE || FULLACCESS_OUTSIDE == 1) {
+   echo "<td colspan=2 style=\"background:#ffffed;\"><div style=\"margin-top:4px;margin-bottom:4px;white-space:normal;color:#ff0000;font-weight: bold;\">";
+   echo "DB Access Level:<BR>Full/Intranet/VPN";
+   echo "</div></td></tr>";
+   }
+   echo "</table>\n";
+} else {
 echo "<span style=\"color:red;font-size:13.5px;font-weight: bold;\">SvxLink is not <br>running</span>";
 }
 ?>
