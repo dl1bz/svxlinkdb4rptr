@@ -68,6 +68,13 @@ $ sudo chown -R svxlink:svxlink html
 
 Start your webbrowser and access the dashboard like a normal website.
 
+After that, a new file ``include/config.inc.php`` will be saved, if it not already exists.
+Edit this file with your own values. This file is update-safe and will be not overwritten, if you do an update.
+```
+$ cd /var/www/html/include
+$ sudo nano config.inc.php
+```
+
 ## Final words for note ##
 This program is free software; you can redistribute it and/or modify it how you want.
 This codebase is a "work in progress","as is" without any kind of support.
