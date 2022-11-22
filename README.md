@@ -21,7 +21,7 @@ For better use with public repeaters some things are different
 - make the config.php update-safe by add a new user-defined file config.inc.php
 
 ## Requirements ##
-- a running SVXLINK by SM0VX https://github.com/sm0svx/svxlink
+- a running SVXLINK by SM0SVX https://github.com/sm0svx/svxlink
 - a webserver with php activated
 - the webserver needs to be run as user svxlink, otherwise the DTMF controls via webinterface will be not working
 - activate/install php-curl for read the status from SVXReflector via his API
