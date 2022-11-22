@@ -2,14 +2,6 @@
 
 if ( file_exists(__DIR__.'/config.inc.php') ) { include_once __DIR__.'/config.inc.php'; }
 else {
-// set correct Path and file name of configuration
-// define("SVXCONFPATH", "/etc/svxlink");
-// define("SVXCONFIG", "svxlink.conf");
-
-// set correct Path and file name of log
-// define("SVXLOGPATH", "/var/log");
-// define("SVXLOGPREFIX", "svxlink");
-
 // header lines for information
 define("HEADER_CAT","FM-Relais");
 define("HEADER_QTH","Somewhere JO01AA 500m NHN");
@@ -17,6 +9,23 @@ define("HEADER_QRG","439.000 MHz");
 define("HEADER_SYSOP","Sysop: DL1ABC");
 define("FMNETWORK_EXTRA","");
 // define("EL_NODE_NR","123456");
+//
+// Button keys define: description button, DTMF command or command, color of button
+//
+// DTMF keys
+// syntax: 'KEY number,'Description','DTMF code','color button'.
+//
+define("KEY1", array(' D1 ','*D1#','green'));
+define("KEY2", array(' D2 ','*D2#','orange'));
+define("KEY3", array(' D3 ','*D3#','orange'));
+define("KEY4", array(' D4 ','*D4#','orange'));
+define("KEY5", array(' D5', '*D5#','purple'));
+// additional DTMF keys
+define("KEY6", array(' D6 ','*D6#','purple'));
+define("KEY7", array(' D7 ','*D7#','purple'));
+define("KEY8", array(' D8 ','*D8#','blue'));
+define("KEY9", array(' D9 ','*D9#','blue'));
+define("KEY10", array(' D10 ','*D10#','red'));
 }
 
 $t_svxConfigFile = trim(substr(shell_exec("grep CFGFILE /etc/default/svxlink"), strrpos(shell_exec("grep CFGFILE /etc/default/svxlink"), "=")+1));
@@ -52,28 +61,9 @@ define("CPU_TEMP_OFFSET","0");
 // Define where is located menu wit buttons TOP or BOTTOM
 define("MENUBUTTON", "BOTTOM");
 //
-// Button keys define: description button, DTMF command or command, color of button
-//
-// DTMF keys
-// syntax: 'KEY number,'Description','DTMF code','color button' 
-//
-define("KEY1", array(' Refl ON ','*D1#','green'));
-define("KEY2", array(' TG7 ','*917#','orange'));
-define("KEY3", array(' TG1 ','*911#','orange'));
-define("KEY4", array(' TG 777 ','*91777#','orange'));
-define("KEY5", array(' EL-SP ','*D2#','purple'));
-// additional DTMF keys
-define("KEY6", array(' EL-TUD ','*D3#','purple'));
-define("KEY7", array(' D7 ','D7#','purple'));
-define("KEY8", array(' INFO ','*#','blue'));
-//
 // Set SHOWPTT to TRUE if you want use microphone connected
 // to sound card and use buttons on dashboard PTT ON & PTT OFF
 // Set SHOWPTT to FALSE to disable display PTT buttons
 // In most cases you can switch to FALSE
-//define("SHOWPTT","TRUE");
-//
-define("KEY9", array(' ECHO ','*1#','blue'));
-define("KEY10", array(' Refl OFF ','*D0#','red'));
-//
+// define("SHOWPTT","TRUE");
 ?>
