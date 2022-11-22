@@ -19,6 +19,8 @@ For better use with public repeaters some things are different
 - startup check if all required config files are available
 - remove most hard-coded things, which significantly limit the functionality for flexible use
 - make the config.php update-safe by add a new user-defined file config.inc.php
+- remove all SA818/DRA818 stuff for hotspots, not needed by repeaters
+- remove web-editing of svxlink.conf, not a good idea, that was already a dangerous thing with PiStar
 
 ## Requirements ##
 - a running SVXLINK by SM0SVX https://github.com/sm0svx/svxlink
