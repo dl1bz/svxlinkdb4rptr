@@ -1,7 +1,7 @@
 ---
 # Dashboard for SVXLINK for public repeaters ###
 
-This is a rework, not fork, based at codebase https://github.com/FM-POLAND/hs_dashboard_pi (created by SP2ONG, SP0DZ).
+This is a rework, not fork in the proper sense, based at codebase https://github.com/FM-POLAND/hs_dashboard_pi (created by SP2ONG, SP0DZ).
 Many thanks to these guys for their excellent work.
 
 ## Preamble
@@ -10,6 +10,7 @@ This dashboard is re-designed for use with public repeaters in hamradio, less fo
 For hotspots please use the original codebase https://github.com/FM-POLAND/hs_dashboard_pi
 
 ## Requirements ##
+- a running SVXLINK by SM0VX https://github.com/sm0svx/svxlink
 - a webserver with php activated
 - the webserver needs to be run as user svxlink, otherwise the DTMF controls via webinterface will be not working
 - activate/install php-curl for read the status from SVXReflector via his API
