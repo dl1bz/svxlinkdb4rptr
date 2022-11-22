@@ -13,7 +13,7 @@ For hotspots please use the original codebase https://github.com/FM-POLAND/hs_da
 For better use with public repeaters some things are different
 - remove audio player complete for saving data rates if the repeater has only a network connection like LTE
 - read the most config values now from the svxlink config files automatic
-- the visibility and usability of control buttons depend on source network/source IP (private networks or public internet)
+- the visibility and usability of control buttons depend on source network/source IP (private networks or public internet) for making the dashboard accessible from internet (if needed)
 - change some status views
 - add additional functionality for [RepeaterLogic]
 - startup check if all required config files are available
