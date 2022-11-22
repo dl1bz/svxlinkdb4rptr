@@ -23,10 +23,12 @@ For better use with public repeaters some things are different
 - remove web-editing of svxlink.conf, not a good idea, that was already a dangerous thing with PiStar
 
 ## Requirements ##
+- installed git support
 - a running SVXLINK by SM0SVX https://github.com/sm0svx/svxlink
 - a webserver with php activated
 - the webserver needs to be run as user svxlink, otherwise the DTMF controls via webinterface will be not working
 - activate/install php-curl for read the status from SVXReflector via his API
+- basic knowledge of using and working with Linux :) This piece of software is not plug'n'play !
 
 Please add 2 new variables in your svxlink.conf:
 ```
