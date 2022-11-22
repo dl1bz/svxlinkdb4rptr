@@ -75,6 +75,8 @@ $ cd /var/www/html/include
 $ sudo nano config.inc.php
 ```
 
+Have fun with SVXLINK Dashboard for repeater !
+
 ## Final words for note ##
 This program is free software; you can redistribute it and/or modify it how you want.
 This codebase is a "work in progress","as is" without any kind of support.
