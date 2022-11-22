@@ -1,11 +1,14 @@
 <?php
+
+if ( file_exists(__DIR__.'/config.inc.php') ) { include_once __DIR__.'/config.inc.php'; }
+else {
 // set correct Path and file name of configuration
-define("SVXCONFPATH", "/etc/svxlink");
-define("SVXCONFIG", "svxlink.conf");
+// define("SVXCONFPATH", "/etc/svxlink");
+// define("SVXCONFIG", "svxlink.conf");
 
 // set correct Path and file name of log
-define("SVXLOGPATH", "/var/log");
-define("SVXLOGPREFIX", "svxlink");
+// define("SVXLOGPATH", "/var/log");
+// define("SVXLOGPREFIX", "svxlink");
 
 // header lines for information
 define("HEADER_CAT","FM-Relais");
@@ -14,6 +17,14 @@ define("HEADER_QRG","439.000 MHz");
 define("HEADER_SYSOP","Sysop: DL1ABC");
 define("FMNETWORK_EXTRA","");
 // define("EL_NODE_NR","123456");
+}
+
+$t_svxConfigFile = trim(substr(shell_exec("grep CFGFILE /etc/default/svxlink"), strrpos(shell_exec("grep CFGFILE /etc/default/svxlink"), "=")+1));
+$t_svxLogFile = trim(substr(shell_exec("grep LOGFILE /etc/default/svxlink"), strrpos(shell_exec("grep LOGFILE /etc/default/svxlink"), "=")+1));
+define("SVXCONFPATH", substr($t_svxConfigFile,0, strrpos($t_svxConfigFile,"/")));
+define("SVXCONFIG", substr($t_svxConfigFile, strrpos($t_svxConfigFile,"/")+1));
+define("SVXLOGPATH", substr($t_svxLogFile,0, strrpos($t_svxLogFile,"/")));
+define("SVXLOGPREFIX", substr($t_svxLogFile, strrpos($t_svxLogFile,"/")+1));
 
 include_once 'parse_svxconf.php';
 

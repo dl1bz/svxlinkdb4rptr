@@ -1,7 +1,14 @@
 <?php
 $progname = basename($_SERVER['SCRIPT_FILENAME'],".php");
-include_once 'include/config.php';
+
+// pre-check environment
+
+if (DIRECTORY_SEPARATOR !== '/') { die("ERROR: This SVXLINK Dashboard runs only with UNIX-like OS (Linux,BSD,macOS)...exiting"); }
+if ( !file_exists('/etc/default/svxlink') ) { die("ERROR: File /etc/default/svxlink not found => SVXLINK not or not complete installed...exiting"); }
+if ( !file_exists('include/config.php') ) { die("ERROR: File include/config.php not found...exiting"); }
+else { include_once 'include/config.php'; }
 include_once 'include/tools.php';
+
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
