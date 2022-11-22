@@ -52,6 +52,22 @@ A ramdisk can be added in ``/etc/fstab``. For example, add the following line th
 tmpfs           /var/log/dv     tmpfs   nodev,noatime,nosuid,mode=0777,size=64m         0       0
 ```
 
+## Installation ##
+
+As I say before, the httpd (webserver) needs to be run as user svxlink, otherwise the DTMF control function via webinterface don't work. As default the webserver run as user www-data.
+You need to change this the webserver config file, depend on httpd you use (ngninx, apache2, lighttpd). The user svxlink is not a privileged user and hasn't root rights. From the view
+of security this is not a problem, if the httpd/webserver runs as user svxlink.
+
+```
+$ cd /var/www
+$ sudo mv html html.old
+$ sudo git clone https://github.com/dl1bz/svxlinkdb4rptr html
+$ sudo chown -R svxlink:svxlink html
+```
+
+Start your webbrowser and access the dashboard like a normal website.
+
+
 This program is free software; you can redistribute it and/or modify it.
 This codebase is a "work in progress","as is" without any kind of support.
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
