@@ -1,7 +1,7 @@
 <?php 
 include_once __DIR__.'/tools.php';
-include_once __DIR__.'/config.php';         
-include_once __DIR__.'functions.php';
+include_once __DIR__.'/config.php';
+include_once __DIR__.'/functions.php';
 $progname = basename($_SERVER['SCRIPT_FILENAME'],".php");
 
 $rawuptime = shell_exec('cat /proc/uptime');
@@ -48,7 +48,7 @@ $cpuTempC = round(abs($cpuTempCRaw)/ 1000)+CPU_TEMP_OFFSET;
   <tr height="24px">
     <td><?php echo php_uname('n');?></td>
     <td><?php echo php_uname('r');?></td>
-    <td colspan="2"><?php echo exec('/usr/local/sbin/platformDetect.sh');?></td>
+    <td colspan="2"><?php echo exec($_SERVER['DOCUMENT_ROOT'].'/scripts/platformDetect.sh');?></td>
     <td><?php echo $disk_used;?></td>
     <td><?php echo $free_mem;?></td>
 <!--    <td><?php echo $load;?>&nbsp;%<br>(<?php echo round($cpuLoad[0],1);?> / <?php echo round($cpuLoad[1],1);?> / <?php echo round($cpuLoad[2],1);?>)</td> -->
