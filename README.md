@@ -26,7 +26,7 @@ For better use with public repeaters some things are different
 - installed git support
 - a running SVXLINK by SM0SVX https://github.com/sm0svx/svxlink
 - a webserver with php activated
-- the webserver needs to be run as user svxlink, otherwise the DTMF controls via webinterface will be not working
+- **the webserver needs to be run as user svxlink, otherwise the DTMF controls via webinterface will be not working**
 - activate/install php-curl for read the status from SVXReflector via his API
 - **basic knowledge of using and working with Linux :) This piece of software is not plug'n'play !**
 
@@ -68,8 +68,8 @@ $ sudo chown -R svxlink:svxlink html
 
 Start your webbrowser and access the dashboard like a normal website.
 
-
-This program is free software; you can redistribute it and/or modify it.
+## Final words for note ##
+This program is free software; you can redistribute it and/or modify it how you want.
 This codebase is a "work in progress","as is" without any kind of support.
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
