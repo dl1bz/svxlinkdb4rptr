@@ -12,12 +12,13 @@ For hotspots please use the original codebase https://github.com/FM-POLAND/hs_da
 ## Changes from the original
 For better use with public repeaters some things are different
 - remove audio player complete for saving data rates if the repeater has only a network connection like LTE
-- read the most config variables from the svxlink config files automatic
+- read the most config values now from the svxlink config files automatic
 - the visibility and usability of control buttons depend on source network/source IP (private networks or public internet)
 - change some status views
 - add additional functionality for [RepeaterLogic]
 - startup check if all required config files are available
 - remove most hard-coded things, which significantly limit the functionality for flexible use
+- make the config.php update-safe by add a new user-defined file config.inc.php
 
 ## Requirements ##
 - a running SVXLINK by SM0VX https://github.com/sm0svx/svxlink
