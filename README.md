@@ -66,7 +66,7 @@ $ sudo git clone https://github.com/dl1bz/svxlinkdb4rptr html
 $ sudo chown -R svxlink:svxlink html
 ```
 
-Start your webbrowser and access the dashboard like a normal website.
+**Important: Start your webbrowser now and access the dashboard like a normal website.**
 
 After that, a new file ``include/config.inc.php`` will be saved, if it not already exists.
 Edit this file with your own values. This file is update-safe and will be not overwritten, if you do an update.
