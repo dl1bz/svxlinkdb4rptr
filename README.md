@@ -9,6 +9,16 @@ Many thanks to these guys for their excellent work.
 This dashboard is re-designed for use with public repeaters in hamradio, less for hotspots.
 For hotspots please use the original codebase https://github.com/FM-POLAND/hs_dashboard_pi
 
+## Changes from the original
+For better use with public repeaters some things are different
+- remove audio player complete for saving data rates if the repeater has only a network connection like LTE
+- read the most config variables from the svxlink config files automatic
+- the visibility and usability of control buttons depend on source network/source IP (private networks or public internet)
+- change some status views
+- add additional functionality for [RepeaterLogic]
+- startup check if all required config files are available
+- remove most hard-coded things, which significantly limit the functionality for flexible use
+
 ## Requirements ##
 - a running SVXLINK by SM0VX https://github.com/sm0svx/svxlink
 - a webserver with php activated
