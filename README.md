@@ -28,7 +28,7 @@ For better use with public repeaters some things are different
 - a webserver with php activated
 - the webserver needs to be run as user svxlink, otherwise the DTMF controls via webinterface will be not working
 - activate/install php-curl for read the status from SVXReflector via his API
-- basic knowledge of using and working with Linux :) This piece of software is not plug'n'play !
+- **basic knowledge of using and working with Linux :) This piece of software is not plug'n'play !**
 
 Please add 2 new variables in your svxlink.conf:
 ```
