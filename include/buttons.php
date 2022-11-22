@@ -6,7 +6,7 @@ $net2= cidr_match($ip,"172.16.0.0/12");
 $net3= cidr_match($ip,"127.0.0.0/8");
 $net4= cidr_match($ip,"10.0.0.0/8");
 
-if ($net1 == TRUE || $net2 == TRUE || $net3 == TRUE || $net4 == TRUE) {
+if ($net1 == TRUE || $net2 == TRUE || $net3 == TRUE || $net4 == TRUE || FULLACCESS_OUTSIDE == 1) {
 
  if(array_key_exists('button1', $_POST)) {
         $exec= "echo '" . KEY1[1] . "' > ".$dtmfctrl." 2>&1";
