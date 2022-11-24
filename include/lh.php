@@ -24,7 +24,10 @@ for ($i = 0;  ($i <= 15); $i++) { //Last 15 calls
 	if (isset($lastHeard[$i])) {
 		$listElem = $lastHeard[$i];
 		if ( $listElem[1] ) {
-                        $local_time = strftime("%H:%M:%S %d %b",strtotime($listElem[0]));
+                        if (isset($svxconfig['GLOBAL']['TIMESTAMP_FORMAT'])) {
+                        $local_time = strftime($svxconfig['GLOBAL']['TIMESTAMP_FORMAT'],strtotime($listElem[0])); }
+                        else {
+                        $local_time = strftime("%H:%M:%S %d %b",strtotime($listElem[0])); }
 		echo"<tr height=24px style=\"font-size:12.5px;>\">";
 		echo"<td align=\"left\">&nbsp;$local_time</td>";
                 if ($listElem[3] == "OFF" ) {$bgcolor=""; $tximg="";}
