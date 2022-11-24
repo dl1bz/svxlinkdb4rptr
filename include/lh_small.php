@@ -9,7 +9,7 @@ include_once __DIR__.'/tgdb.php';
   <form method="post">
   <table style="margin-top:3px;">
     <tr height=25px>
-      <th width=150px>Time (<?php echo date('T')?>)</th>
+      <th width=150px>Time (<?php echo date('e')?>)</th>
       <th width=100px>Callsign</th>
       <th width=100px>TG #</th>
 	<!-- <th width=30px> M </th>
