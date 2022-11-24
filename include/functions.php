@@ -118,14 +118,16 @@ function getConnectedEcholink($echolog) {
                 //}
                 if(strpos($ElogLine,"state changed to CONNECTED")) {
                         $lineParts = explode(" ", $ElogLine);
-              if (!in_array(substr($lineParts[5],0,-1), $users)) {
-                                array_push($users,trim(substr($lineParts[5],0,-1)));
+                        $t_EL_KeyPos = array_search('EchoLink', $lineParts)-1;
+              if (!in_array(substr($lineParts[$t_EL_Key_Pos],0,-1), $users)) {
+                                array_push($users,trim(substr($lineParts[$t_EL_Key_Pos],0,-1)));
                         }
                 }
                 if(strpos($ElogLine,"state changed to DISCONNECTED")) {
                     $lineParts = explode(" ", $ElogLine);
-    		    $call=substr($lineParts[5],0,-1);
-        	    $pos = array_search($call, $users);
+                    $t_EL_Key_Pos = array_search('EchoLink', $lineParts)-1;
+                    $call=substr($lineParts[$t_EL_Key_Pos],0,-1);
+                    $pos = array_search($call, $users);
                     array_splice($users, $pos, 1);
                 }
         }
@@ -288,7 +290,7 @@ function getTXInfo() {
 		// $diff=$tmst-$tmss;
 		// if ($diff>250) { $txs="<td style=\"background:#c3e5cc;\"><div style=\"margin-top:2px;margin-bottom:2px;color:#464646;font-weight:bold;\">TX OFF</div></td></tr>\n"; }
 		// else { 
-		$txs="<tr><td style=\"background:#ff6600;color:white;\"><div style=\"margin-top:2px;margin-bottom:2px;font-weight:bold;\">TX ON</div></td></tr>\n";
+		$txs="<tr><td style=\"background:#ff6600;color:white;\"><div style=\"margin-top:2px;margin-bottom:2px;font-weight:bold;\">TX ON</div></td></tr>\n"; 
 		//    }
 		return $txs;
 	}
