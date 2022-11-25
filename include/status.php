@@ -98,7 +98,9 @@ if ($modecho=="True") {
      }
    } else { echo "<td colspan=2 style=\"background:#ffffed;\"><div style=\"margin-top:4px;margin-bottom:4px;color:#b0b0b0;font-weight: bold;\">None";}
   echo "</div></td></tr>";
-  echo "<tr><th width=50%>TXing</th><td style=\"background:#ffffed;color:red;font-weight: bold;\">".$echotxing."</td></tr>";
+  if (!empty($echotxing)) {
+  echo "<tr><th width=50%>TX</th><td style=\"background:#ffffed;color:red;font-weight: bold;\">".$echotxing."</td></tr>"; } else {
+  echo "<tr><th width=50%>Logins:</th><td style=\"background:#ffffed;color:black;font-weight: bold;\">".(count($users))."</td></tr>"; }
   echo "</table>\n";
   $svxEchoConfigFile = SVXCONFPATH."/".SVXCONFIG."/svxlink.d/ModuleEchoLink.conf";
     if (fopen($svxEchoConfigFile,'r')) { 
