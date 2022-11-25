@@ -145,6 +145,7 @@ function getEchoLinkTX() {
         $logLine = `egrep -a -h "### EchoLink" $logPath | tail -1`;
         if (strpos($logLine,"### EchoLink talker start")) {
           $echotxing=substr($logLine,strpos($logLine,"start")+6,12);
+          trim($echotxing);
          }
         return $echotxing;
 }
