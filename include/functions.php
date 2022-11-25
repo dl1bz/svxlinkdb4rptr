@@ -183,11 +183,12 @@ function getActiveModules() {
     $logPath = SVXLOGPATH."/".SVXLOGPREFIX;
     $logLines = explode("\n",`egrep -a -h "Activating module|Deactivating module" $logPath`);
     $logLines = array_slice($logLines, -250);
-    $modules = initModuleArray();
+    $modules = array();
         foreach ($logLines as $logLine) {
                 if(strpos($logLine,"Activating module")) {
                         $lineParts = explode(" ", $logLine);
-	    $modul = substr($lineParts[5],0,-3);
+                        $t_MOD_KeyPos = array_search('module', $lineParts)+1;
+	    $modul = substr($lineParts[$t_MOD_KeyPos],0,-3);
                         if (!array_search($modul, $modules)) {
                                 $modules[$modul] = 'On';
                         }
@@ -197,7 +198,8 @@ function getActiveModules() {
                 }
                 if(strpos($logLine,"Deactivating module")) {
                         $lineParts = explode(" ", $logLine);
-	    $modul = substr($lineParts[5],0,-3);
+                        $t_MOD_KeyPos = array_search('module', $lineParts)+1;
+	    $modul = substr($lineParts[$t_MOD_KeyPos],0,-3);
 	    $modules[$modul] = 'Off';
                 }
 
