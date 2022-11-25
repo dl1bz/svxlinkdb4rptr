@@ -60,7 +60,7 @@ The user svxlink is not a privileged user and hasn't root rights. From the view 
 ```
 $ cd /var/www
 $ sudo mv html html.old
-$ sudo git clone https://github.com/dl1bz/svxlinkdb4rptr html
+$ sudo git clone https://github.com/dl1bz/svxlinkdb4rptr.git html
 $ sudo chown -R svxlink:svxlink html
 ```
 
