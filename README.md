@@ -80,10 +80,12 @@ Have fun with SVXLINK Dashboard for repeater !
 **Important: Please use ever the latest version of this package and update regularly. I'm constantly working on it and fix bugs.**
 
 - I develop this Dashbaord with Raspian light Bullseye/Debian11 and lighttpd as webserver with enabled PHP support >= 7.x
+- use a Raspberry Pi <= 2B or higher or similiar clones. Slow systems like Raspberry Pi Zero are NOT supported, because a webserver needs some cpu power for good working
+- use ram-disks if possible for running 24/7 to protect the SD card and minimize the I/O cycles at the SD card storage filesystem
 - the additional PHP module **php-curl** and **php-xml** need to be installed too, otherwise some functions are not available or don't work
 - For the Dashboard we need a SVXLINK managed by systemd (default setup for SVXLINK), older things like init.d are **NOT** supported !
 - If httpd is nginx, there are some problems with the modul esm (Ez Server Monitor), I recommend lighttpd as httpd
-- if possible, use the last version of Raspian, which is at this time based at Bullseye/Debian11
+- if possible, use the latest version of Raspian, which is at this time based at Bullseye/Debian11 and do regularly updates
 
 ## Final words for note ##
 This program is free software; you can redistribute it and/or modify it how you want.
