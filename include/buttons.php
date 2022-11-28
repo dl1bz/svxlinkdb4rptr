@@ -114,9 +114,9 @@ if ($net1 == TRUE || $net2 == TRUE || $net3 == TRUE || $net4 == TRUE || FULLACCE
 //            exec($exec,$output);
 //            echo "<meta http-equiv='refresh' content='0'>";
 //        }
-//
-// if (SHOWPTT=="TRUE") {
-//
+
+//if (SHOWPTT=="TRUE") {
+
 // if(array_key_exists('button9', $_POST)) {
 //        $exec="".KEY9[1]."";
 //            exec($exec,$output);
@@ -129,6 +129,7 @@ if ($net1 == TRUE || $net2 == TRUE || $net3 == TRUE || $net4 == TRUE || FULLACCE
 //        }
 // }
 //
+//
 */
 ?>
 
@@ -138,28 +139,28 @@ if ($net1 == TRUE || $net2 == TRUE || $net3 == TRUE || $net4 == TRUE || FULLACCE
 <form method="post">
     <center>
 <?php
-        echo "<input type=\"submit\" name=\"button1\" class=".KEY1[2]." value='".KEY1[0]."' />";
-        echo "<input type=\"submit\" name=\"button2\" class=".KEY2[2]." value='".KEY2[0]."' />";
-        echo "<input type=\"submit\" name=\"button3\" class=".KEY3[2]." value='".KEY3[0]."' />";
-        echo "<input type=\"submit\" name=\"button4\" class=".KEY4[2]." value='".KEY4[0]."' />";
-        echo "<input type=\"submit\" name=\"button5\" class=".KEY5[2]." value='".KEY5[0]."' />";
-        echo "<input type=\"submit\" name=\"button6\" class=".KEY6[2]." value='".KEY6[0]."' />";
-        echo "<input type=\"submit\" name=\"button7\" class=".KEY7[2]." value='".KEY7[0]."' />";
-        echo "<input type=\"submit\" name=\"button8\" class=".KEY8[2]." value='".KEY8[0]."' />";
-        echo "<input type=\"submit\" name=\"button9\" class=".KEY9[2]." value='".KEY9[0]."' />";
-        echo "<input type=\"submit\" name=\"button10\" class=".KEY10[2]." value='".KEY10[0]."' />";
+        if (defined('KEY1') && KEY1[0]!="") { echo "<input type=\"submit\" name=\"button1\" class=".KEY1[2]." value='".KEY1[0]."' />"; }
+        if (defined('KEY2') && KEY2[0]!="") { echo "<input type=\"submit\" name=\"button2\" class=".KEY2[2]." value='".KEY2[0]."' />"; }
+        if (defined('KEY3') && KEY3[0]!="") { echo "<input type=\"submit\" name=\"button3\" class=".KEY3[2]." value='".KEY3[0]."' />"; }
+        if (defined('KEY4') && KEY4[0]!="") { echo "<input type=\"submit\" name=\"button4\" class=".KEY4[2]." value='".KEY4[0]."' />"; }
+        if (defined('KEY5') && KEY5[0]!="") { echo "<input type=\"submit\" name=\"button5\" class=".KEY5[2]." value='".KEY5[0]."' />"; }
+        if (defined('KEY6') && KEY6[0]!="") { echo "<input type=\"submit\" name=\"button6\" class=".KEY6[2]." value='".KEY6[0]."' />"; }
+        if (defined('KEY7') && KEY7[0]!="") { echo "<input type=\"submit\" name=\"button7\" class=".KEY7[2]." value='".KEY7[0]."' />"; }
+        if (defined('KEY8') && KEY8[0]!="") { echo "<input type=\"submit\" name=\"button8\" class=".KEY8[2]." value='".KEY8[0]."' />"; }
+        if (defined('KEY9') && KEY9[0]!="") { echo "<input type=\"submit\" name=\"button9\" class=".KEY9[2]." value='".KEY9[0]."' />"; }
+        if (defined('KEY10') && KEY10[0]!="") { echo "<input type=\"submit\" name=\"button10\" class=".KEY10[2]." value='".KEY10[0]."' />"; }
         if (defined('ADD_BUTTONS') && ADD_BUTTONS == 1) {
         echo '<BR>';
-        echo "<input type=\"submit\" name=\"button11\" class=".KEY11[2]." value='".KEY11[0]."' />";
-        echo "<input type=\"submit\" name=\"button12\" class=".KEY12[2]." value='".KEY12[0]."' />";
-        echo "<input type=\"submit\" name=\"button13\" class=".KEY13[2]." value='".KEY13[0]."' />";
-        echo "<input type=\"submit\" name=\"button14\" class=".KEY14[2]." value='".KEY14[0]."' />";
-        echo "<input type=\"submit\" name=\"button15\" class=".KEY15[2]." value='".KEY15[0]."' />";
-        echo "<input type=\"submit\" name=\"button16\" class=".KEY16[2]." value='".KEY16[0]."' />";
-        echo "<input type=\"submit\" name=\"button17\" class=".KEY17[2]." value='".KEY17[0]."' />";
-        echo "<input type=\"submit\" name=\"button18\" class=".KEY18[2]." value='".KEY18[0]."' />";
-        echo "<input type=\"submit\" name=\"button19\" class=".KEY19[2]." value='".KEY19[0]."' />";
-        echo "<input type=\"submit\" name=\"button20\" class=".KEY20[2]." value='".KEY20[0]."' />";
+        if (defined('KEY11') && KEY11[0]!="") { echo "<input type=\"submit\" name=\"button11\" class=".KEY11[2]." value='".KEY11[0]."' />"; }
+        if (defined('KEY12') && KEY12[0]!="") { echo "<input type=\"submit\" name=\"button12\" class=".KEY12[2]." value='".KEY12[0]."' />"; }
+        if (defined('KEY13') && KEY13[0]!="") { echo "<input type=\"submit\" name=\"button13\" class=".KEY13[2]." value='".KEY13[0]."' />"; }
+        if (defined('KEY14') && KEY14[0]!="") { echo "<input type=\"submit\" name=\"button14\" class=".KEY14[2]." value='".KEY14[0]."' />"; }
+        if (defined('KEY15') && KEY15[0]!="") { echo "<input type=\"submit\" name=\"button15\" class=".KEY15[2]." value='".KEY15[0]."' />"; }
+        if (defined('KEY16') && KEY16[0]!="") { echo "<input type=\"submit\" name=\"button16\" class=".KEY16[2]." value='".KEY16[0]."' />"; }
+        if (defined('KEY17') && KEY17[0]!="") { echo "<input type=\"submit\" name=\"button17\" class=".KEY17[2]." value='".KEY17[0]."' />"; }
+        if (defined('KEY18') && KEY18[0]!="") { echo "<input type=\"submit\" name=\"button18\" class=".KEY18[2]." value='".KEY18[0]."' />"; }
+        if (defined('KEY19') && KEY19[0]!="") { echo "<input type=\"submit\" name=\"button19\" class=".KEY19[2]." value='".KEY19[0]."' />"; }
+        if (defined('KEY20') && KEY20[0]!="") { echo "<input type=\"submit\" name=\"button20\" class=".KEY20[2]." value='".KEY20[0]."' />"; }
         }
 ?>
 
