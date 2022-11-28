@@ -43,13 +43,11 @@ if ($net1 == TRUE || $net2 == TRUE || $net3 == TRUE || $net4 == TRUE || FULLACCE
             exec($exec,$output);
             echo "<meta http-equiv='refresh' content='0'>";
         }
-
  if(array_key_exists('button8', $_POST)) {
         $exec= "echo '" . KEY8[1] . "' > ".$dtmfctrl." 2>&1";
             exec($exec,$output);
             echo "<meta http-equiv='refresh' content='0'>";
         }
-
  if(array_key_exists('button9', $_POST)) {
         $exec= "echo '" . KEY9[1] . "' > ".$dtmfctrl." 2>&1";
             exec($exec,$output);
@@ -60,15 +58,65 @@ if ($net1 == TRUE || $net2 == TRUE || $net3 == TRUE || $net4 == TRUE || FULLACCE
             exec($exec,$output);
             echo "<meta http-equiv='refresh' content='0'>";
         }
+ if(array_key_exists('button11', $_POST)) {
+        $exec= "echo '" . KEY11[1] . "' > ".$dtmfctrl." 2>&1";
+            exec($exec,$output);
+            echo "<meta http-equiv='refresh' content='0'>";
+        }
+ if(array_key_exists('button12', $_POST)) {
+        $exec= "echo '" . KEY12[1] . "' > ".$dtmfctrl." 2>&1";
+            exec($exec,$output);
+            echo "<meta http-equiv='refresh' content='0'>";
+        }
+ if(array_key_exists('button13', $_POST)) {
+        $exec= "echo '" . KEY13[1] . "' > ".$dtmfctrl." 2>&1";
+            exec($exec,$output);
+            echo "<meta http-equiv='refresh' content='0'>";
+        }
+ if(array_key_exists('button14', $_POST)) {
+        $exec= "echo '" . KEY14[1] . "' > ".$dtmfctrl." 2>&1";
+            exec($exec,$output);
+            echo "<meta http-equiv='refresh' content='0'>";
+        }
+ if(array_key_exists('button15', $_POST)) {
+        $exec= "echo '" . KEY15[1] . "' > ".$dtmfctrl." 2>&1";
+            exec($exec,$output);
+            echo "<meta http-equiv='refresh' content='0'>";
+        }
+ if(array_key_exists('button16', $_POST)) {
+        $exec= "echo '" . KEY16[1] . "' > ".$dtmfctrl." 2>&1";
+            exec($exec,$output);
+            echo "<meta http-equiv='refresh' content='0'>";
+        }
+ if(array_key_exists('button17', $_POST)) {
+        $exec= "echo '" . KEY17[1] . "' > ".$dtmfctrl." 2>&1";
+            exec($exec,$output);
+            echo "<meta http-equiv='refresh' content='0'>";
+        }
+ if(array_key_exists('button18', $_POST)) {
+        $exec= "echo '" . KEY18[1] . "' > ".$dtmfctrl." 2>&1";
+            exec($exec,$output);
+            echo "<meta http-equiv='refresh' content='0'>";
+        }
+ if(array_key_exists('button19', $_POST)) {
+        $exec= "echo '" . KEY19[1] . "' > ".$dtmfctrl." 2>&1";
+            exec($exec,$output);
+            echo "<meta http-equiv='refresh' content='0'>";
+        }
+ if(array_key_exists('button20', $_POST)) {
+        $exec= "echo '" . KEY20[1] . "' > ".$dtmfctrl." 2>&1";
+            exec($exec,$output);
+            echo "<meta http-equiv='refresh' content='0'>";
+        }
 /*
 // if(array_key_exists('button8', $_POST)) {
 //        $exec="".KEY8[1]."";
 //            exec($exec,$output);
 //            echo "<meta http-equiv='refresh' content='0'>";
 //        }
-
-//if (SHOWPTT=="TRUE") {
-
+//
+// if (SHOWPTT=="TRUE") {
+//
 // if(array_key_exists('button9', $_POST)) {
 //        $exec="".KEY9[1]."";
 //            exec($exec,$output);
@@ -81,51 +129,53 @@ if ($net1 == TRUE || $net2 == TRUE || $net3 == TRUE || $net4 == TRUE || FULLACCE
 //        }
 // }
 //
-//
 */
-?> 
+?>
 
-
-
-   
 <fieldset style="box-shadow:0 0 10px #999;background-color:#e8e8e8e8; width:855px;margin-top:5px;margin-bottom:14px;margin-left:6px;margin-right:0px;font-size:12px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
 <div style="padding:0px;width:100%;background-image: linear-gradient(to bottom, #e9e9e9 50%, #bcbaba 100%);border-radius: 10px;-moz-border-radius:10px;-webkit-border-radius:10px;border: 1px solid LightGrey;margin-left:0px; margin-right:0px;margin-top:4px;margin-bottom:0px;white-space:normal;">
 <p style="margin-bottom:0px;"></p>
 <form method="post">
     <center>
-        <input type="submit" name="button1"
-            class=<?php echo KEY1[2] ?>  value='<?php echo KEY1[0] ?>' />
-        <input type="submit" name="button2"
-            class=<?php echo KEY2[2] ?> value='<?php echo KEY2[0] ?>' />
-        <input type="submit" name="button3"
-            class=<?php echo KEY3[2] ?> value='<?php echo KEY3[0] ?>' />
-        <input type="submit" name="button4"
-	    class=<?php echo KEY4[2] ?> value='<?php echo KEY4[0] ?>' />
-        <input type="submit" name="button5"
-	    class=<?php echo KEY5[2] ?> value='<?php echo KEY5[0] ?>' />
-	<input type="submit" name="button6"
-            class=<?php echo KEY6[2] ?> value='<?php echo KEY6[0] ?>' />
-	<input type="submit" name="button7"
-            class=<?php echo KEY7[2] ?> value='<?php echo KEY7[0] ?>' />
-	<input type="submit" name="button8"
-            class=<?php echo KEY8[2] ?> value='<?php echo KEY8[0] ?>' />
-	<input type="submit" name="button9"
-            class=<?php echo KEY9[2] ?> value='<?php echo KEY9[0] ?>' />
-	<input type="submit" name="button10"
-            class=<?php echo KEY10[2] ?> value='<?php echo KEY10[0] ?>' />
+<?php
+        echo "<input type=\"submit\" name=\"button1\" class=".KEY1[2]." value='".KEY1[0]."' />";
+        echo "<input type=\"submit\" name=\"button2\" class=".KEY2[2]." value='".KEY2[0]."' />";
+        echo "<input type=\"submit\" name=\"button3\" class=".KEY3[2]." value='".KEY3[0]."' />";
+        echo "<input type=\"submit\" name=\"button4\" class=".KEY4[2]." value='".KEY4[0]."' />";
+        echo "<input type=\"submit\" name=\"button5\" class=".KEY5[2]." value='".KEY5[0]."' />";
+        echo "<input type=\"submit\" name=\"button6\" class=".KEY6[2]." value='".KEY6[0]."' />";
+        echo "<input type=\"submit\" name=\"button7\" class=".KEY7[2]." value='".KEY7[0]."' />";
+        echo "<input type=\"submit\" name=\"button8\" class=".KEY8[2]." value='".KEY8[0]."' />";
+        echo "<input type=\"submit\" name=\"button9\" class=".KEY9[2]." value='".KEY9[0]."' />";
+        echo "<input type=\"submit\" name=\"button10\" class=".KEY10[2]." value='".KEY10[0]."' />";
+        if (defined('ADD_BUTTONS') && ADD_BUTTONS == 1) {
+        echo '<BR>';
+        echo "<input type=\"submit\" name=\"button11\" class=".KEY11[2]." value='".KEY11[0]."' />";
+        echo "<input type=\"submit\" name=\"button12\" class=".KEY12[2]." value='".KEY12[0]."' />";
+        echo "<input type=\"submit\" name=\"button13\" class=".KEY13[2]." value='".KEY13[0]."' />";
+        echo "<input type=\"submit\" name=\"button14\" class=".KEY14[2]." value='".KEY14[0]."' />";
+        echo "<input type=\"submit\" name=\"button15\" class=".KEY15[2]." value='".KEY15[0]."' />";
+        echo "<input type=\"submit\" name=\"button16\" class=".KEY16[2]." value='".KEY16[0]."' />";
+        echo "<input type=\"submit\" name=\"button17\" class=".KEY17[2]." value='".KEY17[0]."' />";
+        echo "<input type=\"submit\" name=\"button18\" class=".KEY18[2]." value='".KEY18[0]."' />";
+        echo "<input type=\"submit\" name=\"button19\" class=".KEY19[2]." value='".KEY19[0]."' />";
+        echo "<input type=\"submit\" name=\"button20\" class=".KEY20[2]." value='".KEY20[0]."' />";
+        }
+?>
 
-<?php	
+<?php
 //    if (KEY6[0]!="") {
 //        echo "<input type=\"submit\" name=\"button6\" class=".KEY6[2]." value='".KEY6[0]."' />";
 //        }
+
 //    if (KEY7[0]!="") {
 //        echo "<input type=\"submit\" name=\"button7\" class=".KEY7[2]."  value='".KEY7[0]."' />";
 //        }
 
-  //  if (SHOWPTT=="TRUE") {
-  //      echo "<input type=\"submit\" name=\"button9\" class=".KEY9[2]." value='".KEY9[0]."' />";
-  //      echo "<input type=\"submit\" name=\"button10\" class=".KEY10[2]." value='".KEY10[0]."' />";
-  //     }
+//  if (SHOWPTT=="TRUE") {
+//      echo "<input type=\"submit\" name=\"button9\" class=".KEY9[2]." value='".KEY9[0]."' />";
+//      echo "<input type=\"submit\" name=\"button10\" class=".KEY10[2]." value='".KEY10[0]."' />";
+//      }
 
 ?>
  </center>
