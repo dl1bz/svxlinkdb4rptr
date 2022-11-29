@@ -22,8 +22,6 @@ else { $svxConfigFile = trim(substr(shell_exec("grep CFGFILE /etc/default/svxlin
               $system_type="IS_SIMPLEX"; // if simplex
               $dtmfctrl = $svxconfig['SimplexLogic']['DTMF_CTRL_PTY']; }
          }
-         // if we work with CTCSS please set REPORT_CTCSS with correct value in svxlink.conf
-         $ctcss = $svxconfig['RepeaterLogic']['REPORT_CTCSS'];
          // additional variables need to define in svxlink.conf in stanza [ReflectorLogic]: API, FMNET, TG_URI
          // FMNET - Name of FM-Network
          // API - URI for access the status of SVXReflector you are connected
