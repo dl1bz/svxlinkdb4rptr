@@ -79,9 +79,9 @@ include_once __DIR__."/include/buttons.php";
 
     if (URLSVXRAPI!="") {
     echo 'function reloadSVXREF(){'."\n";
-    echo '  $("#svxref").load("include/svxref.php",function(){ setTimeout(reloadSVXREF,90000) });'."\n";
+    echo '  $("#svxref").load("include/svxref.php",function(){ setTimeout(reloadSVXREF,3000) });'."\n";
     echo '}'."\n";
-    echo 'setTimeout(reloadSVXREF,90000);'."\n";
+    echo 'setTimeout(reloadSVXREF,3000);'."\n";
      }
 
     echo 'function reloadLastHerd(){'."\n";

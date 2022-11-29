@@ -52,7 +52,10 @@ echo "</span></p>";
 foreach ($nodes['nodes'] as $key =>$value)
  { 
    echo "<span class=\"tooltip\" style=\"border-bottom: 1px dotted white;\">";
-   echo "<span class=\"node\">".$key."<span class=\"tooltiptext\" style=\"top:100%;left:25%;margin-left:-50%;max-width:200px;width:195px;word-wrap: break-word;white-space: pre-wrap; padding: 3px 0;\">";
+   if (isset($nodes['nodes'][$key]['isTalker']) && ($nodes['nodes'][$key]['isTalker'] ==1)) {
+   echo "<span class=\"node\" style=\"color:blue\">".$key." (".trim($nodes['nodes'][$key]['tg']).")<span class=\"tooltiptext\" style=\"top:100%;left:25%;margin-left:-50%;max-width:200px;width:195px;word-wrap: break-word;white-space: pre-wrap; padding: 3px 0;\">"; }
+   else {
+   echo "<span class=\"node\" style=\"color:black\">".$key."<span class=\"tooltiptext\" style=\"top:100%;left:25%;margin-left:-50%;max-width:200px;width:195px;word-wrap: break-word;white-space: pre-wrap; padding: 3px 0;\">"; }
    if ($nodes['nodes'][$key]['nodeLocation']!=""){
    echo "&nbsp;&nbsp;Location:<br><span style=\"color:gold;margin-left:10px;margin-right:10px;\"><b>";
    if (isset($nodes['nodes'][$key]['TXFREQ'])) {
