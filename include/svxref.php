@@ -54,38 +54,37 @@ foreach ($nodes['nodes'] as $key =>$value)
    echo "<span class=\"tooltip\" style=\"border-bottom: 1px dotted white;\">";
    echo "<span class=\"node\">".$key."<span class=\"tooltiptext\" style=\"top:100%;left:25%;margin-left:-50%;max-width:200px;width:195px;word-wrap: break-word;white-space: pre-wrap; padding: 3px 0;\">";
    if ($nodes['nodes'][$key]['nodeLocation']!=""){
-   echo "&nbsp;&nbsp;Info:<br><span style=\"color:gold;margin-left:10px;margin-right:10px;\"><b>";
-   echo $nodes['nodes'][$key]['nodeLocation']."</span><br>";
+   echo "&nbsp;&nbsp;Location:<br><span style=\"color:gold;margin-left:10px;margin-right:10px;\"><b>";
+   if (isset($nodes['nodes'][$key]['TXFREQ'])) {
+   echo trim($nodes['nodes'][$key]['nodeLocation'])."</b><br>TX: ".trim($nodes['nodes'][$key]['TXFREQ'])." MHz</span><br>"; }
+   else {
+   echo trim($nodes['nodes'][$key]['nodeLocation'])."</b></span><br>"; }
       }
-   echo "&nbsp;&nbsp;Monitored TGs:<br><span style='color:yellow;margin-left:10px;margin-right:10px;'>";
-   echo "<form method=\"post\">";
-   echo "<BR><center>";
+   if (isset($nodes['nodes'][$key]['DefaultTG'])) {
+   echo "<span style=\"color:white;margin-left:10px;margin-right:10px;\">Default TG:</span>";
+   echo "<span style=\"color:gold;margin-left:10px;margin-right:10px;\">".trim($nodes['nodes'][$key]['DefaultTG'])."</span><br>"; }
+
+   echo "<span style=\"color:white;margin-left:10px;margin-right:10px;\">Active TG:</span>";
+   if ($nodes['nodes'][$key]['tg'] !== 0) {
+   echo "<span style=\"color:gold;margin-left:10px;margin-right:10px;\">".trim($nodes['nodes'][$key]['tg'])."</span><br>"; }
+   else {
+   echo "<span style=\"color:white;margin-left:10px;margin-right:10px;\"> Idle</span><br>"; }
+   echo "&nbsp;&nbsp;Monitored TGs:<span style='color:yellow;margin-left:10px;margin-right:10px;'>";
+   echo "<center>";
    echo "<table style=\"width:150px\" >";
    echo"<tr height=15px>";
 	echo "<th >TG#</th>";
-	// echo "<th >M</th>";
-	// echo "<th >A</th>";
    echo"</tr>";
    foreach ($nodes['nodes'][$key]['monitoredTGs'] as $item)
      {  
 	
 	echo "<tr><td align=\"center\">";
-	//echo "<span style=\"margin-left:0px;margin-right:0px; padding:0px 0;\">[";
-	//echo "<input type=submit id=jmptoM name=jmptoM class=black value=".$item." />";
 	echo "<span style=\"color:#b5651d;font-weight:bold; padding:1px 10px;\">$item</span>";
-	//echo "$item";
-	// echo "</td><td>";
-	// echo "<button type=submit id=jmptoM name=jmptoM class=monitor_id value=".$item."><i class=\"material-icons\"style=\"font-size:15px;\">volume_up</i></button>";
-	// echo "</td><td>";
-	// echo "<button type=submit id=jmptoA name=jmptoA class=active_id value=".$item."><i class=\"material-icons\"style=\"font-size:15px;\">cell_tower</i></button>";
-	//echo "]";
-	//echo "</span> ";
-	//echo "<BR>";
 	echo "</td></Tr>";
 }
 echo "</table>";
 echo "<br></center>";
-   echo "</form></span></span></span></span>";
+   echo "</span></span></span></span>";
  }
 ?>
 </center>
