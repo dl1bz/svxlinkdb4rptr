@@ -64,7 +64,7 @@ foreach ($nodes['nodes'] as $key =>$value)
    if (isset($nodes['nodes'][$key]['CTCSS']) && (strpos($nodes['nodes'][$key]['CTCSS'],"0") !== 0) && (strpos(strtoupper($nodes['nodes'][$key]['CTCSS']),"NONE") !== 0) ) {
    $fq_CTCSS = str_replace(',','.',$nodes['nodes'][$key]['CTCSS']);
    $SQL_mode = "CTCSS :";
-   if ((strpos(strtoupper($fq_CTCSS),"HZ") == false) && (strpos(strtoupper(trim($fq_CTCSS)),"D") !== 0))  { $fq_CTCSS .= " Hz"; }
+   if (strpos(strtoupper($fq_CTCSS),"HZ") == false && strpos(strtoupper($fq_CTCSS),"DCS") !== 0) { $fq_CTCSS .= " Hz"; }
    if (strpos(trim($fq_CTCSS),"D") === 0) { $SQL_mode = "DCS :"; }
    echo "<br>".$SQL_mode." ".trim($fq_CTCSS)."" ; }
    echo "</span><br>"; }
