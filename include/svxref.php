@@ -60,8 +60,13 @@ foreach ($nodes['nodes'] as $key =>$value)
    echo "&nbsp;&nbsp;Location:<br><span style=\"color:gold;margin-left:10px;margin-right:10px;\"><b>";
    if (isset($nodes['nodes'][$key]['TXFREQ'])) {
    echo trim($nodes['nodes'][$key]['nodeLocation'])."</b><br>TX: ".trim($nodes['nodes'][$key]['TXFREQ'])." MHz";
-   if (isset($nodes['nodes'][$key]['CTCSS']) && ($nodes['nodes'][$key]['CTCSS'] !=="0")) {
-   echo "<br>CTCSS: ".trim($nodes['nodes'][$key]['CTCSS'])."" ; }
+
+   if (isset($nodes['nodes'][$key]['CTCSS']) && (strpos($nodes['nodes'][$key]['CTCSS'],"0") !== 0) && (strpos(strtoupper($nodes['nodes'][$key]['CTCSS']),"NONE") !== 0) ) {
+   $fq_CTCSS = str_replace(',','.',$nodes['nodes'][$key]['CTCSS']);
+   $SQL_mode = "CTCSS :";
+   if ((strpos(strtoupper($fq_CTCSS),"HZ") == false) && (strpos(strtoupper(trim($fq_CTCSS)),"D") !== 0))  { $fq_CTCSS .= " Hz"; }
+   if (strpos(trim($fq_CTCSS),"D") === 0) { $SQL_mode = "DCS :"; }
+   echo "<br>".$SQL_mode." ".trim($fq_CTCSS)."" ; }
    echo "</span><br>"; }
    else {
    echo trim($nodes['nodes'][$key]['nodeLocation'])."</b></span><br>"; }
