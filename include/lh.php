@@ -20,7 +20,7 @@ include_once __DIR__.'/tgdb.php';
     </tr>
 <?php
 $i = 0;
-for ($i = 0;  ($i <= 15); $i++) { //Last 15 calls
+for ($i = 0;  ($i <= 24); $i++) { //Last 25 calls
 	if (isset($lastHeard[$i])) {
 		$listElem = $lastHeard[$i];
 		if ( $listElem[1] ) {
@@ -29,23 +29,23 @@ for ($i = 0;  ($i <= 15); $i++) { //Last 15 calls
                         else {
                         $local_time = strftime("%H:%M:%S %d %b",strtotime($listElem[0])); }
 		echo"<tr height=24px style=\"font-size:12.5px;>\">";
-		echo"<td align=\"left\">&nbsp;$local_time</td>";
+		echo"<td align=\"left\">&nbsp;".$local_time."</td>";
                 if ($listElem[3] == "OFF" ) {$bgcolor=""; $tximg="";}
                 if ($listElem[3] == "ON" ) {$bgcolor=""; $tximg="<img src=images/talk.gif height=16 alt='TXing' title='TXing' style=\"vertical-align: middle;\">";}
                 $ref = substr($listElem[1],0,3);
                 $call=$listElem[1];
                 $ssid = strpos($listElem[1],"-");
                 if ((!preg_match('/[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/', $listElem[1]) or $ref=="XLX" or $ref=="YSF" or $ref=="M17" or substr($listElem[1],0,2)=="TG" )) {
-                  echo "<td $bgcolor align='left' valign='middle' class=mh_call>&nbsp;&nbsp;<b>$listElem[1]</b>&nbsp;$tximg</td>";
+                  echo "<td ".$bgcolor." align='left' valign='middle' class=mh_call>&nbsp;&nbsp;<b>".$listElem[1]."</b>&nbsp;".$tximg."</td>";
                 } else {
                   if ($ssid){
                   $call = substr($listElem[1],0,$ssid);}
-                  echo "<td $bgcolor align=\"left\">&nbsp;&nbsp;<a href=\"http://www.qrz.com/db/".$call."\" target=\"_blank\" class=\"qrz_link\"><b>$listElem[1]</b></a>&nbsp;$tximg</td>";
+                  echo "<td ".$bgcolor." align=\"left\">&nbsp;&nbsp;<a href=\"http://www.qrz.com/db/".$call."\" target=\"_blank\" class=\"qrz_link\"><b>".$listElem[1]."</b></a>&nbsp;$tximg</td>";
                }
 		//echo "<td align=\"left\">&nbsp;<span style=\"color:#b5651d;font-weight:bold;\">$listElem[2]</span></td>";
 		$tgnumber = substr($listElem[2],3);
                 $name=$tgdb_array[$tgnumber];
-		echo "<td align=\"center\">&nbsp;<span style=\"color:#b5651d;font-weight:bold;\">$tgnumber</span></td>";
+		echo "<td align=\"center\">&nbsp;<span style=\"color:#b5651d;font-weight:bold;\">".$tgnumber."</span></td>";
 
 		// by DL1BZ
 		// echo "<td><button type=submit id=jumptoM name=jmptoM class=monitor_id value=\"$listElem[2]\"><i class=\"material-icons\"style=\"font-size:15px;\">volume_up</i></button></td>";
