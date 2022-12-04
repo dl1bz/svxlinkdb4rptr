@@ -29,7 +29,7 @@ for ($i = 0;  ($i <= 24); $i++) { //Last 25 calls
                         else {
                         $local_time = strftime("%H:%M:%S %d %b",strtotime($listElem[0])); }
 		echo"<tr height=24px style=\"font-size:12.5px;>\">";
-		echo"<td align=\"left\">&nbsp;".$local_time."</td>";
+		echo"<td align=\"left\">&nbsp;".$local_time."&nbsp;</td>";
                 if ($listElem[3] == "OFF" ) {$bgcolor=""; $tximg="";}
                 if ($listElem[3] == "ON" ) {$bgcolor=""; $tximg="<img src=images/talk.gif height=16 alt='TXing' title='TXing' style=\"vertical-align: middle;\">";}
                 $ref = substr($listElem[1],0,3);
