@@ -65,9 +65,14 @@ if ( $tgselect=="0"){$tgselect="";}
 echo "<tr><th width=50%>TG Active</th><td style=\"background: #ffffed;color:#0065ff;font-weight: bold;\">".$tgselect."</td></tr>\n";
 echo "</table>";
 
-echo "<table  style=\"margin-bottom:13px;\"><tr><th>Repeater Status</th></tr><tr>";
-echo getTXInfo();
-echo "</table>\n";
+if (($system_type=="IS_DUPLEX") && ($svxconfig['RepeaterLogic']['TX'] !== "NONE")) {
+   echo "<table  style=\"margin-bottom:13px;\"><tr><th>Repeater Status</th></tr><tr>";
+   echo getTXInfo();
+   echo "</table>\n"; }
+elseif (($system_type=="IS_SIMPLEX") && ($svxconfig['SimplexLogic']['TX'] !== "NONE")) {
+   echo "<table  style=\"margin-bottom:13px;\"><tr><th>Repeater Status</th></tr><tr>";
+   echo getTXInfo();
+   echo "</table>\n"; }
 
 echo "<table  style=\"margin-bottom:13px;\"><tr><th>SVXReflector:<br>".FMNETWORK."</th></tr><tr>";
   $svxrstatus = getSVXRstatus();
