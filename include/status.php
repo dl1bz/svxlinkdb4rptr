@@ -21,13 +21,15 @@ foreach ($logics as $key) {
 }
 echo "</table>\n";
 echo "<table style=\"margin-top:2px;margin-bottom:13px;\">\n";
-if ($system_type=="IS_DUPLEX") 
+if (($system_type=="IS_DUPLEX") && (isset($svxconfig['RepeaterLogic']['MODULES'])))
 { $modules = explode(",",str_replace('Module','',$svxconfig['RepeaterLogic']['MODULES'])); }
-else
+elseif (($system_type=="IS_SIMPLEX") && (isset($svxconfig['SimplexLogic']['MODULES'])))
 { $modules = explode(",",str_replace('Module','',$svxconfig['SimplexLogic']['MODULES'])); }
+else
+{ $modules=""; }
 
 $modecho = "False";
-if ($modules!="") {
+if ($modules !=="") {
 define("SVXMODULES",$modules);
 $admodules = getActiveModules();
  echo "<tr><th><span style=\"font-size:12px;\">Modules Loaded</span></th></tr>\n";
@@ -41,7 +43,7 @@ $admodules = getActiveModules();
    if ($key=="EchoLink") {$modecho ="True";}}
 
 } else {
-  echo "<tr><td style=\"background: #ffffed;\" ><span style=\"color:#b0b0b0;\"><b>No Modules</span></td></tr>";
+  echo "<tr><td style=\"background: #ffffed;\" ><span style=\"color:#b0b0b0;\"><b>No Modules loaded</span></td></tr>";
 }
 echo "</table>\n";
 
