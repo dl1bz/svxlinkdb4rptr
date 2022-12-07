@@ -9,6 +9,10 @@ PHP_ofile=/var/www/html/include/tgdb.php
 echo "Get TG list fom https://fm-funknetz.de/Download/tgdb_site.php"
 
 # python3 script for output HTML tables from an URL
+# requires python3
+# apt-get install python3-pip
+# pip3 install html-table-parser-python3
+
 html_table_converter -u $TABLE_url > $TABLE_ofile
 
 echo -n "Edit the TG List..."
