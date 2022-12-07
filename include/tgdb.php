@@ -1,8 +1,8 @@
 <?php
 /* talkgroup / number alias database */
-$tgdb_array = [
-'0' => 'Idle',
-'7' => 'LausitzLink',
+/* last update: 12.07.2022 from https://fm-funknetz.de/Download/tgdb_site.php */
+/* (C) 2022 by Heiko, DL1BZ */
+$tgdb_array = ['7' => 'LausitzLink',
 '8' => 'Local Quasselstrippe',
 '9' => 'Local Talk',
 '10' => '10m KW',
@@ -71,7 +71,7 @@ $tgdb_array = [
 '26207' => 'Sachsen Anhalt',
 '26208' => 'Verbund KWD',
 '26222' => 'Chaos Computer Club',
-'26232' => 'DL-Mitte Hessen, Thüringen, Niedersachen',
+'26232' => 'DL-Mitte Hessen, Thüringen, Niedersachsen',
 '26243' => 'Ruhrgebiet',
 '26251' => 'Zweibrücken Local',
 '26257' => 'Siegerland',
@@ -96,6 +96,5 @@ $tgdb_array = [
 '262841' => 'Region Mainfranken',
 '262872' => 'Region Amberg',
 '2405174' => 'SM5GXQ Group',
-'969258' => 'Lokal DB0ZOD'
-];
+'969258' => 'Lokal DB0ZOD'] ;
 ?>
