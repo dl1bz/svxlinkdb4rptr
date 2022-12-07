@@ -6,6 +6,8 @@ TABLE_url=https://fm-funknetz.de/Download/tgdb_site.php
 TABLE_ofile=/tmp/tglist.tmp
 PHP_ofile=/var/www/html/include/tgdb.inc.php
 
+if [ -f "$PWD/html_table_converter" ]; then
+
 echo "Get TG list fom https://fm-funknetz.de/Download/tgdb_site.php"
 
 # python3 script for output HTML tables from an URL
@@ -13,7 +15,13 @@ echo "Get TG list fom https://fm-funknetz.de/Download/tgdb_site.php"
 # apt-get install python3-pip
 # pip3 install html-table-parser-python3
 
-html_table_converter -u $TABLE_url > $TABLE_ofile
+$PWD/html_table_converter -u $TABLE_url > $TABLE_ofile
+
+else
+echo "$PWD/html_table_converter not found...EXIT"
+exit 0
+
+fi
 
 echo -n "Edit the TG List..."
 
