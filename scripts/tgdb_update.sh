@@ -4,7 +4,7 @@ timestamp=$(date +'%m.%d.%Y')
 
 TABLE_url=https://fm-funknetz.de/Download/tgdb_site.php
 TABLE_ofile=/tmp/tglist.tmp
-PHP_ofile=/var/www/html/include/tgdb.php
+PHP_ofile=/var/www/html/include/tgdb.inc.php
 
 echo "Get TG list fom https://fm-funknetz.de/Download/tgdb_site.php"
 
