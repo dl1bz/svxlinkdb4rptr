@@ -9,7 +9,7 @@ else {
    include_once __DIR__.'/tgdb.php'; }
 ?>
 
-<span style="font-weight: bold;font-size:14px;">:: Talkgroups used by SVXReflector&nbsp;::
+<span style="font-weight: bold;font-size:14px;">::&nbsp;Talkgroups used by SVXReflector&nbsp;::
 <?php if (isset($fmnetwork)) { echo "&nbsp;".$fmnetwork; } ?>
 </span>
 
