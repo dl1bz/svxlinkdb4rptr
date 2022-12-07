@@ -9,16 +9,16 @@ function getSVXLog() {
 //	if (file_exists(LOGPATH."/".SVXLOGPREFIX."-".gmdate("Y-m-d").".log")) {
 	if (file_exists(SVXLOGPATH."/".SVXLOGPREFIX)) {
 		$logPath = SVXLOGPATH."/".SVXLOGPREFIX;
-		$logLines1 = explode("\n", `egrep -a -h "Talker start on|Talker stop on" $logPath | tail -250`);
+		$logLines1 = explode("\n", `egrep -a -h "Talker start on|Talker stop on" $logPath | tail -500`);
 	}
-	$logLines1 = array_slice($logLines1, -250);
+	$logLines1 = array_slice($logLines1, -500);
 	if (sizeof($logLines1) < 250) {
 		if (file_exists(SVXLOGPATH.".hdd/".SVXLOGPREFIX.".1")) {
 			$logPath = SVXLOGPATH.".hdd/".SVXLOGPREFIX.".1";
-			$logLines2 = explode("\n", `egrep -a -h "Talker start on|Talker stop on" $logPath | tail -250`);
+			$logLines2 = explode("\n", `egrep -a -h "Talker start on|Talker stop on" $logPath | tail -500`);
 		}
 	}
-	$logLines2 = array_slice($logLines2, -250);
+	$logLines2 = array_slice($logLines2, -500);
 //	$logLines = $logLines1 + $logLines2;
 	$logLines = array_merge($logLines1,$logLines2);
 	$logLines = array_slice($logLines, -500);
@@ -32,19 +32,19 @@ function getSVXStatusLog() {
 	$logLines2 = array();
 	if (file_exists(SVXLOGPATH."/".SVXLOGPREFIX)) {
 		$logPath = SVXLOGPATH."/".SVXLOGPREFIX;
-		$logLines1 = explode("\n", `egrep -a -h "EchoLink QSO|ransmitter|Selecting" $logPath | tail -250`);
+		$logLines1 = explode("\n", `egrep -a -h "EchoLink QSO|ransmitter|Selecting" $logPath | tail -500`);
 	}
-	$logLines1 = array_slice($logLines1, -250);
+	$logLines1 = array_slice($logLines1, -500);
 	if (sizeof($logLines1) < 250) {
 		if (file_exists(SVXLOGPATH.".hdd/".SVXLOGPREFIX.".1")) {
 			$logPath = SVXLOGPATH.".hdd/".SVXLOGPREFIX.".1";
-			$logLines2 = explode("\n", `egrep -a -h "Talker start on|Talker stop on" $logPath | tail -250`);
+			$logLines2 = explode("\n", `egrep -a -h "Talker start on|Talker stop on" $logPath | tail -500`);
 		}
 	}
-	$logLines2 = array_slice($logLines2, -250);
+	$logLines2 = array_slice($logLines2, -500);
 //	$logLines = $logLines1 + $logLines2;
 	$logLines = array_merge($logLines1,$logLines2);
-	$logLines = array_slice($logLines, -250);
+	$logLines = array_slice($logLines, -500);
 	return $logLines;
 }
 
@@ -106,7 +106,7 @@ function getEchoLog() {
 	if (file_exists(SVXLOGPATH."/".SVXLOGPREFIX)) {
            $elogPath = SVXLOGPATH."/".SVXLOGPREFIX; 
            $echolog = explode("\n",`grep -a -h "EchoLink QSO" $elogPath`);}
-           $echolog = array_slice($echolog, -250);
+           $echolog = array_slice($echolog, -500);
       return $echolog;
 }
 
@@ -183,7 +183,7 @@ function getActiveModules() {
     $logLines = array();
     $logPath = SVXLOGPATH."/".SVXLOGPREFIX;
     $logLines = explode("\n",`egrep -a -h "Activating module|Deactivating module" $logPath`);
-    $logLines = array_slice($logLines, -250);
+    $logLines = array_slice($logLines, -500);
     $modules = array();
         foreach ($logLines as $logLine) {
                 if(strpos($logLine,"Activating module")) {
