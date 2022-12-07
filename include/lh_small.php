@@ -8,7 +8,7 @@ if (file_exists(__DIR__.'/tgdb.inc.php')) {
 else {
    include_once __DIR__.'/tgdb.php'; }
 ?>
-<span style="font-weight: bold;font-size:14px;"><?php echo $fmnetwork; ?> SVXReflector Activity TOP 5</span>
+<span style="font-weight: bold;font-size:14px;"><?php echo $fmnetwork; ?> :: SVXReflector Activity TOP 5</span>
 <fieldset style=" width:620px;box-shadow:0 0 10px #999;background-color:#e8e8e8e8;margin-top:10px;margin-left:0px;margin-right:0px;font-size:12px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
   <form method="post">
   <table style="margin-top:3px;">
