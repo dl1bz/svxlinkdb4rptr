@@ -1,6 +1,6 @@
 #!/bin/sh
 
-timestamp=$(date +'%m.%d.%Y')
+timestamp=$(date +'%d.%m.%Y')
 
 TABLE_url=https://fm-funknetz.de/Download/tgdb_site.php
 TABLE_ofile=/tmp/tglist.tmp
