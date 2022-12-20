@@ -50,6 +50,7 @@ echo "/* talkgroup / number alias database */" >> $PHP_ofile
 echo "/* last update: $timestamp from $TABLE_url */" >> $PHP_ofile
 echo "/* (C) 2022 by Heiko, DL1BZ */" >> $PHP_ofile
 echo -n "\$tgdb_array = [" >> $PHP_ofile
+echo "'262907' => 'OberlausitzLink'," >> $PHP_ofile
 # cat $TABLE_ofile >> $PHP_ofile
 echo -n "$(cat $TABLE_ofile)" >> $PHP_ofile
 echo "];" >> $PHP_ofile
