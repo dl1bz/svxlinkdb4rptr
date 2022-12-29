@@ -35,9 +35,11 @@ sed -i "s=\[==g" $TABLE_ofile
 sed -i "/^'0'/d" $TABLE_ofile
 sed -i "/^'1'/d" $TABLE_ofile
 sed -i "/^'9999'/d" $TABLE_ofile
+sed -i "/^'9990'/d" $TABLE_ofile
 sed -i "/^'2629004'/d" $TABLE_ofile
 sed -i "/'bitte/d" $TABLE_ofile
 sed -i "s/Lausitzlink/LausitzLink/g" $TABLE_ofile
+sed -i "s/Oberlausitzlink/OberlausitzLink/g" $TABLE_ofile
 sed -i "s=,Niedersachen=, Niedersachsen=g" $TABLE_ofile
 sed -i "s=(Sharing)=(TG Sharing)=g" $TABLE_ofile
 
@@ -49,10 +51,10 @@ echo "<?php" > $PHP_ofile
 echo "/* talkgroup / number alias database */" >> $PHP_ofile
 echo "/* last update: $timestamp from $TABLE_url */" >> $PHP_ofile
 echo "/* (C) 2022 by Heiko, DL1BZ */" >> $PHP_ofile
-echo -n "\$tgdb_array = [" >> $PHP_ofile
-echo "'262907' => 'OberlausitzLink'," >> $PHP_ofile
-# cat $TABLE_ofile >> $PHP_ofile
-echo -n "$(cat $TABLE_ofile)" >> $PHP_ofile
+echo -n "\$tgdb_array = [ " >> $PHP_ofile
+# echo "'262907' => 'OberlausitzLink'," >> $PHP_ofile
+cat $TABLE_ofile >> $PHP_ofile
+# echo -n "$(cat $TABLE_ofile)" >> $PHP_ofile
 echo "];" >> $PHP_ofile
 echo "?>" >> $PHP_ofile
 
