@@ -164,7 +164,7 @@ function getSVXTGTMP() {
         $logPath = SVXLOGPATH."/".SVXLOGPREFIX;
         $tgselect="0";
         $logLine = `egrep -a -h "emporary monitor" $logPath | tail -1`;
-        if (strpos($logLine,"Add")) {
+        if ((strpos($logLine,"Add")) || (strpos($logLine,"Refresh"))) {
           $tgselect=substr($logLine,strpos($logLine,"#")+1,12);
          }
          else {$tgselect=""; }
