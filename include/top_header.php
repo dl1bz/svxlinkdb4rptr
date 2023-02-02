@@ -9,7 +9,7 @@
 <span style="font-size: 24px;letter-spacing:4px;font-family: &quot;Fredoka One&quot;, sans-serif;font-weight:500;color:DarkOrange">
 
 <?php 
-if ($ctcss > 67) {
+if ($ctcss >= 67) {
 echo $callsign," ",HEADER_CAT," ",HEADER_QTH,"<br>",HEADER_QRG," CTCSS ",$ctcss,"Hz ",HEADER_SYSOP; }
 // echo $callsign," ",$dtmfctrl; }
 else {
