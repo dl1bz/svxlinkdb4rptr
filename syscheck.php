@@ -10,6 +10,8 @@ echo 'Running '.$progname.'.php for Systemcheck SVXLINK Dashboard for Repeater b
 echo 'Webserver: '.$_SERVER['SERVER_SOFTWARE'].'<BR>';
 echo 'Root Document Folder of httpd: '.$_SERVER['DOCUMENT_ROOT'].'<BR>';
 
+echo 'PHP-Version is: '.phpversion().'<BR>';
+
 echo '<br>STEP 1:<br>';
 
 if (DIRECTORY_SEPARATOR !== '/') { die("ERROR: This SVXLINK Dashboard runs only with UNIX-like OS (Linux,BSD,macOS)...exiting"); }

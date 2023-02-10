@@ -4,6 +4,7 @@ $progname = basename($_SERVER['SCRIPT_FILENAME'],".php");
 // pre-check environment
 
 if (DIRECTORY_SEPARATOR !== '/') { die("ERROR: This SVXLINK Dashboard runs only with UNIX-like OS (Linux,BSD,macOS)...exiting"); }
+if ( !version_compare(phpversion(), '8', '<')) { die("ERROR: This Dashboard do NOT work with PHP-Version greater 7, but you have ".phpversion()."...exiting"); }
 if ( !file_exists('/etc/default/svxlink') ) { die("ERROR: File /etc/default/svxlink not found => SVXLINK not or not complete installed...exiting"); }
 if ( (!file_exists('include/config.inc.php')) && (file_exists('include/config.inc.php.example')) ) {
     copy('include/config.inc.php.example', 'include/config.inc.php');
