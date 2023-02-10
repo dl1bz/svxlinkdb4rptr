@@ -28,7 +28,6 @@ else { $svxConfigFile = trim(substr(shell_exec("grep CFGFILE /etc/default/svxlin
          // TG_URI ??? I don't know...
          $refApi = $svxconfig['ReflectorLogic']['API'];
          $fmnetwork =$svxconfig['ReflectorLogic']['FMNET'];
-         $tgUri = $svxconfig['ReflectorLogic']['TG_URI'];
          $nodeInfoFile = $svxconfig['ReflectorLogic']['NODE_INFO_FILE'];
        }
 else { $callsign="N0CALL";
