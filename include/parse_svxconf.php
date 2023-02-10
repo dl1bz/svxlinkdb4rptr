@@ -20,7 +20,7 @@ else { $svxConfigFile = trim(substr(shell_exec("grep CFGFILE /etc/default/svxlin
               else { $ctcss = 0; }
               // $ctcss = $svxconfig['RepeaterLogic']['REPORT_CTCSS'];
               $system_type="IS_DUPLEX"; // if repeater
-              if (isset($svxconfig['RepeaterLogic']['REPORT_CTCSS'])) { $dtmfctrl = $svxconfig['RepeaterLogic']['DTMF_CTRL_PTY']; }
+              if (isset($svxconfig['RepeaterLogic']['DTMF_CTRL_PTY'])) { $dtmfctrl = $svxconfig['RepeaterLogic']['DTMF_CTRL_PTY']; }
               else { $dtmfctrl="/dev/null"; }
               // $dtmfctrl = $svxconfig['RepeaterLogic']['DTMF_CTRL_PTY'];
             }
@@ -31,7 +31,7 @@ else { $svxConfigFile = trim(substr(shell_exec("grep CFGFILE /etc/default/svxlin
               else { $ctcss = 0; }
               // $ctcss = $svxconfig['SimplexLogic']['REPORT_CTCSS'];
               $system_type="IS_SIMPLEX"; // if simplex
-              if (isset($svxconfig['SimplexLogic']['REPORT_CTCSS'])) { $dtmfctrl = $svxconfig['SimplexLogic']['DTMF_CTRL_PTY']; }
+              if (isset($svxconfig['SimplexLogic']['DTMF_CTRL_PTY'])) { $dtmfctrl = $svxconfig['SimplexLogic']['DTMF_CTRL_PTY']; }
               else { $dtmfctrl="/dev/null"; }
               // $dtmfctrl = $svxconfig['SimplexLogic']['DTMF_CTRL_PTY'];
             }
