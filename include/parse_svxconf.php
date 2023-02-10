@@ -48,7 +48,7 @@ else { $svxConfigFile = trim(substr(shell_exec("grep CFGFILE /etc/default/svxlin
          // $fmnetwork =$svxconfig['ReflectorLogic']['FMNET'];
          if (isset($svxconfig['ReflectorLogic']['NODE_INFO_FILE'])) {
             $nodeInfoFile = $svxconfig['ReflectorLogic']['NODE_INFO_FILE'];
-               if (!is_readable($nodeInfoFile)) { $nodeInfoFile="none"; } 
+               if (!is_readable($nodeInfoFile)) { $nodeInfoFile="none"; }
             }
          else { $nodeInfoFile="none"; }
          // $nodeInfoFile = $svxconfig['ReflectorLogic']['NODE_INFO_FILE'];
