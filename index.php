@@ -136,7 +136,7 @@ include_once __DIR__."/include/buttons.php";
     echo '</div>'."\n";
 ?>
 <?php
-if (MENUBUTTON=="BOTTOM") {
+if ((MENUBUTTON=="BOTTOM") && ($dtmfctrl != "/dev/null")) {
 include_once __DIR__."/include/buttons.php"; }
 ?>
 <?php include("./include/footer.php") ?>
