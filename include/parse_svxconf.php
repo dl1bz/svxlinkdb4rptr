@@ -46,11 +46,14 @@ else { $svxConfigFile = trim(substr(shell_exec("grep CFGFILE /etc/default/svxlin
          if (isset($svxconfig['ReflectorLogic']['FMNET'])) { $fmnetwork =$svxconfig['ReflectorLogic']['FMNET']; }
          else { $fmnetwork="no registered"; }
          // $fmnetwork =$svxconfig['ReflectorLogic']['FMNET'];
-         $nodeInfoFile = $svxconfig['ReflectorLogic']['NODE_INFO_FILE'];
+         if (isset($svxconfig['ReflectorLogic']['NODE_INFO_FILE'])) { $nodeInfoFile = $svxconfig['ReflectorLogic']['NODE_INFO_FILE']; }
+         else { $nodeInfoFile="none"; }
+         // $nodeInfoFile = $svxconfig['ReflectorLogic']['NODE_INFO_FILE'];
        }
 else { $callsign="N0CALL";
        $fmnetwork="no registered";
        $refApi="";
        $dtmfctrl="/dev/null";
+       $nodeInfoFile="none";
      }
 ?>
