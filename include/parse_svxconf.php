@@ -51,5 +51,6 @@ else { $svxConfigFile = trim(substr(shell_exec("grep CFGFILE /etc/default/svxlin
 else { $callsign="N0CALL";
        $fmnetwork="no registered";
        $refApi="";
+       $dtmfctrl="/dev/null";
      }
 ?>
