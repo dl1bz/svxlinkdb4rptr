@@ -16,5 +16,8 @@
 - read the most values for variables direct from svxlink.conf instead of fixed hardcoding values in code
 - add a Syscheck script for check the environment (PHP, OS, SVXLINK and it's svxlink.conf) if it can be used for this dashboard (detect and minimized problems with php_config_parser for svxlink.conf)
 - remove a lot of things/code we don't need for running as a dashboard for public repeaters
+- make the dashboard "update-safe" for use with **git pull** to keep it up-to-date easy
+- extend some functions for better practical use with the repeater (change TG, add temporary time-limited TG, show ECHOLINK status/transmit)
+- add/get SVXReflector status with more information as a replacement for a external SVXReflector dashboard
 
 73 Heiko, DL1BZ
