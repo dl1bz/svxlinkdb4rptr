@@ -12,6 +12,8 @@ End of 2022, first public release:
 
 - make the dashboard ready for use with SimplexLogic AND RepeaterLogic
 - fixing code typos, bugs and imcomplete code in some PHP functions
+- minimize special config for dashboard, read the most values directly from svxlink.conf instead of fixed hardcoding values
+- update with **git pull** now safe, own config out-sourced to *.inc.php files (will be not overwritten)
 
 ## Fundamental changes compared to the original FM-Poland Dashboard ##
 
