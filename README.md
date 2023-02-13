@@ -6,8 +6,9 @@ Many thanks to these guys for their excellent work.
 
 ## Preamble
 
-This dashboard is re-designed for use with public repeaters in hamradio, less for hotspots.
-For hotspots please use the original codebase https://github.com/FM-POLAND/hs_dashboard_pi
+This dashboard is re-designed for use with public repeaters (duplex) in hamradio, less for hotspots (I mean FM-simplex systems, but it works too).
+Beware, this all is a **work-in-progress** and I will fix things in the code.
+Please check for regularly updates from time to time of this dashboard, so please keep it up-to-date.
 
 ## Changes from the original
 For better use with public repeaters some things are different
@@ -84,7 +85,7 @@ Have fun with SVXLINK Dashboard for repeater !
 - use ram-disks if possible for running 24/7 to protect the SD card and minimize the I/O cycles at the SD card storage filesystem
 - the additional PHP module **php-curl** and **php-xml** need to be installed too, otherwise some functions are not available or don't work
 - For the Dashboard we need a SVXLINK managed by systemd (default setup for SVXLINK), older things like init.d are **NOT** supported !
-- If httpd is nginx, there are some problems with the modul esm (Ez Server Monitor), I recommend lighttpd as httpd
+- If httpd is nginx, there are some problems with the modul esm (Ez Server Monitor) and other things around php, I recommend use lighttpd as httpd
 - if possible, use the latest version of Raspian, which is at this time based at Bullseye/Debian11 and do regularly updates
 
 ## Final words for note ##
