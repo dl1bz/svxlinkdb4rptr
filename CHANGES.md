@@ -8,8 +8,12 @@
 - add runtime environment check if PHP-Version < 8.0 and block PHP >= 8 at the moment (PHP >= 8 need major code changes for running)
 - update, check and set some values for variables as inital value if not exist in svxlink.conf (thanks Holger/DO2HN)
 
+End of 2022, first public release:
 
-## Fundamental changes compared to the original ##
+- make the dashboard ready for use with SimplexLogic AND RepeaterLogic
+- fixing code typos, bugs and imcomplete code in some PHP functions
+
+## Fundamental changes compared to the original FM-Poland Dashboard ##
 
 - make the code smaller and more compact
 - reduce a lot of hard-coded things to a minimum
