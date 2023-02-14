@@ -136,9 +136,12 @@ if ($net1 == TRUE || $net2 == TRUE || $net3 == TRUE || $net4 == TRUE || FULLACCE
 <fieldset style="box-shadow:0 0 10px #999;background-color:#e8e8e8e8; width:855px;margin-top:5px;margin-bottom:14px;margin-left:6px;margin-right:0px;font-size:12px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
 <div style="padding:0px;width:100%;background-image: linear-gradient(to bottom, #e9e9e9 50%, #bcbaba 100%);border-radius: 10px;-moz-border-radius:10px;-webkit-border-radius:10px;border: 1px solid LightGrey;margin-left:0px; margin-right:0px;margin-top:4px;margin-bottom:0px;white-space:normal;">
 <p style="margin-bottom:0px;"></p>
-<form method="post">
-    <center>
+
 <?php
+
+echo "<form method=\"post\">";
+echo "<center>";
+
         if (defined('KEY1') && KEY1[0]!="") { echo "<input type=\"submit\" name=\"button1\" class=".KEY1[2]." value='".KEY1[0]."' />"; }
         if (defined('KEY2') && KEY2[0]!="") { echo "<input type=\"submit\" name=\"button2\" class=".KEY2[2]." value='".KEY2[0]."' />"; }
         if (defined('KEY3') && KEY3[0]!="") { echo "<input type=\"submit\" name=\"button3\" class=".KEY3[2]." value='".KEY3[0]."' />"; }
@@ -162,9 +165,7 @@ if ($net1 == TRUE || $net2 == TRUE || $net3 == TRUE || $net4 == TRUE || FULLACCE
         if (defined('KEY19') && KEY19[0]!="") { echo "<input type=\"submit\" name=\"button19\" class=".KEY19[2]." value='".KEY19[0]."' />"; }
         if (defined('KEY20') && KEY20[0]!="") { echo "<input type=\"submit\" name=\"button20\" class=".KEY20[2]." value='".KEY20[0]."' />"; }
         }
-?>
 
-<?php
 //    if (KEY6[0]!="") {
 //        echo "<input type=\"submit\" name=\"button6\" class=".KEY6[2]." value='".KEY6[0]."' />";
 //        }
@@ -178,13 +179,12 @@ if ($net1 == TRUE || $net2 == TRUE || $net3 == TRUE || $net4 == TRUE || FULLACCE
 //      echo "<input type=\"submit\" name=\"button10\" class=".KEY10[2]." value='".KEY10[0]."' />";
 //      }
 
-?>
- </center>
-    </form>
-<p style="margin: 0 auto;"></p>
+echo "</center>";
+echo "</form>";
 
-<?php
+echo "<p style=\"margin: 0 auto;\"></p>";
 
+if ($dtmfctrl!="/dev/null") {
 echo "<table style=\"border-collapse: collapse; border: none; background-color:#e8e8e8e8;\">";
 echo "<tr style=\"border: none;\">";
 
@@ -216,7 +216,7 @@ echo "</td>";
 
 echo "</tr>";
 echo "</table>";
-
+}
   if ((isset($_POST["dtmfsvx"]) == true) && (trim($_POST["dtmfsvx"]) !=='')) {
    $exec= "echo '" . $_POST['dtmfsvx'] . "' > ".$dtmfctrl." 2>&1";
    exec($exec,$output);
@@ -238,6 +238,7 @@ echo "</table>";
    echo "<meta http-equiv='refresh' content='0'>";
     }
 ?>
+
 <p style="margin-bottom:-9px;"></p>
 </div>
 </fieldset>
