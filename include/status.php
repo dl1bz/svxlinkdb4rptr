@@ -47,6 +47,8 @@ $admodules = getActiveModules();
 }
 echo "</table>\n";
 
+// only if we have an active reflector connection
+if ($reflector_active) {
 $tgtmp = trim(getSVXTGTMP());
 echo "<table colspan=2 style=\"margin-top:4px;margin-bottom:13px;\">\n";
 $tgdefault = $svxconfig['ReflectorLogic']['DEFAULT_TG'];
@@ -64,6 +66,7 @@ $tgselect = trim(getSVXTGSelect());
 if ( $tgselect=="0"){$tgselect="";}
 echo "<tr><th width=50%>TG Active</th><td style=\"background: #ffffed;color:#0065ff;font-weight: bold;\">".$tgselect."</td></tr>\n";
 echo "</table>";
+}
 
 if (($system_type=="IS_DUPLEX") && ($svxconfig['RepeaterLogic']['TX'] !== "NONE")) {
    echo "<table  style=\"margin-bottom:13px;\"><tr><th>Repeater Status</th></tr><tr>";
