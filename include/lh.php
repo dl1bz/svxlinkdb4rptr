@@ -76,9 +76,9 @@ for ($i = 0;  ($i <= 24); $i++) { //Last 25 calls
 
 } else { 
 
-if ($system_type=="IS_DUPLEX") { echo "<center><font size=\"+2\">Repeater without connected SVXReflector</font></center>"; }
-if ($system_type=="IS_SIMPLEX") { echo "<center><font size=\"+2\">Simplex-Repeater or Hotspot without connected SVXReflector</font></center>"; } else { 
-      echo "<center><font size=\"+2\">SVXLINK-System without connected SVXReflector</font></center>";
+if ($system_type=="IS_DUPLEX") { echo "<center>Repeater without connected SVXReflector</center>"; }
+if ($system_type=="IS_SIMPLEX") { echo "<center>Simplex-Repeater or Hotspot without connected SVXReflector</center>"; } else { 
+      echo "<center>SVXLINK-System without connected SVXReflector</center>";
    }
 ?>
 
