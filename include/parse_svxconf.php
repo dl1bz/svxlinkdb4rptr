@@ -13,9 +13,23 @@ else { $svxConfigFile = trim(substr(shell_exec("grep CFGFILE /etc/default/svxlin
          // check if we are a repeater or a simplex system
          $check_logics = explode(",",$svxconfig['GLOBAL']['LOGICS']);
          foreach ($check_logics as $logic_key) {
+
             if (strpos($logic_key, 'ReflectorLogic') !== false) {
+               // additional variables need to define in svxlink.conf in stanza [ReflectorLogic]: API, FMNET
+               // FMNET - Name of FM-Network
+               // API - URI for access the status of SVXReflector you are connected
                if (isset($svxconfig['ReflectorLogic']['CALLSIGN'])) { $callsign = $svxconfig['ReflectorLogic']['CALLSIGN']; }
-            }
+               if (isset($svxconfig['ReflectorLogic']['API'])) { $refApi = $svxconfig['ReflectorLogic']['API']; }
+               if (isset($svxconfig['ReflectorLogic']['FMNET'])) { $fmnetwork =$svxconfig['ReflectorLogic']['FMNET']; }
+               if (isset($svxconfig['ReflectorLogic']['NODE_INFO_FILE'])) {
+                  $nodeInfoFile = $svxconfig['ReflectorLogic']['NODE_INFO_FILE'];
+                     if (!is_readable($nodeInfoFile)) { $nodeInfoFile="none"; }
+                  }
+            }  else {
+               $refApi="";
+               $fmnetwork="no registered";
+               $nodeInfoFile="none";
+               }
 
             if (strpos($logic_key, 'RepeaterLogic') !== false) {
               if (!isset($callsign)) { $callsign = $svxconfig['RepeaterLogic']['CALLSIGN']; }
@@ -45,17 +59,18 @@ else { $svxConfigFile = trim(substr(shell_exec("grep CFGFILE /etc/default/svxlin
          // FMNET - Name of FM-Network
          // API - URI for access the status of SVXReflector you are connected
          // TG_URI ??? I don't know...
-         if (isset($svxconfig['ReflectorLogic']['API'])) { $refApi = $svxconfig['ReflectorLogic']['API']; }
-         else { $refApi=""; }
+
+         // if (isset($svxconfig['ReflectorLogic']['API'])) { $refApi = $svxconfig['ReflectorLogic']['API']; }
+         // else { $refApi=""; }
          // $refApi = $svxconfig['ReflectorLogic']['API'];
-         if (isset($svxconfig['ReflectorLogic']['FMNET'])) { $fmnetwork =$svxconfig['ReflectorLogic']['FMNET']; }
-         else { $fmnetwork="no registered"; }
+         // if (isset($svxconfig['ReflectorLogic']['FMNET'])) { $fmnetwork =$svxconfig['ReflectorLogic']['FMNET']; }
+         // else { $fmnetwork="no registered"; }
          // $fmnetwork =$svxconfig['ReflectorLogic']['FMNET'];
-         if (isset($svxconfig['ReflectorLogic']['NODE_INFO_FILE'])) {
-            $nodeInfoFile = $svxconfig['ReflectorLogic']['NODE_INFO_FILE'];
-               if (!is_readable($nodeInfoFile)) { $nodeInfoFile="none"; }
-            }
-         else { $nodeInfoFile="none"; }
+         // if (isset($svxconfig['ReflectorLogic']['NODE_INFO_FILE'])) {
+         //   $nodeInfoFile = $svxconfig['ReflectorLogic']['NODE_INFO_FILE'];
+         //      if (!is_readable($nodeInfoFile)) { $nodeInfoFile="none"; }
+         //   }
+         // else { $nodeInfoFile="none"; }
          // $nodeInfoFile = $svxconfig['ReflectorLogic']['NODE_INFO_FILE'];
        }
 else { $callsign="N0CALL";
