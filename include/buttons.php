@@ -183,18 +183,18 @@ if ($net1 == TRUE || $net2 == TRUE || $net3 == TRUE || $net4 == TRUE || FULLACCE
     </form>
 <p style="margin: 0 auto;"></p>
 
-<table style="border-collapse: collapse; border: none; background-color:#e8e8e8e8;">
-<tr style="border: none;">
-
-<td style="border: none; background-color:#e8e8e8e8;">
-<form action="" method="POST" style="margin-top:4px;">
-  <label style="text-shadow: 1px 1px 1px Lightgrey, 0 0 0.5em LightGrey, 0 0 1em whitesmoke;font-weight:bold;color:#464646;" for="dtmfsvx">DTMF command (must end with #):<BR></label>
-  <input type="text" id="dtmfsvx" name="dtmfsvx">
-  <input type="submit" value="Send DTMF code" class="green">
-</form>
-</td>
-
 <?php
+
+echo "<table style=\"border-collapse: collapse; border: none; background-color:#e8e8e8e8;\">";
+echo "<tr style=\"border: none;\">";
+
+echo "<td style=\"border: none; background-color:#e8e8e8e8;\">";
+echo "<form action=\"\" method=\"POST\" style=\"margin-top:4px;\">";
+  echo "<label style=\"text-shadow: 1px 1px 1px Lightgrey, 0 0 0.5em LightGrey, 0 0 1em whitesmoke;font-weight:bold;color:#464646;\" for=\"dtmfsvx\">DTMF command (must end with #):<BR></label>";
+  echo "<input type=\"text\" id=\"dtmfsvx\" name=\"dtmfsvx\">";
+  echo "<input type=\"submit\" value=\"Send DTMF code\" class=\"green\">";
+echo "</form>";
+echo "</td>";
 
 if ($reflector_active) {
 echo "<td style=\"border: none; background-color:#e8e8e8e8;\">";
@@ -213,12 +213,10 @@ echo "<form action=\"\" method=\"POST\" style=\"margin-top:4px;\">";
 echo "</form>";
 echo "</td>";
 }
-?>
 
-</tr>
-</table>
+echo "</tr>";
+echo "</table>";
 
-<?php
   if ((isset($_POST["dtmfsvx"]) == true) && (trim($_POST["dtmfsvx"]) !=='')) {
    $exec= "echo '" . $_POST['dtmfsvx'] . "' > ".$dtmfctrl." 2>&1";
    exec($exec,$output);
