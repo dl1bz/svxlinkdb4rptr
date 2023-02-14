@@ -24,7 +24,7 @@ else { $svxConfigFile = trim(substr(shell_exec("grep CFGFILE /etc/default/svxlin
                   }
             }  else {
                $refApi="";
-               $fmnetwork="no registered";
+               $fmnetwork="no Network";
                $nodeInfoFile="none";
                }
 
@@ -52,7 +52,7 @@ else { $svxConfigFile = trim(substr(shell_exec("grep CFGFILE /etc/default/svxlin
          }
        }
 else { $callsign="N0CALL";
-       $fmnetwork="no registered";
+       $fmnetwork="no Network";
        $refApi="";
        $dtmfctrl="/dev/null";
        $nodeInfoFile="none";
