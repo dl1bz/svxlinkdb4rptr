@@ -3,6 +3,11 @@
 
 ## Changes ##
 
+14.2.2023:
+- the webdesign now depend from which options (DTMF, Reflector) are activated, options not defined are now hidden in dashboard
+- small bugfixing
+- transform more pure HTML code into PHP code
+
 13.2.2023:
 
 - add runtime environment check if PHP-Version < 8.0 and block PHP >= 8 at the moment (PHP >= 8 need major code changes for running)
