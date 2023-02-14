@@ -80,6 +80,7 @@ if ($system_type=="IS_DUPLEX") { echo "<center>Repeater without connected SVXRef
 if ($system_type=="IS_SIMPLEX") { echo "<center>Simplex-Repeater or Hotspot without connected SVXReflector</center>"; } else { 
       echo "<center>SVXLINK-System without connected SVXReflector</center>";
    }
+}
 ?>
 
 </fieldset>
