@@ -12,19 +12,16 @@ else {
 <?php if ($reflector_active) { echo ":: ".$fmnetwork."&nbsp;::&nbsp;SVXReflector Activity&nbsp;::"; } ?>
 </span>
 <fieldset style=" width:620px;box-shadow:0 0 10px #999;background-color:#e8e8e8e8;margin-top:10px;margin-left:0px;margin-right:0px;font-size:12px;border-top-left-radius: 10px; border-top-right-radius: 10px;border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
-  <form method="post">
-  <table style="margin-top:3px;">
-    <tr height=25px>
-      <th width=150px>Time (<?php echo date('e')?>)</th>
-      <th width=100px>via Node</th>
-      <th width=100px>TG #</th>
-
-<!--	<th width=30px> M </th>
-	<th width=30px> A </th>
--->
-      <th>TG Name</th>
-    </tr>
 <?php
+  echo "<form method=\"post\">";
+  echo "<table style=\"margin-top:3px;\">";
+    echo "<tr height=25px>";
+      echo "<th width=150px>Time (".date('e').")</th>";
+      echo "<th width=100px>via Node</th>";
+      echo "<th width=100px>TG #</th>";
+      echo "<th>TG Name</th>";
+    echo "</tr>";
+
 $i = 0;
 for ($i = 0;  ($i <= 24); $i++) { //Last 25 calls
 	if (isset($lastHeard[$i])) {
@@ -72,7 +69,8 @@ for ($i = 0;  ($i <= 24); $i++) { //Last 25 calls
 		}
 	}
 }
-
+  echo "</table>";
+  echo "</form>";
 ?>
-  </table></form>
+
 </fieldset>
