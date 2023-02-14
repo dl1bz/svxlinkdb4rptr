@@ -79,7 +79,7 @@ for ($i = 0;  ($i <= 24); $i++) { //Last 25 calls
 if ($system_type=="IS_DUPLEX") { echo "<center>Repeater without connected SVXReflector</center>"; }
 if ($system_type=="IS_SIMPLEX") {
     echo "<center>Simplex-Repeater or Hotspot without connected SVXReflector</center><br>";
-    echo "<img src=\"images/antenne.jpg\" width=\"500\">";
+    echo "<img src=\"images/antenne.jpg\" width=\"400\">";
 } else { 
       echo "<center>SVXLINK-System without connected SVXReflector</center>";
    }
