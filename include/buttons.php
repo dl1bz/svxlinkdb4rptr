@@ -139,6 +139,8 @@ if ($net1 == TRUE || $net2 == TRUE || $net3 == TRUE || $net4 == TRUE || FULLACCE
 
 <?php
 
+if ($dtmfctrl!="/dev/null") {
+
 echo "<form method=\"post\">";
 echo "<center>";
 
@@ -184,7 +186,6 @@ echo "</form>";
 
 echo "<p style=\"margin: 0 auto;\"></p>";
 
-if ($dtmfctrl!="/dev/null") {
 echo "<table style=\"border-collapse: collapse; border: none; background-color:#e8e8e8e8;\">";
 echo "<tr style=\"border: none;\">";
 
