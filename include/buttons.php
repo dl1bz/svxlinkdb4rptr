@@ -196,6 +196,7 @@ if ($net1 == TRUE || $net2 == TRUE || $net3 == TRUE || $net4 == TRUE || FULLACCE
 
 <?php
 
+if ($reflector_active) {
 echo "<td style=\"border: none; background-color:#e8e8e8e8;\">";
 echo "<form action=\"\" method=\"POST\" style=\"margin-top:4px;\">";
   echo "<label style=\"text-shadow: 1px 1px 1px Lightgrey, 0 0 0.5em LightGrey, 0 0 1em whitesmoke;font-weight:bold;color:#464646;\" for=\"jmpto\">Change active TG:<BR></label>";
@@ -211,7 +212,7 @@ echo "<form action=\"\" method=\"POST\" style=\"margin-top:4px;\">";
   echo "<input type=\"submit\" value=\"Add Monitor TG\" class=\"green\"><br>";
 echo "</form>";
 echo "</td>";
-
+}
 ?>
 
 </tr>
