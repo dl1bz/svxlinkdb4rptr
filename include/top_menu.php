@@ -1,10 +1,10 @@
 <p style="padding-right: 5px; text-align: right; color: #000000;"> 
-	<a href="/" style="color: #0000ff; font-family: 'Oswald', sans-serif; font-size: 14pt;">Dashboard</a> |
 <?php
+	echo "<a href=\"/\" style=\"color: #0000ff; font-family: 'Oswald', sans-serif; font-size: 14pt;\">Dashboard</a> |";
         if ($reflector_active) {
-        echo "<a href=\"/tg.php\" style=\"color: #0000ff; font-family: 'Oswald', sans-serif; font-size: 14pt;\">Talk Groups</a> |"; }
+        echo "<a href=\"/tg.php\" style=\"color: #0000ff; font-family: 'Oswald', sans-serif; font-size: 14pt;\"> Talk Groups</a> |"; }
         if ($refApi != "") {
-	echo "<a href=\"/node.php\" style=\"color: #0000ff; font-family: 'Oswald', sans-serif;font-size: 14pt;\">Nodes</a> |"; }
+	echo "<a href=\"/node.php\" style=\"color: #0000ff; font-family: 'Oswald', sans-serif;font-size: 14pt;\"> Nodes</a> |"; }
 
 $ip = isset($_SERVER['HTTP_CLIENT_IP'])?$_SERVER['HTTP_CLIENT_IP']:isset($_SERVER['HTTP_X_FORWARDED_FOR'])?$_SERVER['HTTP_X_FORWARDED_FOR']:$_SERVER['REMOTE_ADDR'];
 $net1= cidr_match($ip,"192.168.0.0/16");
