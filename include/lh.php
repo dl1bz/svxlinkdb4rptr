@@ -74,7 +74,8 @@ for ($i = 0;  ($i <= 24); $i++) { //Last 25 calls
   echo "</table>";
   echo "</form>";
 
-}
+} else { echo "<center>System without SVXReflector</center>"; }
+
 ?>
 
 </fieldset>
