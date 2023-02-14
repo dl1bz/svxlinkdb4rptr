@@ -24,7 +24,7 @@ else { $svxConfigFile = trim(substr(shell_exec("grep CFGFILE /etc/default/svxlin
                   }
             }  else {
                $refApi="";
-               $fmnetwork="no Network";
+               $fmnetwork="no active Reflector";
                $nodeInfoFile="none";
                }
 
