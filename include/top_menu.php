@@ -1,7 +1,8 @@
 <p style="padding-right: 5px; text-align: right; color: #000000;"> 
 	<a href="/" style="color: #0000ff; font-family: 'Oswald', sans-serif; font-size: 14pt;">Dashboard</a> |
-	<a href="/tg.php" style="color: #0000ff; font-family: 'Oswald', sans-serif; font-size: 14pt;">Talk Groups</a> |
 <?php
+        if ($reflector_active) {
+        echo "<a href=\"/tg.php\" style=\"color: #0000ff; font-family: 'Oswald', sans-serif; font-size: 14pt;\">Talk Groups</a> |"; }
         if ($refApi != "") {
 	echo "<a href=\"/node.php\" style=\"color: #0000ff; font-family: 'Oswald', sans-serif;font-size: 14pt;\">Nodes</a> |"; }
 
