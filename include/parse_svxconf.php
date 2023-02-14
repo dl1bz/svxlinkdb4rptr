@@ -8,13 +8,14 @@ else { $svxConfigFile = trim(substr(shell_exec("grep CFGFILE /etc/default/svxlin
     if (fopen($svxConfigFile,'r'))
        { $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
          if (isset($svxconfig['ReflectorLogic']['CALLSIGN'])) { $callsign = $svxconfig['ReflectorLogic']['CALLSIGN']; }
-         else { $callsign="N0CALL"; }
+         // else { $callsign="N0CALL"; }
          // $callsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
          // check if we are a repeater or a simplex system
          $check_logics = explode(",",$svxconfig['GLOBAL']['LOGICS']);
          foreach ($check_logics as $logic_key) {
 
             if (strpos($logic_key, 'RepeaterLogic') !== false) {
+              if (!isset($callsign)) { $callsign = $svxconfig['RepeaterLogic']['CALLSIGN']; }
               // if we work with CTCSS please set REPORT_CTCSS with correct value in svxlink.conf
               if (isset($svxconfig['RepeaterLogic']['REPORT_CTCSS'])) { $ctcss = $svxconfig['RepeaterLogic']['REPORT_CTCSS']; } 
               else { $ctcss = 0; }
@@ -26,6 +27,7 @@ else { $svxConfigFile = trim(substr(shell_exec("grep CFGFILE /etc/default/svxlin
             }
 
             if (strpos($logic_key, 'SimplexLogic') !== false) {
+              if (!isset($callsign)) { $callsign = $svxconfig['SimplexLogic']['CALLSIGN']; }
               // if we work with CTCSS please set REPORT_CTCSS with correct value in svxlink.conf
               if (isset($svxconfig['SimplexLogic']['REPORT_CTCSS'])) { $ctcss = $svxconfig['SimplexLogic']['REPORT_CTCSS']; }
               else { $ctcss = 0; }
