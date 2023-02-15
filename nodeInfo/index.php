@@ -8,6 +8,7 @@
     <meta name="KeyWords" content="SVXLink, SVXRelector,SP2ONG" />
     <link href="/css/css.php" type="text/css" rel="stylesheet" />
 <style type="text/css">
+
 body {
   background-color: #eee;
   font-size: 18px;
@@ -114,24 +115,12 @@ function build_ini_string(array $a) {
 }
 
 
-// $nodeInfoFile = '/etc/svxlink/node_info.json';
-
 if (fopen($nodeInfoFile,'r'))
 {
 	$filedata = file_get_contents($nodeInfoFile);
 	$nodeInfo = json_decode($filedata,true);
 	//print_r($nodeInfo);
 };
-
-
-
-//if (fopen($svxConfigFile,'r'))
-//      {
-
-//        $svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
-//};
-
-
 
 if (isset($_POST['btnSave']))
     {
@@ -168,10 +157,6 @@ if (isset($_POST['btnSave']))
        		exec('sudo service svxlink restart 2>&1',$screen,$retval);
 
 };
-
-//  	$svxconfig = parse_ini_file($svxConfigFile,true,INI_SCANNER_RAW);
-//        $inCallsign = $svxconfig['ReflectorLogic']['CALLSIGN'];
-
 
 	$inLocation = $nodeInfo["Location"];
 	$inLocator = $nodeInfo["Locator"];

@@ -8,6 +8,7 @@
     <meta name="KeyWords" content="SVXLink, SVXRelector,SP2ONG" />
     <link href="/css/css.php" type="text/css" rel="stylesheet" />
 <style type="text/css">
+
 body {
   background-color: #eee;
   font-size: 18px;
@@ -70,43 +71,15 @@ textarea {
 
 <?php 
 
-
-
-//if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//  if (empty($_POST["ssid"])) {
-//     echo "Name is required";
-//  } else {
-//    $ssid = $_POST["ssid"]);
-//  }
-//}}
-
-
 // load the connlist
 $retval = null;
-$conns = null;
-// find the gateway
 
 if (isset($_POST['btnPower']))
     {
 
         $retval = null;
         $screen = null;
-        //$sAconn = $_POST['sAconn'];
-        //$password = $_POST['password'];
-        //exec('nmcli dev wifi rescan');
         $command = "sudo shutdown -h now 2>&1";
-        exec($command,$screen,$retval);
-}
-
-if (isset($_POST['btnLcd']))
-    {
-
-        $retval = null;
-        $screen = null;
-        //$sAconn = $_POST['sAconn'];
-        //$password = $_POST['password'];
-        //exec('nmcli dev wifi rescan');
-        $command = "sudo service oled2svx restart 2>&1";
         exec($command,$screen,$retval);
 }
 
@@ -115,30 +88,18 @@ if (isset($_POST['btnSvxlink']))
 
         $retval = null;
         $screen = null;
-        //$sAconn = $_POST['sAconn'];
-        //$password = $_POST['password'];
-        //exec('nmcli dev wifi rescan');
         $command = "sudo service svxlink restart 2>&1";
         exec($command,$screen,$retval);
 }
-
-
-
-
 
 if (isset($_POST['btnRestart']))
     {
 
         $retval = null;
         $screen = null;
-        //$sAconn = $_POST['sAconn'];
-        //$password = $_POST['password'];
-        //exec('nmcli dev wifi rescan');
         $command = "sudo shutdown -r now 2>&1";
         exec($command,$screen,$retval);
 }
-
-
 
 ?>
 
