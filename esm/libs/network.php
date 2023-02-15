@@ -6,8 +6,8 @@ $network  = array();
 
 // Possible commands for ifconfig and ip
 $commands = array(
-    'ifconfig' => array('ifconfig', '/sbin/ifconfig', '/usr/bin/ifconfig', '/usr/sbin/ifconfig'),
-    'ip'       => array('ip', '/bin/ip', '/sbin/ip', '/usr/bin/ip', '/usr/sbin/ip'),
+    'ifconfig' => array('ifconfig', '/sbin/ifconfig', '/usr/sbin/ifconfig'),
+    'ip'       => array('ip', '/bin/ip', '/sbin/ip', '/usr/sbin/ip'),
 );
 
 // Returns command line for retreive interfaces
