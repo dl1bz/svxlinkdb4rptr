@@ -3,6 +3,9 @@
 
 ## Changes ##
 
+15.2.2023:
+- cleanup code and remove old, not used things
+
 14.2.2023:
 - the webdesign now depend from which options (DTMF, Reflector) are activated, options not defined are now hidden in dashboard
 - small bugfixing
