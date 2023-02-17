@@ -126,9 +126,9 @@ if (isset($_POST['btnRestart']))
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 	<button name="btnSvxlinkSTO" type="submit" class="red" style="height:30px; width:400px; font-size:12px;">Stop SVXlink Service</button>
 	<BR>
-	<button name="btnSvxlinkSTA" type="submit" class="red" style="height:30px; width:400px; font-size:12px;">Start SVXlink Service</button>
+	<button name="btnSvxlinkSTA" type="submit" class="green" style="height:30px; width:400px; font-size:12px;">Start SVXlink Service</button>
 	<BR>
-	<button name="btnSvxlinkRE" type="submit" class="red" style="height:30px; width:400px; font-size:12px;">Restart SVXlink Service</button>
+	<button name="btnSvxlinkRE" type="submit" class="orange" style="height:30px; width:400px; font-size:12px;">Restart SVXlink Service</button>
 	<BR>
 	<button name="btnRestart" type="submit" class="red" style="height:30px; width:400px; font-size:12px;">Restart/Reboot Device</button>
         <BR>
