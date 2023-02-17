@@ -128,21 +128,21 @@ if (isset($_POST['btnRestart']))
 ?>
 
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-	<button name="btnSvxlinkSTO" type="submit" class="red" style="height:30px; width:400px; font-size:12px;">Stop SVXlink Service</button>
-	<BR>
-	<button name="btnSvxlinkSTA" type="submit" class="green" style="height:30px; width:400px; font-size:12px;">Start SVXlink Service</button>
-	<BR>
-	<button name="btnSvxlinkRE" type="submit" class="orange" style="height:30px; width:400px; font-size:12px;">Restart SVXlink Service</button>
-	<BR>
-	<button name="btnRestart" type="submit" class="orange" style="height:30px; width:400px; font-size:12px;">Restart/Reboot Device</button>
-        <BR>
+	<button name="btnSvxlinkSTO" type="submit" class="red" style="height:40px; width:400px; font-size:12px;">Stop SVXlink Service</button>
+	<BR><BR>
+	<button name="btnSvxlinkSTA" type="submit" class="green" style="height:40px; width:400px; font-size:12px;">Start SVXlink Service</button>
+	<BR><BR>
+	<button name="btnSvxlinkRE" type="submit" class="orange" style="height:40px; width:400px; font-size:12px;">Restart SVXlink Service</button>
+	<BR><BR>
+	<button name="btnRestart" type="submit" class="orange" style="height:40px; width:400px; font-size:12px;">Restart/Reboot Device</button>
+        <BR><BR>
 <?php
 if ( file_exists(__DIR__.'/../include/config.inc.php') ) { include_once __DIR__.'/../include/config.inc.php'; } else { define("SHUTDOWN", 0); }
         if (defined('SHUTDOWN'))
            {
               if (SHUTDOWN) 
                  {
-                    echo "<button name=\"btnPower\" type=\"submit\" class=\"red\" style=\"height:30px; width:400px; font-size:12px;\">Power OFF / Shutdown</button>";
+                    echo "<button name=\"btnPower\" type=\"submit\" class=\"red\" style=\"height:40px; width:400px; font-size:12px;\">Power OFF / Shutdown</button>";
                  }
            }
 ?>
