@@ -74,14 +74,16 @@ textarea {
 // load the connlist
 $retval = null;
 
-if (isset($_POST['btnPower']) )
-    {
-
-        $retval = null;
-        $screen = null;
-        $command = "sudo shutdown -h now 2>&1";
-        exec($command,$screen,$retval);
-}
+if (SHUTDOWN)
+   {
+      if (isset($_POST['btnPower']) )
+         {
+            $retval = null;
+            $screen = null;
+            $command = "sudo shutdown -h now 2>&1";
+            exec($command,$screen,$retval);
+         }
+   }
 
 if (isset($_POST['btnSvxlinkRE']))
     {
@@ -130,8 +132,13 @@ if (isset($_POST['btnRestart']))
 	<BR>
 	<button name="btnRestart" type="submit" class="red" style="height:30px; width:400px; font-size:12px;">Restart/Reboot Device</button>
         <BR>
-	<!-- Comment out the next line if you want a button with shutdown function -->
-	<!-- <button name="btnPower" type="submit" class="red" style="height:30px; width:400px; font-size:12px;">Power OFF / Shutdown</button> -->
+<?php
+        if (SHUTDOWN) 
+           {
+	      echo "<button name=\"btnPower\" type=\"submit\" class=\"red\" style=\"height:30px; width:400px; font-size:12px;\">Power OFF / Shutdown</button>";
+           }
+?>
+
 </form>
 
 <p style="margin: 0 auto;"></p>

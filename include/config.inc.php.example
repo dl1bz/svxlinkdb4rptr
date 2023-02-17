@@ -8,6 +8,7 @@ define("FMNETWORK_EXTRA","");
 // define("EL_NODE_NR","123456");
 define("FULLACCESS_OUTSIDE", 0);
 define("ADD_BUTTONS", 0);
+define("SHUTDOWN", 0);
 //
 // Button keys define: description button, DTMF command or command, color of button
 //
