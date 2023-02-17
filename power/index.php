@@ -75,7 +75,7 @@ textarea {
 $retval = null;
 
 
-if (defined('SHUTDOWN')
+if (defined('SHUTDOWN'))
    {
       if (SHUTDOWN)
          {
@@ -137,7 +137,7 @@ if (isset($_POST['btnRestart']))
 	<button name="btnRestart" type="submit" class="orange" style="height:30px; width:400px; font-size:12px;">Restart/Reboot Device</button>
         <BR>
 <?php
-        if (defined('SHUTDOWN')
+        if (defined('SHUTDOWN'))
            {
               if (SHUTDOWN) 
                  {
