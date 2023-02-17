@@ -74,7 +74,7 @@ textarea {
 // load the connlist
 $retval = null;
 
-
+if ( file_exists(__DIR__.'/../include/config.inc.php') ) { include_once __DIR__.'/../include/config.inc.php'; } else { define("SHUTDOWN", 0); }
 if (defined('SHUTDOWN'))
    {
       if (SHUTDOWN)
@@ -137,6 +137,7 @@ if (isset($_POST['btnRestart']))
 	<button name="btnRestart" type="submit" class="orange" style="height:30px; width:400px; font-size:12px;">Restart/Reboot Device</button>
         <BR>
 <?php
+if ( file_exists(__DIR__.'/../include/config.inc.php') ) { include_once __DIR__.'/../include/config.inc.php'; } else { define("SHUTDOWN", 0); }
         if (defined('SHUTDOWN'))
            {
               if (SHUTDOWN) 
