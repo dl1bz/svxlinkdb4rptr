@@ -74,7 +74,7 @@ textarea {
 // load the connlist
 $retval = null;
 
-if (isset($_POST['btnPower']))
+if (isset($_POST['btnPower']) )
     {
 
         $retval = null;
@@ -83,12 +83,30 @@ if (isset($_POST['btnPower']))
         exec($command,$screen,$retval);
 }
 
-if (isset($_POST['btnSvxlink']))
+if (isset($_POST['btnSvxlinkRE']))
     {
 
         $retval = null;
         $screen = null;
         $command = "sudo service svxlink restart 2>&1";
+        exec($command,$screen,$retval);
+}
+
+if (isset($_POST['btnSvxlinkSTO']))
+    {
+
+        $retval = null;
+        $screen = null;
+        $command = "sudo service svxlink stop 2>&1";
+        exec($command,$screen,$retval);
+}
+
+if (isset($_POST['btnSvxlinkSTA']))
+    {
+
+        $retval = null;
+        $screen = null;
+        $command = "sudo service svxlink start 2>&1";
         exec($command,$screen,$retval);
 }
 
@@ -103,8 +121,12 @@ if (isset($_POST['btnRestart']))
 
 ?>
 
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
-	<button name="btnSvxlink" type="submit" class="red" style="height:30px; width:400px; font-size:12px;">Restart SVXlink Service</button>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+	<button name="btnSvxlinkSTO" type="submit" class="red" style="height:30px; width:400px; font-size:12px;">Stop SVXlink Service</button>
+	<BR>
+	<button name="btnSvxlinkSTA" type="submit" class="red" style="height:30px; width:400px; font-size:12px;">Start SVXlink Service</button>
+	<BR>
+	<button name="btnSvxlinkRE" type="submit" class="red" style="height:30px; width:400px; font-size:12px;">Restart SVXlink Service</button>
 	<BR>
 	<button name="btnRestart" type="submit" class="red" style="height:30px; width:400px; font-size:12px;">Restart/Reboot Device</button>
         <BR>
