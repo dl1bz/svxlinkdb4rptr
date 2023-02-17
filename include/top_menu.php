@@ -18,7 +18,7 @@ if ($net1 == TRUE || $net2 == TRUE || $net3 == TRUE || $net4 == TRUE || FULLACCE
         if ($dtmfctrl != "/dev/null") {
 	echo "<a href=\"/dtmf.php\" style=\"color: #0000ff; font-family: 'Oswald', sans-serif; font-size: 14pt;\"> DTMF</a> |"; }
 	echo "<a href=\"/log.php\" style=\"color: #0000ff; font-family: 'Oswald', sans-serif; font-size: 14pt;\"> Log</a> |" ;
-	echo "<a href=\"/power.php\" style=\"color: #0000ff;font-family: 'Oswald', sans-serif; font-size: 14pt;\"> Power</a>" ;
+	echo "<a href=\"/power.php\" style=\"color: #0000ff;font-family: 'Oswald', sans-serif; font-size: 14pt;\"> System</a>" ;
 }
 ?>
 </p>
