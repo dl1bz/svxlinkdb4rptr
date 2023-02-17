@@ -74,14 +74,18 @@ textarea {
 // load the connlist
 $retval = null;
 
-if (SHUTDOWN)
+
+if (defined('SHUTDOWN')
    {
-      if (isset($_POST['btnPower']) )
+      if (SHUTDOWN)
          {
-            $retval = null;
-            $screen = null;
-            $command = "sudo shutdown -h now 2>&1";
-            exec($command,$screen,$retval);
+            if (isset($_POST['btnPower']) )
+               {
+                  $retval = null;
+                  $screen = null;
+                  $command = "sudo shutdown -h now 2>&1";
+                  exec($command,$screen,$retval);
+               }
          }
    }
 
@@ -133,9 +137,12 @@ if (isset($_POST['btnRestart']))
 	<button name="btnRestart" type="submit" class="orange" style="height:30px; width:400px; font-size:12px;">Restart/Reboot Device</button>
         <BR>
 <?php
-        if (SHUTDOWN) 
+        if (defined('SHUTDOWN')
            {
-	      echo "<button name=\"btnPower\" type=\"submit\" class=\"red\" style=\"height:30px; width:400px; font-size:12px;\">Power OFF / Shutdown</button>";
+              if (SHUTDOWN) 
+                 {
+                    echo "<button name=\"btnPower\" type=\"submit\" class=\"red\" style=\"height:30px; width:400px; font-size:12px;\">Power OFF / Shutdown</button>";
+                 }
            }
 ?>
 
