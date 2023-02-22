@@ -33,7 +33,7 @@ sed -i "s=','=' \=\> '=g" $TABLE_ofile
 sed -i "s= '='=g" $TABLE_ofile
 sed -i "s=\[==g" $TABLE_ofile
 sed -i "/^'0'/d" $TABLE_ofile
-sed -i "/^'1'/d" $TABLE_ofile
+# sed -i "/^'1'/d" $TABLE_ofile
 sed -i "/^'9999'/d" $TABLE_ofile
 sed -i "/^'9990'/d" $TABLE_ofile
 sed -i "/^'2629004'/d" $TABLE_ofile
@@ -53,7 +53,6 @@ echo "/* talkgroup / number alias database */" >> $PHP_ofile
 echo "/* last update: $timestamp from $TABLE_url */" >> $PHP_ofile
 echo "/* (C) 2022 by Heiko, DL1BZ */" >> $PHP_ofile
 echo "\$tgdb_array = [ " >> $PHP_ofile
-echo "'1' => 'MultiRegio (DL-Repeater exklusiv)'," >> $PHP_ofile
 cat $TABLE_ofile >> $PHP_ofile
 # echo -n "$(cat $TABLE_ofile)" >> $PHP_ofile
 echo "];" >> $PHP_ofile
