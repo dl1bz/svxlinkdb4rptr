@@ -41,7 +41,7 @@ sed -i "/'bitte/d" $TABLE_ofile
 sed -i "s/Lausitzlink/LausitzLink/g" $TABLE_ofile
 sed -i "s/Oberlausitzlink/OberlausitzLink/g" $TABLE_ofile
 sed -i "s=,Niedersachen=, Niedersachsen=g" $TABLE_ofile
-sed -i "s=(Sharing)=(TG Sharing)=g" $TABLE_ofile
+# sed -i "s=(Sharing)=(TG Sharing)=g" $TABLE_ofile
 sed -i "/TG/d" $TABLE_ofile
 
 echo "done"
