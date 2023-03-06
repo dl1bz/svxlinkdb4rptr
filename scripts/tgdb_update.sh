@@ -63,6 +63,7 @@ echo -n "finalizing..."
 sed -i "s=,\];=\] ;=g" $PHP_ofile
 sed -i "s=','=' \=\> '=g" $PHP_ofile
 sed -i "s/RegionThüringen/Region Thüringen/g" $PHP_ofile
+# sed -i "s/(Sharing)/(TG Sharing)/g" $TABLE_ofile
 sed -i "s/969258/10249/g" $PHP_ofile
 
 rm $TABLE_ofile
