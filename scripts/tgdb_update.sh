@@ -28,7 +28,6 @@ echo -n "Edit the TG List..."
 sed -i "s/\]\]//g" $TABLE_ofile
 sed -i "s/\[\[//g" $TABLE_ofile
 sed -i "s/'TG /'/g" $TABLE_ofile
-sed -i "s/','/' \/\> '/g" $TABLE_ofile
 sed -i "s/ '/'/g" $TABLE_ofile
 sed -i "s/\[//g" $TABLE_ofile
 sed -i "/^'0'/d" $TABLE_ofile
@@ -42,6 +41,8 @@ sed -i "s/Oberlausitzlink/OberlausitzLink/g" $TABLE_ofile
 sed -i "s/,Niedersachen/, Niedersachsen/g" $TABLE_ofile
 sed -i "s/(TG-Sharing)/(TG Sharing)/g" $TABLE_ofile
 sed -i "/^'TG'/d" $TABLE_ofile
+sed -i "s+RegionThüringen+Region Thüringen+g" $TABLE_ofile
+sed -i "s+'969258'+'10249'+g" $TABLE_ofile
 
 echo "done"
 
@@ -59,8 +60,10 @@ echo "?>" >> $PHP_ofile
 
 echo -n "finalizing..."
 
-sed -i "s/969258/10249/g" $PHP_ofile
-sed -i "s/RegionThüringen/Region Thüringen/g" $PHP_ofile
+# sed -i "s+969258+10249+g" $PHP_ofile
+# sed -i "s+RegionThüringen+Region Thüringen+g" $PHP_ofile
+
+sed -i "s+','+' => '+g" $PHP_ofile
 
 rm $TABLE_ofile
 chown svxlink:svxlink $PHP_ofile
