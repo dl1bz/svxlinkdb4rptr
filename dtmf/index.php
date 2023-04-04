@@ -211,7 +211,10 @@ pre {
 
 if (isset($_POST['button51']))
     {
-        shell_exec('echo "#" > ".$dtmfctrl." 2>&1');
+       $exec= "echo '"#"' > ".$dtmfctrl." 2>&1";
+       exec($exec,$output);
+            # echo "<meta http-equiv='refresh' content='0'>";
+        # shell_exec('echo "#" > ".$dtmfctrl." 2>&1');
     }
 
 if (isset($_POST['buttonAA']))
