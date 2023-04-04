@@ -153,97 +153,132 @@ pre {
 <h1 id="web-audio-peak-meters" style="color:#00aee8;font: 18pt arial, sans-serif;font-weight:bold; text-shadow: 0.25px 0.25px gray;">DTMF Keyboard</h1>
 <?php
 
+include '../include/parse_svxconf.php';
+
 // Keyboard
  if (isset($_POST['button40']))
     {
-        shell_exec('echo "0" > ".$dtmfctrl." 2>&1');
+       $exec= "echo '0' > ".$dtmfctrl." 2>&1";
+       exec($exec,$output);
     }
 
  if (isset($_POST['button41']))
     {
-        shell_exec('echo "1" > ".$dtmfctrl." 2>&1');
+       $exec= "echo '1' > ".$dtmfctrl." 2>&1";
+       exec($exec,$output);
     }
 
  if (isset($_POST['button42']))
     {
-        shell_exec('echo "2" > ".$dtmfctrl." 2>&1');
+       $exec= "echo '2' > ".$dtmfctrl." 2>&1";
+       exec($exec,$output);
     }
 
  if (isset($_POST['button43']))
     {
-        shell_exec('echo "3" > ".$dtmfctrl." 2>&1');
+       $exec= "echo '3' > ".$dtmfctrl." 2>&1";
+       exec($exec,$output);
     }
 
  if (isset($_POST['button44']))
     {
-        shell_exec('echo "4" > ".$dtmfctrl." 2>&1');
+       $exec= "echo '4' > ".$dtmfctrl." 2>&1";
+       exec($exec,$output);
     }
 
  if (isset($_POST['button45']))
     {
-        shell_exec('echo "5" > ".$dtmfctrl." 2>&1');
+       $exec= "echo '5' > ".$dtmfctrl." 2>&1";
+       exec($exec,$output);
     }
 
  if (isset($_POST['button46']))
     {
-        shell_exec('echo "6" > ".$dtmfctrl." 2>&1');
+       $exec= "echo '6' > ".$dtmfctrl." 2>&1";
+       exec($exec,$output);
     }
 
  if (isset($_POST['button47']))
     {
-        shell_exec('echo "7" > ".$dtmfctrl." 2>&1');
+       $exec= "echo '7' > ".$dtmfctrl." 2>&1";
+       exec($exec,$output);
     }
 
  if (isset($_POST['button48']))
     {
-        shell_exec('echo "8" > ".$dtmfctrl." 2>&1');
+       $exec= "echo '8' > ".$dtmfctrl." 2>&1";
+       exec($exec,$output);
     }
 
  if (isset($_POST['button49']))
     {
-        shell_exec('echo "9" > ".$dtmfctrl." 2>&1');
+       $exec= "echo '9' > ".$dtmfctrl." 2>&1";
+       exec($exec,$output);
     }
 
  if (isset($_POST['button50']))
     {
-        shell_exec('echo "*" > ".$dtmfctrl." 2>&1');
+       $exec= "echo '*' > ".$dtmfctrl." 2>&1";
+       exec($exec,$output);
     }
 
 if (isset($_POST['button51']))
     {
-       $exec= "echo '"#"' > ".$dtmfctrl." 2>&1";
+       $exec= "echo '#' > ".$dtmfctrl." 2>&1";
        exec($exec,$output);
-            # echo "<meta http-equiv='refresh' content='0'>";
-        # shell_exec('echo "#" > ".$dtmfctrl." 2>&1');
     }
 
 if (isset($_POST['buttonAA']))
     {
-        shell_exec('echo "A" > ".$dtmfctrl." 2>&1');
-}
+       $exec= "echo 'A' > ".$dtmfctrl." 2>&1";
+       exec($exec,$output);
+    }
 if (isset($_POST['buttonBB']))
     {
-        shell_exec('echo "B" > ".$dtmfctrl." 2>&1');
-}
+       $exec= "echo 'B' > ".$dtmfctrl." 2>&1";
+       exec($exec,$output);
+    }
 
 if (isset($_POST['buttonCC']))
     {
-        shell_exec('echo "C" > ".$dtmfctrl." 2>&1');
-}
+       $exec= "echo 'C' > ".$dtmfctrl." 2>&1";
+       exec($exec,$output);
+    }
 
 if (isset($_POST['buttonDD']))
     {
-        shell_exec('echo "D" > ".$dtmfctrl." 2>&1');
-}
+       $exec= "echo 'D' > ".$dtmfctrl." 2>&1";
+       exec($exec,$output);
+    }
 
 ?>
 
 <form method="post">
     <p>
-         <center><button style="height: 60px; width: 100px;font-size:25px;" button name="button41">1</button><button style="height: 60px; width: 100px;font-size:25px;" button name="button42">2</button><button style="height: 60px; width: 100px;font-size:25px;" button name="button43">3</button><button style="height: 60px; width: 100px;font-size:25px;" button name="buttonAA">A</button></center>
-         <center><button style="height: 60px; width: 100px;font-size:25px;" button name="button44">4</button><button style="height: 60px; width: 100px;font-size:25px;" button name="button45">5</button><button style="height: 60px; width: 100px;font-size:25px;" button name="button46">6</button><button style="height: 60px; width: 100px;font-size:25px;" button name="buttonBB">B</button></center>
-         <center><button style="height: 60px; width: 100px;font-size:25px;" button name="button47">7</button><button style="height: 60px; width: 100px;font-size:25px;" button name="button48">8</button><button style="height: 60px; width: 100px;font-size:25px;" button name="button49">9</button><button style="height: 60px; width: 100px;font-size:25px;" button name="buttonCC">C</button></center>
-         <center><button style="height: 60px; width: 100px;font-size:25px;" button name="button50">*</button><button style="height: 60px; width: 100px;font-size:25px;" button name="button40">0</button><button style="height: 60px; width: 100px;font-size:25px;" button name="button51">#</button><button style="height: 60px; width: 100px;font-size:25px;" button name="buttonDD">D</button></center>
+         <center>
+            <button style="height: 60px; width: 100px;font-size:25px;" button name="button41">1</button>
+            <button style="height: 60px; width: 100px;font-size:25px;" button name="button42">2</button>
+            <button style="height: 60px; width: 100px;font-size:25px;" button name="button43">3</button>
+            <button style="height: 60px; width: 100px;font-size:25px;" button name="buttonAA">A</button>
+         </center>
+         <center>
+            <button style="height: 60px; width: 100px;font-size:25px;" button name="button44">4</button>
+            <button style="height: 60px; width: 100px;font-size:25px;" button name="button45">5</button>
+            <button style="height: 60px; width: 100px;font-size:25px;" button name="button46">6</button>
+            <button style="height: 60px; width: 100px;font-size:25px;" button name="buttonBB">B</button>
+         </center>
+         <center>
+            <button style="height: 60px; width: 100px;font-size:25px;" button name="button47">7</button>
+            <button style="height: 60px; width: 100px;font-size:25px;" button name="button48">8</button>
+            <button style="height: 60px; width: 100px;font-size:25px;" button name="button49">9</button>
+            <button style="height: 60px; width: 100px;font-size:25px;" button name="buttonCC">C</button>
+         </center>
+         <center>
+            <button style="height: 60px; width: 100px;font-size:25px;" button name="button50">*</button>
+            <button style="height: 60px; width: 100px;font-size:25px;" button name="button40">0</button>
+            <button style="height: 60px; width: 100px;font-size:25px;" button name="button51">#</button>
+            <button style="height: 60px; width: 100px;font-size:25px;" button name="buttonDD">D</button>
+         </center>
     </p>
     </form>
 </fieldset>
