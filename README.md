@@ -74,6 +74,17 @@ $ cd /var/www/html/include
 $ sudo nano config.inc.php
 ```
 
+## Update ##
+
+If you want to make an update of dashboard:
+```
+$ cd /var/www/html
+$ sudo git pull
+```
+
+After update please look at the /var/www/html/include/config.inc.php.example if there are new defintions of new functions.
+If yes, you need to copy the additional lines to /var/www/html/include/config.inc.php
+
 Have fun with SVXLINK Dashboard for repeater !
 
 ## Known bugs

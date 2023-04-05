@@ -3,6 +3,9 @@
 
 ## Changes ##
 
+4.4.2023:
+- correct disfunction of DTMF keyboard
+
 15.2.2023:
 - cleanup code and remove old, not used things
 
