@@ -83,7 +83,7 @@ $ sudo git pull
 ```
 
 After update please look at the ``/var/www/html/include/config.inc.php.example`` if there are new defintions of new functions.
-If yes, you need to copy the additional lines to ``/var/www/html/include/config.inc.php``.
+If yes, you need to copy by hand the additional lines to ``/var/www/html/include/config.inc.php``.
 
 Have fun with SVXLINK Dashboard for repeater !
 
