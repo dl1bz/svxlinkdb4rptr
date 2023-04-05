@@ -97,7 +97,7 @@ Requirements:
 $ cd /var/www/html/scripts
 $ sudo ./tgdb_update.sh
 ```
-
+For automatic update the TG-List you can create a cron job and execute ``tgdb_update.sh`` regularly.
 
 Have fun with SVXLINK Dashboard for repeater !
 
