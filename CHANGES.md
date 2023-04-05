@@ -6,6 +6,7 @@
 4.4.2023:
 - correct disfunction of DTMF keyboard
 - add description of update procedure dashboard in README
+- add description of update procedure TG-List in README
 
 15.2.2023:
 - cleanup code and remove old, not used things
