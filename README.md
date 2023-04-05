@@ -87,7 +87,7 @@ If yes, you need to copy by hand the additional lines to ``/var/www/html/include
 
 ## Update the TG-List (FM-Funknetz DL only!) ##
 
-You can update the TG-List. At the moment only the German FM-Funknetz is supported.
+You can update the TG-List. At the moment only the [German FM-Funknetz](https://fm-funknetz.de/) is supported.
 
 Requirements:
 - installed **python3** and **pip3** (if not pip3 installed, do ``sudo apt-get install python3-pip``)
