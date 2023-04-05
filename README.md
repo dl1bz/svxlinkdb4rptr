@@ -74,7 +74,7 @@ $ cd /var/www/html/include
 $ sudo nano config.inc.php
 ```
 
-## Update ##
+## Update the dashboard ##
 
 If you want to make an update of dashboard:
 ```
