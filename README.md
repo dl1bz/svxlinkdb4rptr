@@ -76,7 +76,7 @@ $ sudo nano config.inc.php
 
 ## Update the dashboard ##
 
-If you want to make an update of dashboard:
+If you want to make an update of dashboard **(frequently recommended)**:
 ```
 $ cd /var/www/html
 $ sudo git pull
@@ -84,6 +84,19 @@ $ sudo git pull
 
 After update please look at the ``/var/www/html/include/config.inc.php.example`` if there are new defintions of new functions.
 If yes, you need to copy by hand the additional lines to ``/var/www/html/include/config.inc.php``.
+
+## Update the TG-List (FM-Funknetz DL only!) ##
+
+You can update the TG-List. At the moment only the German FM-Funknetz is supported.
+Requirements:
+- installed python3 and pip3 (if not pip3 installed, do ``sudo apt-get install python3-pip``)
+- html-table-parser (``sudo pip3 install html-table-parser-python3``)
+
+```
+$ cd /var/www/html/scripts
+$ sudo ./tgdb_update.sh
+```
+
 
 Have fun with SVXLINK Dashboard for repeater !
 
