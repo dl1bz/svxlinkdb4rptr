@@ -91,7 +91,8 @@ You can update the TG-List. At the moment only the [German FM-Funknetz](https://
 
 Requirements:
 - installed **python3** and **pip3** (if not pip3 installed, do ``sudo apt-get install python3-pip``)
-- **html-table-parser** (``sudo pip3 install html-table-parser-python3``)
+- installed **html-table-parser** (``sudo pip3 install html-table-parser-python3``)
+- installed **sed** (normally part of every Linux distribution)
 
 ```
 $ cd /var/www/html/scripts
