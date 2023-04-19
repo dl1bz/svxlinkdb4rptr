@@ -26,7 +26,7 @@ For better use with public repeaters some things are different
 ## Requirements ##
 - installed git support
 - a running SVXLINK by SM0SVX https://github.com/sm0svx/svxlink
-- a webserver with php activated
+- a webserver with php7 activated (I recommend lighttpd rather than nginx, development and testing dashboard only with lighttpd too)
 - **the webserver needs to be run as user svxlink, otherwise the DTMF controls via webinterface will be not working**
 - activate/install php-curl for read the status from SVXReflector via his API
 - **basic knowledge of using and working with Linux :) This piece of software is not plug'n'play !**
