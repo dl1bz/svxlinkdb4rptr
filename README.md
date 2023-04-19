@@ -89,7 +89,7 @@ If there is an error message like "fatal: detected dubious ownership in reposito
 ```
 $ sudo git config --global --add safe.directory /var/www/html
 ```
-Then again:
+Then try again:
 ```
 $ cd /var/www/html
 $ sudo git pull
