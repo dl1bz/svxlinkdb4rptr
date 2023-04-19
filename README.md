@@ -85,7 +85,7 @@ $ sudo git pull
 After update please look at the ``/var/www/html/include/config.inc.php.example`` if there are new defintions of new functions.
 If yes, you need to copy by hand the additional lines to ``/var/www/html/include/config.inc.php``.
 
-If there is an error message like "fatal: detected dubious ownership in repository at '/var/www/html'" please do this one time:
+If there is an error message like ``fatal: detected dubious ownership in repository at '/var/www/html'`` please do this one time:
 ```
 $ cd /var/www
 $ sudo chown -R svxlink:svxlink html
