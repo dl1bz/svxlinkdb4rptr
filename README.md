@@ -85,6 +85,17 @@ $ sudo git pull
 After update please look at the ``/var/www/html/include/config.inc.php.example`` if there are new defintions of new functions.
 If yes, you need to copy by hand the additional lines to ``/var/www/html/include/config.inc.php``.
 
+If there is an error message like "fatal: detected dubious ownership in repository at '/var/www/html'" please do this one time:
+```
+$ sudo git config --global --add safe.directory /var/www/html
+```
+Then again:
+```
+$ cd /var/www/html
+$ sudo git pull
+```
+Now it should be worked correctly.
+
 ## Update the TG-List (FM-Funknetz DL only!) ##
 
 You can update the TG-List. At the moment only the [German FM-Funknetz](https://fm-funknetz.de/) is supported.

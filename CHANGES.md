@@ -3,6 +3,9 @@
 
 ## Changes ##
 
+19.4.2023:
+- add HF propagation monitor next to the menu as an OPTION
+
 4.4.2023:
 - correct disfunction of DTMF keyboard
 - add description of update procedure dashboard in README
