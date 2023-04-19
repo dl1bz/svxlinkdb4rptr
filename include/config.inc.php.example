@@ -1,15 +1,29 @@
 <?php
-// header lines for information
+
+// header lines for information in site banner
 define("HEADER_CAT","FM-Relais");
 define("HEADER_QTH","Somewhere JO01AA");
 define("HEADER_QRG","439.000 MHz");
 define("HEADER_SYSOP","Sysop: DL1ABC");
+
+// show additional FM network in site banner
 define("FMNETWORK_EXTRA","");
+
+// define your ECHOLINK node number if needed
 // define("EL_NODE_NR","123456");
+
+// enable full access from all networks inclusive internet if set to 1, default is 0
 define("FULLACCESS_OUTSIDE", 0);
+
+// add additional 10 buttons so we have 20 now, default is only 10 buttons
 define("ADD_BUTTONS", 0);
+
+// enable shutdown option in system-menu, default is disabled
 define("SHUTDOWN", 0);
+
+// show next to the menu hf propagation if set to 1, default is 0
 define("PROP_SHOW", 0);
+
 //
 // Button keys define: description button, DTMF command or command, color of button
 //
@@ -26,7 +40,8 @@ define("KEY7", array(' D7 ','*D7#','purple'));
 define("KEY8", array(' D8 ','*D8#','blue'));
 define("KEY9", array(' D9 ','*D9#','blue'));
 define("KEY10", array(' D10 ','*D10#','red'));
-// additional DTMF keys
+
+// define additional 10 DTMF keys if ADD_BUTTONS set to 1
 define("KEY11", array(' D11 ','*D11#','green'));
 define("KEY12", array(' D12 ','*D12#','orange'));
 define("KEY13", array(' D13 ','*D13#','orange'));
