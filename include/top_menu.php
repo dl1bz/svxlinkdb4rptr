@@ -1,5 +1,10 @@
 <p style="padding-right: 5px; text-align: right; color: #000000;"> 
 <?php
+        // show solar propagation next to the menu
+        if (defined('PROP_SHOW') && PROP_SHOW == 1)
+           {
+              echo "<img src=\"https://www.hamqsl.com/solar101vhf.php\" width=\"400\">&nbsp;&nbsp;&nbsp;&nbsp;";
+           }
 	echo "<a href=\"/\" style=\"color: #0000ff; font-family: 'Oswald', sans-serif; font-size: 14pt;\">Dashboard</a> |";
         if ($reflector_active) {
         echo "<a href=\"/tg.php\" style=\"color: #0000ff; font-family: 'Oswald', sans-serif; font-size: 14pt;\"> Talk Groups</a> |"; }
