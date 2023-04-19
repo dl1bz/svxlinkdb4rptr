@@ -87,6 +87,8 @@ If yes, you need to copy by hand the additional lines to ``/var/www/html/include
 
 If there is an error message like "fatal: detected dubious ownership in repository at '/var/www/html'" please do this one time:
 ```
+$ cd /var/www
+$ sudo chown -R svxlink:svxlink html
 $ sudo git config --global --add safe.directory /var/www/html
 ```
 Then try again:
