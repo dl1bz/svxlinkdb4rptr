@@ -460,6 +460,7 @@ input[type=text] {
     margin: 3px 5px;
     text-align: center;
     font-weight:600;
+    // font-family: "Lucidia Console",Monaco,monospace;
     background: linear-gradient(to bottom, transparent 0%, #20cf52 0%), linear-gradient(#F7f7f7, #EEE);
 }
 
@@ -473,6 +474,7 @@ input[type=text] {
     margin: 3px 5px;
     text-align: center;
     font-weight:600;
+    // font-family: "Lucidia Console",Monaco,monospace;
     background: linear-gradient(to bottom, transparent 0%,  #FF5733 0%), linear-gradient(#F7f7f7, #EEE);
 }
 
