@@ -454,12 +454,26 @@ input[type=text] {
     display: inline-block;
     width: 120px;
     padding: 2px;
-    border: 1px solid #0f0;
+    // border: 1px solid #0f0;
+    border: 1px solid #000;
     border-radius: 5px;
     margin: 3px 5px;
     text-align: center;
     font-weight:600;
     background: linear-gradient(to bottom, transparent 0%, #20cf52 0%), linear-gradient(#F7f7f7, #EEE);
+}
+
+.node-talk {
+    display: inline-block;
+    width: 120px;
+    padding: 2px;
+    // border: 1px solid #FF5733;
+    border: 1px solid #000;
+    border-radius: 5px;
+    margin: 3px 5px;
+    text-align: center;
+    font-weight:600;
+    background: linear-gradient(to bottom, transparent 0%,  #FF5733 0%), linear-gradient(#F7f7f7, #EEE);
 }
 
 #lact {

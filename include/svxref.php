@@ -53,7 +53,7 @@ foreach ($nodes['nodes'] as $key =>$value)
  { 
    echo "<span class=\"tooltip\" style=\"border-bottom: 1px dotted white;\">";
    if (isset($nodes['nodes'][$key]['isTalker']) && ($nodes['nodes'][$key]['isTalker'] ==1)) {
-   echo "<span class=\"node\" style=\"color:blue\"><img src=images/talk.gif height=12 alt='TXing' title='TXing' style=\"vertical-align: text-top;\">&nbsp;&nbsp;".$key." (".trim($nodes['nodes'][$key]['tg']).")<span class=\"tooltiptext\" style=\"top:100%;left:25%;margin-left:-50%;max-width:200px;width:195px;word-wrap: break-word;white-space: pre-wrap; padding: 3px 0;\">"; }
+   echo "<span class=\"node-talk\" style=\"color:black\"><img src=images/talk.gif height=12 alt='TXing' title='TXing' style=\"vertical-align: text-top;\">&nbsp;&nbsp;".$key." (".trim($nodes['nodes'][$key]['tg']).")<span class=\"tooltiptext\" style=\"top:100%;left:25%;margin-left:-50%;max-width:200px;width:195px;word-wrap: break-word;white-space: pre-wrap; padding: 3px 0;\">"; }
    else {
    echo "<span class=\"node\" style=\"color:black\">".$key."<span class=\"tooltiptext\" style=\"top:100%;left:25%;margin-left:-50%;max-width:200px;width:195px;word-wrap: break-word;white-space: pre-wrap; padding: 3px 0;\">"; }
    if ($nodes['nodes'][$key]['nodeLocation']!=""){
