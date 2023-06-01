@@ -327,10 +327,29 @@ function get_string_between($string, $start, $end) {
     return substr($string,$ini,$len);
 }
 
-$logLinesSVX = getSVXLog();
-$reverseLogLinesSVX = $logLinesSVX;
-array_multisort($reverseLogLinesSVX,SORT_DESC);
-$lastHeard = getLastHeard($reverseLogLinesSVX);
+function sort_datum_deu($logdata_array) {
+    $sort_array = array();
+    $sort_result = array();
+    foreach ($logdata_array as $line) {
+        $values = explode(": ", $line);
+        $date_deu = date_create_from_format('d.m.Y H:i:s', $values[0]);
+        $values[0] = date_format($date_deu, 'Y.m.d H:i:s');
+        $sort_array[] = implode(": ", $values);
+        }
+    array_multisort($sort_array,SORT_DESC);
+    foreach ($sort_array as $line) {
+        $values = explode(": ", $line);
+        $date_engl = date_create_from_format('Y.m.d H:i:s', $values[0]);
+        $values[0] = date_format($date_engl, 'd.m.Y H:i:s');
+        $sort_result[] = implode(": ", $values);
+        }
+    return $sort_result;
+}
 
+$logLinesSVX = getSVXLog();
+// $reverseLogLinesSVX = $logLinesSVX;
+$reverseLogLinesSVX=sort_datum_deu($logLinesSVX);
+// array_multisort($reverseLogLinesSVX,SORT_DESC);
+$lastHeard = getLastHeard($reverseLogLinesSVX);
 
 ?>
