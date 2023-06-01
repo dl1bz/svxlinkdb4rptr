@@ -348,8 +348,8 @@ function sort_datum_deu($logdata_array) {
 
 $logLinesSVX = getSVXLog();
 
-if ($svxconfig['GLOBAL']['TIMESTAMP_FORMAT'] == "%d.%m.%Y %H:%M:%S" {
-      $reverseLogLinesSVX=sort_datum_deu($logLinesSVX);
+if ($svxconfig['GLOBAL']['TIMESTAMP_FORMAT'] == "%d.%m.%Y %H:%M:%S") {
+      $reverseLogLinesSVX = sort_datum_deu($logLinesSVX);
    } else {
       $reverseLogLinesSVX = $logLinesSVX;
       array_multisort($reverseLogLinesSVX,SORT_DESC);
