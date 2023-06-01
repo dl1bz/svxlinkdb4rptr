@@ -327,30 +327,40 @@ function get_string_between($string, $start, $end) {
     return substr($string,$ini,$len);
 }
 
+// we need to convert the German date format to YYYY.MM.DD for sorting the LH list
+// otherwise we have a sort problem if the month was changing, e.g. 31.5. to 1.6.
 function sort_datum_deu($logdata_array) {
+    // intermediate array for sorting
     $sort_array = array();
+    // return array from function call
     $sort_result = array();
+    // we change the date format to YYYY.MM.DD
     foreach ($logdata_array as $line) {
         $values = explode(": ", $line);
         $date_deu = date_create_from_format('d.m.Y H:i:s', $values[0]);
         $values[0] = date_format($date_deu, 'Y.m.d H:i:s');
         $sort_array[] = implode(": ", $values);
         }
+    // sorting the array date and time descending after change date format to YYYY.MM.DD like 2023.6.1
     array_multisort($sort_array,SORT_DESC);
+    // change the date format back to German syntax 1.6.2023 after sorting descendig
     foreach ($sort_array as $line) {
         $values = explode(": ", $line);
         $date_engl = date_create_from_format('Y.m.d H:i:s', $values[0]);
         $values[0] = date_format($date_engl, 'd.m.Y H:i:s');
         $sort_result[] = implode(": ", $values);
         }
+    // return the whole array after sorting
     return $sort_result;
 }
 
 $logLinesSVX = getSVXLog();
 
+// check if using German date format like 1.1.2023 in svxlink.conf GLOBAL/TIMESTAMP_FORMAT="%d.%m.%Y %H:%M:%S"
 if ($svxconfig['GLOBAL']['TIMESTAMP_FORMAT'] == "%d.%m.%Y %H:%M:%S") {
       $reverseLogLinesSVX = sort_datum_deu($logLinesSVX);
    } else {
+      // if other time format we leave it like it is
       $reverseLogLinesSVX = $logLinesSVX;
       array_multisort($reverseLogLinesSVX,SORT_DESC);
    }
