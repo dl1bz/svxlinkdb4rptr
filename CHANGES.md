@@ -2,6 +2,9 @@
 # Dashboard for SVXLINK for public repeaters #
 
 ## Changes ##
+01.06.2023:
+- Correction of lastheard list sorting if German date format like 01.01.2023 is defined in svxlink.conf (wrong sorting if
+  a new month begun -> FIXED)
 
 19.4.2023:
 - add HF propagation monitor next to the menu as an OPTION
