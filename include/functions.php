@@ -347,9 +347,14 @@ function sort_datum_deu($logdata_array) {
 }
 
 $logLinesSVX = getSVXLog();
-// $reverseLogLinesSVX = $logLinesSVX;
-$reverseLogLinesSVX=sort_datum_deu($logLinesSVX);
-// array_multisort($reverseLogLinesSVX,SORT_DESC);
+
+if ($svxconfig['GLOBAL']['TIMESTAMP_FORMAT'] == "%d.%m.%Y %H:%M:%S" {
+      $reverseLogLinesSVX=sort_datum_deu($logLinesSVX);
+   } else {
+      $reverseLogLinesSVX = $logLinesSVX;
+      array_multisort($reverseLogLinesSVX,SORT_DESC);
+   }
+
 $lastHeard = getLastHeard($reverseLogLinesSVX);
 
 ?>
