@@ -10,10 +10,12 @@
 
 <?php 
 if ($ctcss >= 67) {
-echo $callsign," ",HEADER_CAT," ",HEADER_QTH,"<br>",HEADER_QRG," CTCSS ",$ctcss,"Hz ",HEADER_SYSOP; }
+    echo $callsign," ",HEADER_CAT," ",HEADER_QTH,"<br>",HEADER_QRG," CTCSS ",$ctcss,"Hz ",HEADER_SYSOP; 
+}
 // echo $callsign," ",$dtmfctrl; }
 else {
-echo $callsign," ",HEADER_CAT," ",HEADER_QTH,"<br>",HEADER_QRG," ",HEADER_SYSOP; }
+    echo $callsign," ",HEADER_CAT," ",HEADER_QTH,"<br>",HEADER_QRG," ",HEADER_SYSOP; 
+}
 ?>
 
 </span>
@@ -22,9 +24,9 @@ echo $callsign," ",HEADER_CAT," ",HEADER_QTH,"<br>",HEADER_QRG," ",HEADER_SYSOP;
 <span style="font-size: 20px;font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, sans-serif;letter-spacing: 3px;font-weight: 600;background: #3083b8;">
 <?php 
 if (FMNETWORK_EXTRA !== "") {
-echo FMNETWORK_EXTRA." & ".$fmnetwork;
+    echo FMNETWORK_EXTRA." & ".$fmnetwork;
 } else {
-echo $fmnetwork;
+    echo $fmnetwork;
 }
 ?></span>
 </p></center>

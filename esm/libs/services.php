@@ -9,8 +9,7 @@ $available_protocols = array('tcp', 'udp');
 
 $show_port = $Config->get('services:show_port');
 
-if (count($Config->get('services:list')) > 0)
-{
+if (count($Config->get('services:list')) > 0) {
     foreach ($Config->get('services:list') as $service)
     {
         $host     = $service['host'];
@@ -18,10 +17,11 @@ if (count($Config->get('services:list')) > 0)
         $name     = $service['name'];
         $protocol = isset($service['protocol']) && in_array($service['protocol'], $available_protocols) ? $service['protocol'] : 'tcp';
 
-        if (Misc::scanPort($host, $port, $protocol))
+        if (Misc::scanPort($host, $port, $protocol)) {
             $status = 1;
-        else
+        } else {
             $status = 0;
+        }
 
         $datas[] = array(
             'port'      => $show_port === true ? $port : '',

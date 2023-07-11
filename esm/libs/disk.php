@@ -4,8 +4,7 @@ $Config = new Config();
 
 $datas = array();
 
-if (!(exec('/bin/df -T | awk -v c=`/bin/df -T | grep -bo "Type" | awk -F: \'{print $2}\'` \'{print substr($0,c);}\' | tail -n +2 | awk \'{print $1","$2","$3","$4","$5","$6","$7}\'', $df)))
-{
+if (!(exec('/bin/df -T | awk -v c=`/bin/df -T | grep -bo "Type" | awk -F: \'{print $2}\'` \'{print substr($0,c);}\' | tail -n +2 | awk \'{print $1","$2","$3","$4","$5","$6","$7}\'', $df))) {
     $datas[] = array(
         'total'         => 'N.A',
         'used'          => 'N.A',
@@ -24,11 +23,11 @@ else
     {
         list($filesystem, $type, $total, $used, $free, $percent, $mount) = explode(',', $mounted);
 
-        if (strpos($type, 'tmpfs') !== false && $Config->get('disk:show_tmpfs') === false)
+        if (strpos($type, 'tmpfs') !== false && $Config->get('disk:show_tmpfs') === false) {
             continue;
+        }
 
-        if (!in_array($mount, $mounted_points))
-        {
+        if (!in_array($mount, $mounted_points)) {
             $mounted_points[] = trim($mount);
 
             $datas[$key] = array(
@@ -39,8 +38,9 @@ else
                 'mount'         => $mount,
             );
 
-            if ($Config->get('disk:show_filesystem'))
+            if ($Config->get('disk:show_filesystem')) {
                 $datas[$key]['filesystem'] = $filesystem;
+            }
         }
 
         $key++;

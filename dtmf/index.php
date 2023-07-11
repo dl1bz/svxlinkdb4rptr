@@ -153,103 +153,87 @@ pre {
 <h1 id="web-audio-peak-meters" style="color:#00aee8;font: 18pt arial, sans-serif;font-weight:bold; text-shadow: 0.25px 0.25px gray;">DTMF Keyboard</h1>
 <?php
 
-include '../include/parse_svxconf.php';
+require '../include/parse_svxconf.php';
 
 // Keyboard
- if (isset($_POST['button40']))
-    {
-       $exec= "echo '0' > ".$dtmfctrl." 2>&1";
-       exec($exec,$output);
-    }
+if (isset($_POST['button40'])) {
+      $exec= "echo '0' > ".$dtmfctrl." 2>&1";
+      exec($exec, $output);
+}
 
- if (isset($_POST['button41']))
-    {
-       $exec= "echo '1' > ".$dtmfctrl." 2>&1";
-       exec($exec,$output);
-    }
+if (isset($_POST['button41'])) {
+      $exec= "echo '1' > ".$dtmfctrl." 2>&1";
+      exec($exec, $output);
+}
 
- if (isset($_POST['button42']))
-    {
-       $exec= "echo '2' > ".$dtmfctrl." 2>&1";
-       exec($exec,$output);
-    }
+if (isset($_POST['button42'])) {
+      $exec= "echo '2' > ".$dtmfctrl." 2>&1";
+      exec($exec, $output);
+}
 
- if (isset($_POST['button43']))
-    {
-       $exec= "echo '3' > ".$dtmfctrl." 2>&1";
-       exec($exec,$output);
-    }
+if (isset($_POST['button43'])) {
+      $exec= "echo '3' > ".$dtmfctrl." 2>&1";
+      exec($exec, $output);
+}
 
- if (isset($_POST['button44']))
-    {
-       $exec= "echo '4' > ".$dtmfctrl." 2>&1";
-       exec($exec,$output);
-    }
+if (isset($_POST['button44'])) {
+      $exec= "echo '4' > ".$dtmfctrl." 2>&1";
+      exec($exec, $output);
+}
 
- if (isset($_POST['button45']))
-    {
-       $exec= "echo '5' > ".$dtmfctrl." 2>&1";
-       exec($exec,$output);
-    }
+if (isset($_POST['button45'])) {
+      $exec= "echo '5' > ".$dtmfctrl." 2>&1";
+      exec($exec, $output);
+}
 
- if (isset($_POST['button46']))
-    {
-       $exec= "echo '6' > ".$dtmfctrl." 2>&1";
-       exec($exec,$output);
-    }
+if (isset($_POST['button46'])) {
+      $exec= "echo '6' > ".$dtmfctrl." 2>&1";
+      exec($exec, $output);
+}
 
- if (isset($_POST['button47']))
-    {
-       $exec= "echo '7' > ".$dtmfctrl." 2>&1";
-       exec($exec,$output);
-    }
+if (isset($_POST['button47'])) {
+      $exec= "echo '7' > ".$dtmfctrl." 2>&1";
+      exec($exec, $output);
+}
 
- if (isset($_POST['button48']))
-    {
-       $exec= "echo '8' > ".$dtmfctrl." 2>&1";
-       exec($exec,$output);
-    }
+if (isset($_POST['button48'])) {
+      $exec= "echo '8' > ".$dtmfctrl." 2>&1";
+      exec($exec, $output);
+}
 
- if (isset($_POST['button49']))
-    {
-       $exec= "echo '9' > ".$dtmfctrl." 2>&1";
-       exec($exec,$output);
-    }
+if (isset($_POST['button49'])) {
+      $exec= "echo '9' > ".$dtmfctrl." 2>&1";
+      exec($exec, $output);
+}
 
- if (isset($_POST['button50']))
-    {
-       $exec= "echo '*' > ".$dtmfctrl." 2>&1";
-       exec($exec,$output);
-    }
+if (isset($_POST['button50'])) {
+      $exec= "echo '*' > ".$dtmfctrl." 2>&1";
+      exec($exec, $output);
+}
 
-if (isset($_POST['button51']))
-    {
+if (isset($_POST['button51'])) {
        $exec= "echo '#' > ".$dtmfctrl." 2>&1";
-       exec($exec,$output);
-    }
+       exec($exec, $output);
+}
 
-if (isset($_POST['buttonAA']))
-    {
+if (isset($_POST['buttonAA'])) {
        $exec= "echo 'A' > ".$dtmfctrl." 2>&1";
-       exec($exec,$output);
-    }
-if (isset($_POST['buttonBB']))
-    {
+       exec($exec, $output);
+}
+if (isset($_POST['buttonBB'])) {
        $exec= "echo 'B' > ".$dtmfctrl." 2>&1";
-       exec($exec,$output);
-    }
+       exec($exec, $output);
+}
 
-if (isset($_POST['buttonCC']))
-    {
+if (isset($_POST['buttonCC'])) {
        $exec= "echo 'C' > ".$dtmfctrl." 2>&1";
-       exec($exec,$output);
-    }
+       exec($exec, $output);
+}
 
-if (isset($_POST['buttonDD']))
-    {
+if (isset($_POST['buttonDD'])) {
        $exec= "echo 'D' > ".$dtmfctrl." 2>&1";
-       exec($exec,$output);
-    }
+       exec($exec, $output);
+}
 
 ?>
 

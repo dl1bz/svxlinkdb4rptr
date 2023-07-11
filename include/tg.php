@@ -1,22 +1,23 @@
 <?php
-include_once __DIR__.'/config.php';         
-include_once __DIR__.'/tools.php';        
-include_once __DIR__.'/functions.php';    
+require_once __DIR__.'/config.php';         
+require_once __DIR__.'/tools.php';        
+require_once __DIR__.'/functions.php';    
 
 if (file_exists(__DIR__.'/tgdb.inc.php')) {
-   include_once __DIR__.'/tgdb.inc.php'; }
+    include_once __DIR__.'/tgdb.inc.php'; 
+}
 else {
-   include_once __DIR__.'/tgdb.php'; }
+    include_once __DIR__.'/tgdb.php'; 
+}
 
 
-   if (isset($fmnetwork))
-   {
-      $tg_counter = count($tgdb_array);
-      echo "<span style=\"font-weight: bold;font-size:14px;\">:: ".$tg_counter." Talkgroups @ SVXReflector ".$fmnetwork." ::";
-   } else
-   {
-      echo "<span style=\"font-weight: bold;font-size:14px;\">:: Talkgroup List ::";
-   }
+if (isset($fmnetwork)) {
+    $tg_counter = count($tgdb_array);
+    echo "<span style=\"font-weight: bold;font-size:14px;\">:: ".$tg_counter." Talkgroups @ SVXReflector ".$fmnetwork." ::";
+} else
+{
+    echo "<span style=\"font-weight: bold;font-size:14px;\">:: Talkgroup List ::";
+}
 ?>
 </span>
 
@@ -32,9 +33,9 @@ echo "</tr>";
 
 foreach ($tgdb_array as $tg => $tgname)
 { 
-		echo "<td align=\"center\">&nbsp;<span style=\"color:#b5651d;font-weight:bold;\">$tg</span></td>";
-		echo "<td style=\"font-weight:bold;color:#464646;\">&nbsp;<b>".$tgname."</b></td>";
-		echo"</tr>\n";
+    echo "<td align=\"center\">&nbsp;<span style=\"color:#b5651d;font-weight:bold;\">$tg</span></td>";
+    echo "<td style=\"font-weight:bold;color:#464646;\">&nbsp;<b>".$tgname."</b></td>";
+    echo"</tr>\n";
 };
 
 echo "</table>";

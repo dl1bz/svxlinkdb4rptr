@@ -1,19 +1,25 @@
 <?php
-$progname = basename($_SERVER['SCRIPT_FILENAME'],".php");
+$progname = basename($_SERVER['SCRIPT_FILENAME'], ".php");
 
 // pre-check environment
 
-if (DIRECTORY_SEPARATOR !== '/') { die("ERROR: This SVXLINK Dashboard runs only with UNIX-like OS (Linux,BSD,macOS)...exiting"); }
-if ( !version_compare(phpversion(), '8', '<')) { die("ERROR: This Dashboard do NOT work with PHP-Version greater 7, but you have ".phpversion()."...exiting"); }
-if ( !file_exists('/etc/default/svxlink') ) { die("ERROR: File /etc/default/svxlink not found => SVXLINK not or not complete installed...exiting"); }
-if ( (!file_exists('include/config.inc.php')) && (file_exists('include/config.inc.php.example')) ) {
+if (DIRECTORY_SEPARATOR !== '/') { die("ERROR: This SVXLINK Dashboard runs only with UNIX-like OS (Linux,BSD,macOS)...exiting"); 
+}
+if (!version_compare(phpversion(), '8', '<')) { die("ERROR: This Dashboard do NOT work with PHP-Version greater 7, but you have ".phpversion()."...exiting"); 
+}
+if (!file_exists('/etc/default/svxlink') ) { die("ERROR: File /etc/default/svxlink not found => SVXLINK not or not complete installed...exiting"); 
+}
+if ((!file_exists('include/config.inc.php')) && (file_exists('include/config.inc.php.example')) ) {
     copy('include/config.inc.php.example', 'include/config.inc.php');
-    sleep(3); }
+    sleep(3); 
+}
 
-if ( !file_exists('include/config.php') ) { die("ERROR: File include/config.php not found...exiting"); }
-else { include_once 'include/config.php'; }
+if (!file_exists('include/config.php') ) { die("ERROR: File include/config.php not found...exiting"); 
+}
+else { include_once 'include/config.php'; 
+}
 
-include_once 'include/tools.php';
+require_once 'include/tools.php';
 
 ?>
 
@@ -39,7 +45,7 @@ include_once 'include/tools.php';
 <link rel="shortcut icon" href="images/favicon.ico" sizes="16x16 32x32" type="image/png">    
 
 <?php echo ("<title>" . $callsign ." ". $fmnetwork . " Dashboard</title>"); ?>
-<?php include_once "include/browserdetect.php"; ?>
+<?php require_once "include/browserdetect.php"; ?>
     <script type="text/javascript" src="scripts/jquery.min.js"></script>
     <script type="text/javascript" src="scripts/functions.js"></script>
     <script type="text/javascript" src="scripts/pcm-player.min.js"></script>
@@ -53,11 +59,11 @@ include_once 'include/tools.php';
 </head>
 <body style="background-color: #e1e1e1;font: 11pt arial, sans-serif;">
 
-<?php include("./include/top_header.php") ?>
+<?php require "./include/top_header.php" ?>
 
 </div></div>
 </div>
-<?php include_once __DIR__."/include/top_menu.php"; ?>
+<?php require_once __DIR__."/include/top_menu.php"; ?>
 
 <div class="content"><center>
 <div style="margin-top:0px;">
@@ -65,7 +71,7 @@ include_once 'include/tools.php';
 </div>
 <?php
 if (MENUBUTTON=="TOP") {
-include_once __DIR__."/include/buttons.php"; 
+    include_once __DIR__."/include/buttons.php"; 
 }
 ?>
 <?php
@@ -81,7 +87,7 @@ include_once __DIR__."/include/buttons.php";
     echo '$(window).trigger(\'resize\');'."\n";
     echo '</script>'."\n";
     echo '<div id="statusInfo" style="margin-bottom:30px;">'."\n";
-    include 'include/status.php';
+    require 'include/status.php';
     echo '</div>'."\n";
     echo '</div>'."\n";
     echo '</td>'."\n";
@@ -90,11 +96,11 @@ include_once __DIR__."/include/buttons.php";
     echo '<div class="content">'."\n";
     echo '<script type="text/javascript">'."\n";
 
-    if (URLSVXRAPI!="") {
+if (URLSVXRAPI!="") {
     echo 'function reloadSVXREF(){'."\n";
     echo '}'."\n";
     echo 'setTimeout(reloadSVXREF,90000);'."\n";
-     }
+}
 
     echo 'function reloadLastHerd(){'."\n";
     echo '  $("#lastHerd").load("include/lh.php",function(){ setTimeout(reloadLastHerd,3000) });'."\n";
@@ -104,13 +110,13 @@ include_once __DIR__."/include/buttons.php";
     echo '$(window).trigger(\'resize\');'."\n";
     echo '</script>'."\n";
     echo '<center><div id="lastHerd" style="margin-bottom:30px;">'."\n";
-    include 'include/lh.php';
+    require 'include/lh.php';
     echo '</div></center>'."\n";
     echo "<br />\n";
-    if (URLSVXRAPI!="") {
+if (URLSVXRAPI!="") {
     echo '<center><div id="svxref" style="margin-bottom:30px;">'."\n";
     echo '</div></center>'."\n";
-    }
+}
     echo '</td>';
 ?>
 </tr></table>
@@ -124,15 +130,16 @@ include_once __DIR__."/include/buttons.php";
     echo '$(window).trigger(\'resize\');'."\n";
     echo '</script>'."\n";
     echo '<div id="sysInfo">'."\n";
-    include 'include/system.php';
+    require 'include/system.php';
     echo '</div>'."\n";
     echo '</div>'."\n";
 ?>
 <?php
 if ((MENUBUTTON=="BOTTOM") && ($dtmfctrl != "/dev/null")) {
-include_once __DIR__."/include/buttons.php"; }
+    include_once __DIR__."/include/buttons.php"; 
+}
 ?>
-<?php include("./include/footer.php") ?>
+<?php require "./include/footer.php" ?>
 </div>
 </div>
 </fieldset>

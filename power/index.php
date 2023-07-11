@@ -74,77 +74,72 @@ textarea {
 // load the connlist
 $retval = null;
 
-if ( file_exists(__DIR__.'/../include/config.inc.php') ) { include_once __DIR__.'/../include/config.inc.php'; } else { define("SHUTDOWN", 0); }
-if (defined('SHUTDOWN'))
-   {
-      if (SHUTDOWN)
-         {
-            if (isset($_POST['btnPower']) )
-               {
-                  $retval = null;
-                  $screen = null;
-                  $command = "sudo shutdown -h now 2>&1";
-                  exec($command,$screen,$retval);
-               }
-         }
-   }
+if (file_exists(__DIR__.'/../include/config.inc.php') ) { include_once __DIR__.'/../include/config.inc.php'; 
+} else { define("SHUTDOWN", 0); 
+}
+if (defined('SHUTDOWN')) {
+    if (SHUTDOWN) {
+        if (isset($_POST['btnPower']) ) {
+              $retval = null;
+              $screen = null;
+              $command = "sudo shutdown -h now 2>&1";
+              exec($command, $screen, $retval);
+        }
+    }
+}
 
-if (isset($_POST['btnSvxlinkRE']))
-    {
+if (isset($_POST['btnSvxlinkRE'])) {
 
         $retval = null;
         $screen = null;
         $command = "sudo service svxlink restart 2>&1";
-        exec($command,$screen,$retval);
+        exec($command, $screen, $retval);
 }
 
-if (isset($_POST['btnSvxlinkSTO']))
-    {
+if (isset($_POST['btnSvxlinkSTO'])) {
 
         $retval = null;
         $screen = null;
         $command = "sudo service svxlink stop 2>&1";
-        exec($command,$screen,$retval);
+        exec($command, $screen, $retval);
 }
 
-if (isset($_POST['btnSvxlinkSTA']))
-    {
+if (isset($_POST['btnSvxlinkSTA'])) {
 
         $retval = null;
         $screen = null;
         $command = "sudo service svxlink start 2>&1";
-        exec($command,$screen,$retval);
+        exec($command, $screen, $retval);
 }
 
-if (isset($_POST['btnRestart']))
-    {
+if (isset($_POST['btnRestart'])) {
 
         $retval = null;
         $screen = null;
         $command = "sudo shutdown -r now 2>&1";
-        exec($command,$screen,$retval);
+        exec($command, $screen, $retval);
 }
 
 ?>
 
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-	<button name="btnSvxlinkSTO" type="submit" class="red" style="height:40px; width:400px; font-size:12px;">Stop SVXlink Service</button>
-	<BR><BR>
-	<button name="btnSvxlinkSTA" type="submit" class="green" style="height:40px; width:400px; font-size:12px;">Start SVXlink Service</button>
-	<BR><BR>
-	<button name="btnSvxlinkRE" type="submit" class="orange" style="height:40px; width:400px; font-size:12px;">Restart SVXlink Service</button>
-	<BR><BR>
-	<button name="btnRestart" type="submit" class="orange" style="height:40px; width:400px; font-size:12px;">Restart/Reboot Device</button>
+    <button name="btnSvxlinkSTO" type="submit" class="red" style="height:40px; width:400px; font-size:12px;">Stop SVXlink Service</button>
+    <BR><BR>
+    <button name="btnSvxlinkSTA" type="submit" class="green" style="height:40px; width:400px; font-size:12px;">Start SVXlink Service</button>
+    <BR><BR>
+    <button name="btnSvxlinkRE" type="submit" class="orange" style="height:40px; width:400px; font-size:12px;">Restart SVXlink Service</button>
+    <BR><BR>
+    <button name="btnRestart" type="submit" class="orange" style="height:40px; width:400px; font-size:12px;">Restart/Reboot Device</button>
         <BR><BR>
 <?php
-if ( file_exists(__DIR__.'/../include/config.inc.php') ) { include_once __DIR__.'/../include/config.inc.php'; } else { define("SHUTDOWN", 0); }
-        if (defined('SHUTDOWN'))
-           {
-              if (SHUTDOWN) 
-                 {
-                    echo "<button name=\"btnPower\" type=\"submit\" class=\"red\" style=\"height:40px; width:400px; font-size:12px;\">Power OFF / Shutdown</button>";
-                 }
-           }
+if (file_exists(__DIR__.'/../include/config.inc.php') ) { include_once __DIR__.'/../include/config.inc.php'; 
+} else { define("SHUTDOWN", 0); 
+}
+if (defined('SHUTDOWN')) {
+    if (SHUTDOWN) {
+                echo "<button name=\"btnPower\" type=\"submit\" class=\"red\" style=\"height:40px; width:400px; font-size:12px;\">Power OFF / Shutdown</button>";
+    }
+}
 ?>
 
 </form>

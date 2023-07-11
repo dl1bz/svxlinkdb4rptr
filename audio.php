@@ -1,7 +1,7 @@
 <?php
-$progname = basename($_SERVER['SCRIPT_FILENAME'],".php");
-include_once 'include/config.php';
-include_once 'include/tools.php';
+$progname = basename($_SERVER['SCRIPT_FILENAME'], ".php");
+require_once 'include/config.php';
+require_once 'include/tools.php';
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -27,7 +27,7 @@ include_once 'include/tools.php';
  
 <?php echo ("<title>" . $callsign ." ". $fmnetwork . " Dashboard</title>"); ?>
 
- <?php include_once "include/browserdetect.php"; ?>
+ <?php require_once "include/browserdetect.php"; ?>
     <script type="text/javascript" src="scripts/jquery.min.js"></script>
     <script type="text/javascript" src="scripts/functions.js"></script>
     <script type="text/javascript" src="scripts/pcm-player.min.js"></script>
@@ -54,7 +54,7 @@ include_once 'include/tools.php';
 </div></div>
 </div>
 
-<?php include_once __DIR__."/include/top_menu.php"; ?>
+<?php require_once __DIR__."/include/top_menu.php"; ?>
 
 <div class="content"><center>
 <div style="margin-top:8px;">
@@ -62,7 +62,7 @@ include_once 'include/tools.php';
 </div>
 <?php
 if (MENUBUTTON=="TOP") {
-include_once __DIR__."/include/buttons.php"; 
+    include_once __DIR__."/include/buttons.php"; 
 }
 ?>
 <?php
@@ -78,7 +78,7 @@ include_once __DIR__."/include/buttons.php";
     echo '$(window).trigger(\'resize\');'."\n";
     echo '</script>'."\n";
     echo '<div id="statusInfo" style="margin-bottom:30px;">'."\n";
-    include 'include/status.php';
+    require 'include/status.php';
     echo '</div>'."\n";
     echo '</div>'."\n";
     echo '</td>'."\n";
@@ -107,15 +107,16 @@ include_once __DIR__."/include/buttons.php";
     echo '$(window).trigger(\'resize\');'."\n";
     echo '</script>'."\n";
     echo '<div id="sysInfo">'."\n";
-    include 'include/system.php';
+    require 'include/system.php';
     echo '</div>'."\n";
     echo '</div>'."\n";
 ?>
 <?php
 if (MENUBUTTON=="BOTTOM") {
-include_once __DIR__."/include/buttons.php"; }
+    include_once __DIR__."/include/buttons.php"; 
+}
 ?>
-<?php include("./include/footer.php") ?>
+<?php require "./include/footer.php" ?>
 </div>
 </div>
 </fieldset>

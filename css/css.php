@@ -7,8 +7,8 @@ header("Content-type: text/css");
     $bannerDropShaddows = "303030";    
     $tableHeadDropShaddow = "8b0000";  
     $textContent = "000000";           
-    $tableRowEvenBg = "f7f7f7";		
-    $tableRowOddBg = "e0e0e0";	
+    $tableRowEvenBg = "f7f7f7";        
+    $tableRowOddBg = "e0e0e0";    
 ?>
 .container {
     width: 900px;

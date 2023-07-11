@@ -5,10 +5,8 @@ $Config = new Config();
 
 $datas = array();
 
-if ($Config->get('last_login:enable'))
-{
-    if (!(exec('/usr/bin/lastlog --time 365 | /usr/bin/awk -F\' \' \'{ print $1";"$5, $4, $8, $6}\'', $users)))
-    {
+if ($Config->get('last_login:enable')) {
+    if (!(exec('/usr/bin/lastlog --time 365 | /usr/bin/awk -F\' \' \'{ print $1";"$5, $4, $8, $6}\'', $users))) {
         $datas[] = array(
             'user' => 'N.A',
             'date' => 'N.A',

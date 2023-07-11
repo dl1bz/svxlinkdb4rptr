@@ -104,8 +104,7 @@ $screen[4] = "Have a Fun. Vy 73 de SP0DZ |shhh...:)";
 
 
 
-if (isset($_POST['btnLog']))
-    {
+if (isset($_POST['btnLog'])) {
 
         $retval = null;
         $screen = null;
@@ -113,7 +112,7 @@ if (isset($_POST['btnLog']))
         //$password = $_POST['password'];
         //exec('nmcli dev wifi rescan');
         $command = "tail -n 500 /var/log/dv/svxlink |tac 2>&1";
-        exec($command,$screen,$retval);
+        exec($command, $screen, $retval);
 }
 
 ?>
@@ -121,19 +120,19 @@ if (isset($_POST['btnLog']))
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"> 
 <DIV style="height:300px">
 <table>
-	<tr>
-	<th>Screen</th> 
-	</tr>
+    <tr>
+    <th>Screen</th> 
+    </tr>
 <tr>
 <Td>
-	<textarea name="scan" rows="23" cols="80"><?php 
-			echo implode("\n",$screen); ?></textarea>
+    <textarea name="scan" rows="23" cols="80"><?php 
+    echo implode("\n", $screen); ?></textarea>
 
 </td>
 </tr>  
 </table> 
 </DIV>
-	<button name="btnLog" type="submit" class="red" style="height:30px; width:105px; font-size:12px;">show Log</button>
+    <button name="btnLog" type="submit" class="red" style="height:30px; width:105px; font-size:12px;">show Log</button>
 </form>
 
 <p style="margin: 0 auto;"></p>

@@ -13,8 +13,7 @@ $cache      = 'N.A';
 $bogomips   = 'N.A';
 $temp       = 'N.A';
 
-if ($cpuinfo = shell_exec('cat /proc/cpuinfo'))
-{
+if ($cpuinfo = shell_exec('cat /proc/cpuinfo')) {
     $processors = preg_split('/\s?\n\s?\n/', trim($cpuinfo));
 
     foreach ($processors as $processor)
@@ -27,47 +26,43 @@ if ($cpuinfo = shell_exec('cat /proc/cpuinfo'))
 
             switch (strtolower($key))
             {
-                case 'model name':
-                case 'cpu model':
-                case 'cpu':
-                case 'processor':
-                    $model = $value;
+            case 'model name':
+            case 'cpu model':
+            case 'cpu':
+            case 'processor':
+                $model = $value;
                 break;
 
-                case 'cpu mhz':
-                case 'clock':
-                    $frequency = $value.' MHz';
+            case 'cpu mhz':
+            case 'clock':
+                $frequency = $value.' MHz';
                 break;
 
-                case 'cache size':
-                case 'l2 cache':
-                    $cache = $value;
+            case 'cache size':
+            case 'l2 cache':
+                $cache = $value;
                 break;
 
-                case 'bogomips':
-                    $bogomips = $value;
+            case 'bogomips':
+                $bogomips = $value;
                 break;
             }
         }
     }
 }
 
-if ($frequency == 'N.A')
-{
-    if ($f = shell_exec('cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq'))
-    {
+if ($frequency == 'N.A') {
+    if ($f = shell_exec('cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq')) {
         $f = $f / 1000;
         $frequency = $f.' MHz';
     }
 }
 
 // CPU Temp
-if ($Config->get('cpu:enable_temperature'))
-{
-        if (exec('cat /sys/class/thermal/thermal_zone0/temp', $t))
-        {
-            $temp = round($t[0] / 1000).' °C';
-        }
+if ($Config->get('cpu:enable_temperature')) {
+    if (exec('cat /sys/class/thermal/thermal_zone0/temp', $t)) {
+        $temp = round($t[0] / 1000).' °C';
+    }
 }
 
 

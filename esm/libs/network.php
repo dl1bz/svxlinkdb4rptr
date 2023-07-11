@@ -15,16 +15,14 @@ function getInterfacesCommand($commands)
 {
     $ifconfig = Misc::whichCommand($commands['ifconfig'], ' | awk -F \'[/  |: ]\' \'{print $1}\' | sed -e \'/^$/d\'');
 
-    if (!empty($ifconfig))
-    {
+    if (!empty($ifconfig)) {
         return $ifconfig;
     }
     else
     {
         $ip_cmd = Misc::whichCommand($commands['ip'], ' -V', false);
 
-        if (!empty($ip_cmd))
-        {
+        if (!empty($ip_cmd)) {
             return $ip_cmd.' -oneline link show | awk \'{print $2}\' | sed "s/://"';
         }
         else
@@ -39,16 +37,14 @@ function getIpCommand($commands, $interface)
 {
     $ifconfig = Misc::whichCommand($commands['ifconfig'], ' '.$interface.' | awk \'/inet / {print $2}\' | cut -d \':\' -f2');
 
-    if (!empty($ifconfig))
-    {
+    if (!empty($ifconfig)) {
         return $ifconfig;
     }
     else
     {
         $ip_cmd = Misc::whichCommand($commands['ip'], ' -V', false);
 
-        if (!empty($ip_cmd))
-        {
+        if (!empty($ip_cmd)) {
             return 'for family in inet inet6; do '.
                $ip_cmd.' -oneline -family $family addr show '.$interface.' | grep -v fe80 | awk \'{print $4}\' | sed "s/\/.*//"; ' .
             'done';
@@ -63,8 +59,7 @@ function getIpCommand($commands, $interface)
 
 $getInterfaces_cmd = getInterfacesCommand($commands);
 
-if (is_null($getInterfaces_cmd) || !(exec($getInterfaces_cmd, $getInterfaces)))
-{
+if (is_null($getInterfaces_cmd) || !(exec($getInterfaces_cmd, $getInterfaces))) {
     $datas[] = array('interface' => 'N.A', 'ip' => 'N.A');
 }
 else
@@ -75,8 +70,7 @@ else
 
         $getIp_cmd = getIpCommand($commands, $name);        
 
-        if (is_null($getIp_cmd) || !(exec($getIp_cmd, $ip)))
-        {
+        if (is_null($getIp_cmd) || !(exec($getIp_cmd, $ip))) {
             $network[] = array(
                 'name' => $name,
                 'ip'   => 'N.A',
@@ -84,8 +78,9 @@ else
         }
         else
         {
-            if (!isset($ip[0]))
+            if (!isset($ip[0])) {
                 $ip[0] = '';
+            }
 
             $network[] = array(
                 'name' => $name,

@@ -65,7 +65,7 @@ pre {
 error_reporting(0);
 $filelist=array();
 foreach(glob('*.wav') as $filename) {
-$filelist[] = $filename;
+    $filelist[] = $filename;
 }
 $filelist = array_reverse($filelist);
 //foreach($filelist as $value) {
@@ -92,11 +92,10 @@ echo ']" type="audio/wav"></audio></div>';
 </div>
 </fieldset>
 <?php
-    if (isset($_POST['recAudio']))
-    {
-         exec('/opt/fmpoland/audiotest/record.sh');
-         header("Refresh:0; url=index.php");
-    }
+if (isset($_POST['recAudio'])) {
+     exec('/opt/fmpoland/audiotest/record.sh');
+     header("Refresh:0; url=index.php");
+}
 ?>
 <script>
 function func() {

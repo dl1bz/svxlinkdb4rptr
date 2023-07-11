@@ -1,7 +1,7 @@
 <?php
-$progname = basename($_SERVER['SCRIPT_FILENAME'],".php");
-include_once 'include/config.php';
-include_once 'include/tools.php';
+$progname = basename($_SERVER['SCRIPT_FILENAME'], ".php");
+require_once 'include/config.php';
+require_once 'include/tools.php';
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -27,7 +27,7 @@ include_once 'include/tools.php';
 
 <?php echo ("<title>" . $callsign ." ". $fmnetwork . " Dashboard</title>"); ?>
 
-<?php include_once "include/browserdetect.php"; ?>
+<?php require_once "include/browserdetect.php"; ?>
     <script type="text/javascript" src="scripts/jquery.min.js"></script>
     <script type="text/javascript" src="scripts/functions.js"></script>
     <script type="text/javascript" src="scripts/pcm-player.min.js"></script>
@@ -41,11 +41,11 @@ include_once 'include/tools.php';
 </head>
 <body style="background-color: #e1e1e1;font: 11pt arial, sans-serif;">
 
-<?php include("./include/top_header.php") ?>
+<?php require "./include/top_header.php" ?>
 
 </div></div>
 </div>
-<?php include_once __DIR__."/include/top_menu.php"; ?>
+<?php require_once __DIR__."/include/top_menu.php"; ?>
 
 <div class="content"><center>
 <div style="margin-top:8px;">
@@ -53,7 +53,7 @@ include_once 'include/tools.php';
 </div>
 <?php
 if (MENUBUTTON=="TOP") {
-include_once __DIR__."/include/buttons.php"; 
+    include_once __DIR__."/include/buttons.php"; 
 }
 ?>
 <?php
@@ -69,7 +69,7 @@ include_once __DIR__."/include/buttons.php";
     echo '$(window).trigger(\'resize\');'."\n";
     echo '</script>'."\n";
     echo '<div id="statusInfo" style="margin-bottom:30px;">'."\n";
-    include 'include/status.php';
+    require 'include/status.php';
     echo '</div>'."\n";
     echo '</div>'."\n";
     echo '</td>'."\n";
@@ -78,12 +78,12 @@ include_once __DIR__."/include/buttons.php";
     echo '<div class="content">'."\n";
     echo '<script type="text/javascript">'."\n";
 
-    if (URLSVXRAPI!="") {
+if (URLSVXRAPI!="") {
     echo 'function reloadSVXREF(){'."\n";
     //echo '  $("#svxref").load("include/svxref.php",function(){ setTimeout(reloadSVXREF,90000) });'."\n";
     echo '}'."\n";
     echo 'setTimeout(reloadSVXREF,90000);'."\n";
-     }
+}
 
     echo 'function reloadLastHerd(){'."\n";
     echo '  $("#lastHerd").load("include/tg.php",function(){ setTimeout(reloadLastHerd,3000) });'."\n";
@@ -93,14 +93,14 @@ include_once __DIR__."/include/buttons.php";
     echo '$(window).trigger(\'resize\');'."\n";
     echo '</script>'."\n";
     echo '<center><div id="lastHerd" style="margin-bottom:30px;">'."\n";
-    include 'include/tg.php';
+    require 'include/tg.php';
     echo '</div></center>'."\n";
     echo "<br />\n";
-    if (URLSVXRAPI!="") {
+if (URLSVXRAPI!="") {
     echo '<center><div id="svxref" style="margin-bottom:30px;">'."\n";
     //include 'include/svxref.php';
     echo '</div></center>'."\n";
-    }
+}
     echo '</td>';
 ?>
 </tr></table>
@@ -114,15 +114,16 @@ include_once __DIR__."/include/buttons.php";
     echo '$(window).trigger(\'resize\');'."\n";
     echo '</script>'."\n";
     echo '<div id="sysInfo">'."\n";
-    include 'include/system.php';
+    require 'include/system.php';
     echo '</div>'."\n";
     echo '</div>'."\n";
 ?>
 <?php
 if (MENUBUTTON=="BOTTOM") {
-include_once __DIR__."/include/buttons.php"; }
+    include_once __DIR__."/include/buttons.php"; 
+}
 ?>
-<?php include("./include/footer.php") ?>
+<?php require "./include/footer.php" ?>
 </div>
 </div>
 </fieldset>

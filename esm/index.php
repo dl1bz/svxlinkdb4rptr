@@ -33,7 +33,7 @@ $update = $Config->checkUpdate();
 
         esm.getAll();
 
-        <?php if ($Config->get('esm:auto_refresh') > 0): ?>
+        <?php if ($Config->get('esm:auto_refresh') > 0) : ?>
             setInterval(function(){ esm.getAll(); }, <?php echo $Config->get('esm:auto_refresh') * 1000; ?>);
         <?php endif; ?>
     });
@@ -50,14 +50,15 @@ $update = $Config->checkUpdate();
 
     <div id="hostname">
         <?php
-        if ($Config->get('esm:custom_title') != '')
+        if ($Config->get('esm:custom_title') != '') {
             echo $Config->get('esm:custom_title');
-        else
+        } else {
             echo Misc::getHostname().' - '.Misc::getLanIP();
+        }
         ?>
     </div>
 
-    <?php if (!is_null($update)): ?>
+    <?php if (!is_null($update)) : ?>
         <div id="update">
             <a href="<?php echo $update['fullpath']; ?>">New version available (<?php echo $update['availableVersion']; ?>) ! Click here to download</a>
         </div>
@@ -202,7 +203,7 @@ $update = $Config->checkUpdate();
             <table>
                 <thead>
                     <tr>
-                        <?php if ($Config->get('disk:show_filesystem')): ?>
+                        <?php if ($Config->get('disk:show_filesystem')) : ?>
                             <th class="w10p filesystem">Filesystem</th>
                         <?php endif; ?>
                         <th class="w20p">Mount</th>
@@ -285,7 +286,7 @@ $update = $Config->checkUpdate();
                         <td>Bogomips</td>
                         <td id="cpu-bogomips"></td>
                     </tr>
-                    <?php if ($Config->get('cpu:enable_temperature')): ?>
+                    <?php if ($Config->get('cpu:enable_temperature')) : ?>
                         <tr>
                             <td>Temperature</td>
                             <td id="cpu-temp"></td>
@@ -349,7 +350,7 @@ $update = $Config->checkUpdate();
             </div>
 
             <div class="box-content">
-                <?php if ($Config->get('last_login:enable') == true): ?>
+                <?php if ($Config->get('last_login:enable') == true) : ?>
                     <table>
                         <tbody></tbody>
                     </table>

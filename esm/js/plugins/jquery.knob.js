@@ -88,11 +88,13 @@
                  ._draw();
             };
 
-            if (this.$.data('kontroled')) return;
+            if (this.$.data('kontroled')) { return;
+            }
             this.$.data('kontroled', true);
 
             this.extend();
-            this.o = $.extend({
+            this.o = $.extend(
+                {
                     // Config
                     min: this.$.data('min') !== undefined ? this.$.data('min') : 0,
                     max: this.$.data('max') !== undefined ? this.$.data('max') : 100,
@@ -125,7 +127,7 @@
                     release: null, // function (value) {}
 
                     // Output formatting, allows to add unit: %, ms ...
-                    format: function(v) {
+                    format: function (v) {
                         return v;
                     },
                     parse: function (v) {
@@ -146,20 +148,22 @@
                 // fieldset = array of integer
                 this.v = {};
                 this.i = this.$.find('input');
-                this.i.each(function(k) {
-                    var $this = $(this);
-                    s.i[k] = $this;
-                    s.v[k] = s.o.parse($this.val());
+                this.i.each(
+                    function (k) {
+                        var $this = $(this);
+                        s.i[k] = $this;
+                        s.v[k] = s.o.parse($this.val());
 
-                    $this.bind(
-                        'change blur',
-                        function () {
-                            var val = {};
-                            val[k] = $this.val();
-                            s.val(s._validate(val));
-                        }
-                    );
-                });
+                        $this.bind(
+                            'change blur',
+                            function () {
+                                var val = {};
+                                val[k] = $this.val();
+                                s.val(s._validate(val));
+                            }
+                        );
+                    }
+                );
                 this.$.find('legend').remove();
             } else {
 
@@ -179,17 +183,21 @@
             !this.o.displayInput && this.$.hide();
 
             // adds needed DOM elements (canvas, div)
-            this.$c = $(document.createElement('canvas')).attr({
-                width: this.o.width,
-                height: this.o.height
-            });
+            this.$c = $(document.createElement('canvas')).attr(
+                {
+                    width: this.o.width,
+                    height: this.o.height
+                }
+            );
 
             // wraps all elements in a div
             // add to DOM before Canvas init is triggered
-            this.$div = $('<div style="'
+            this.$div = $(
+                '<div style="'
                 + (this.o.inline ? 'display:inline;' : '')
                 + 'width:' + this.o.width + 'px;height:' + this.o.height + 'px;'
-                + '"></div>');
+                + '"></div>'
+            );
 
             this.$.wrap(this.$div).before(this.$c);
             this.$div = this.$.parent();
@@ -204,7 +212,8 @@
                 throw {
                     name:        "CanvasNotSupportedException",
                     message:     "Canvas not supported. Please use excanvas on IE8.0.",
-                    toString:    function(){return this.name + ": " + this.message}
+                    toString:    function () {
+                        return this.name + ": " + this.message}
                 }
             }
 
@@ -255,7 +264,7 @@
             return this;
         };
 
-        this._carve = function() {
+        this._carve = function () {
             if (this.relative) {
                 var w = this.relativeWidth ?
                         this.$div.parent().width() *
@@ -274,16 +283,20 @@
             }
 
             // finalize div
-            this.$div.css({
-                'width': this.w + 'px',
-                'height': this.h + 'px'
-            });
+            this.$div.css(
+                {
+                    'width': this.w + 'px',
+                    'height': this.h + 'px'
+                }
+            );
 
             // finalize canvas with computed width
-            this.$c.attr({
-                width: this.w,
-                height: this.h
-            });
+            this.$c.attr(
+                {
+                    width: this.w,
+                    height: this.h
+                }
+            );
 
             // scaling
             if (this.scale !== 1) {
@@ -313,13 +326,15 @@
         this._touch = function (e) {
             var touchMove = function (e) {
                 var v = s.xy2val(
-                            e.originalEvent.touches[s.t].pageX,
-                            e.originalEvent.touches[s.t].pageY
-                        );
+                    e.originalEvent.touches[s.t].pageX,
+                    e.originalEvent.touches[s.t].pageY
+                );
 
-                if (v == s.cv) return;
+                if (v == s.cv) { return;
+                }
 
-                if (s.cH && s.cH(v) === false) return;
+                if (s.cH && s.cH(v) === false) { return;
+                }
 
                 s.change(s._validate(v));
                 s._draw();
@@ -349,9 +364,11 @@
             var mouseMove = function (e) {
                 var v = s.xy2val(e.pageX, e.pageY);
 
-                if (v == s.cv) return;
+                if (v == s.cv) { return;
+                }
 
-                if (s.cH && (s.cH(v) === false)) return;
+                if (s.cH && (s.cH(v) === false)) { return;
+                }
 
                 s.change(s._validate(v));
                 s._draw();
@@ -370,8 +387,9 @@
                         if (e.keyCode === 27) {
                             k.c.d.unbind("mouseup.k mousemove.k keyup.k");
 
-                            if (s.eH && s.eH() === false)
+                            if (s.eH && s.eH() === false) {
                                 return;
+                            }
 
                             s.cancel();
                         }
@@ -420,10 +438,12 @@
             }
 
             if (this.relative) {
-                $(window).resize(function() {
-                    s._carve().init();
-                    s._draw();
-                });
+                $(window).resize(
+                    function () {
+                        s._carve().init();
+                        s._draw();
+                    }
+                );
             }
 
             return this;
@@ -432,10 +452,14 @@
         this._configure = function () {
 
             // Hooks
-            if (this.o.draw) this.dH = this.o.draw;
-            if (this.o.change) this.cH = this.o.change;
-            if (this.o.cancel) this.eH = this.o.cancel;
-            if (this.o.release) this.rH = this.o.release;
+            if (this.o.draw) { this.dH = this.o.draw;
+            }
+            if (this.o.change) { this.cH = this.o.change;
+            }
+            if (this.o.cancel) { this.eH = this.o.cancel;
+            }
+            if (this.o.release) { this.rH = this.o.release;
+            }
 
             if (this.o.displayPrevious) {
                 this.pColor = this.h2rgba(this.o.fgColor, "0.4");
@@ -452,7 +476,7 @@
         };
 
         this._validate = function (v) {
-            var val = (~~ (((v < 0) ? -0.5 : 0.5) + (v/this.o.step))) * this.o.step;
+            var val = (~~(((v < 0) ? -0.5 : 0.5) + (v/this.o.step))) * this.o.step;
             return Math.round(val * 100) / 100;
         };
 
@@ -464,7 +488,8 @@
         this.val = function (v) {}; // on release
         this.xy2val = function (x, y) {}; //
         this.draw = function () {}; // on change / on release
-        this.clear = function () { this._clear(); };
+        this.clear = function () {
+            this._clear(); };
 
         // Utils
         this.h2rgba = function (h, a) {
@@ -502,12 +527,14 @@
         this.PI2 = 2*Math.PI;
 
         this.extend = function () {
-            this.o = $.extend({
-                bgColor: this.$.data('bgcolor') || '#EEEEEE',
-                angleOffset: this.$.data('angleoffset') || 0,
-                angleArc: this.$.data('anglearc') || 360,
-                inline: true
-            }, this.o);
+            this.o = $.extend(
+                {
+                    bgColor: this.$.data('bgcolor') || '#EEEEEE',
+                    angleOffset: this.$.data('angleoffset') || 0,
+                    angleArc: this.$.data('anglearc') || 360,
+                    inline: true
+                }, this.o
+            );
         };
 
         this.val = function (v, triggerRelease) {
@@ -519,7 +546,8 @@
                 if (triggerRelease !== false
                     && v != this.v
                     && this.rH
-                    && this.rH(v) === false) { return; }
+                    && this.rH(v) === false
+                ) { return; }
 
                 this.cv = this.o.stopper ? max(min(v, this.o.max), this.o.min) : v;
                 this.v = this.cv;
@@ -534,9 +562,9 @@
             var a, ret;
 
             a = Math.atan2(
-                        x - (this.x + this.w2),
-                        - (y - this.y - this.w2)
-                    ) - this.angleOffset;
+                x - (this.x + this.w2),
+                - (y - this.y - this.w2)
+            ) - this.angleOffset;
 
             if (this.o.flip) {
                 a = this.angleArc - a - this.PI2;
@@ -582,18 +610,23 @@
                     if (s.rH) {
                         // Handle mousewheel stop
                         clearTimeout(mwTimerStop);
-                        mwTimerStop = setTimeout(function () {
-                            s.rH(v);
-                            mwTimerStop = null;
-                        }, 100);
+                        mwTimerStop = setTimeout(
+                            function () {
+                                s.rH(v);
+                                mwTimerStop = null;
+                            }, 100
+                        );
 
                         // Handle mousewheel releases
                         if (!mwTimerRelease) {
-                            mwTimerRelease = setTimeout(function () {
-                                if (mwTimerStop)
-                                    s.rH(v);
-                                mwTimerRelease = null;
-                            }, 200);
+                            mwTimerRelease = setTimeout(
+                                function () {
+                                    if (mwTimerStop) {
+                                        s.rH(v);
+                                    }
+                                    mwTimerRelease = null;
+                                }, 200
+                            );
                         }
                     }
                 },
@@ -605,7 +638,7 @@
                     38: s.o.step,
                     39: s.o.step,
                     40: -s.o.step
-                };
+            };
 
             this.$
                 .bind(
@@ -640,9 +673,11 @@
                                 s._draw();
 
                                 // long time keydown speed-up
-                                to = window.setTimeout(function () {
-                                    m *= 2;
-                                }, 30);
+                                to = window.setTimeout(
+                                    function () {
+                                        m *= 2;
+                                    }, 30
+                                );
                             }
                         }
                     }
@@ -671,7 +706,8 @@
 
         this.init = function () {
             if (this.v < this.o.min
-                || this.v > this.o.max) { this.v = this.o.min; }
+                || this.v > this.o.max
+            ) { this.v = this.o.min; }
 
             this.$.val(this.v);
             this.w2 = this.w / 2;
@@ -702,7 +738,8 @@
             ) + 2;
 
             this.o.displayInput
-                && this.i.css({
+                && this.i.css(
+                    {
                         'width' : ((this.w / 2 + 4) >> 0) + 'px',
                         'height' : ((this.w / 3) >> 0) + 'px',
                         'position' : 'absolute',
@@ -716,10 +753,13 @@
                         'color' : this.o.inputColor || this.o.fgColor,
                         'padding' : '0px',
                         '-webkit-appearance': 'none'
-                        }) || this.i.css({
-                            'width': '0px',
-                            'visibility': 'hidden'
-                        });
+                    }
+                ) || this.i.css(
+                    {
+                        'width': '0px',
+                        'visibility': 'hidden'
+                        }
+                );
         };
 
         this.change = function (v) {
@@ -732,24 +772,24 @@
         };
 
         this.arc = function (v) {
-          var sa, ea;
-          v = this.angle(v);
-          if (this.o.flip) {
-              sa = this.endAngle + 0.00001;
-              ea = sa - v - 0.00001;
-          } else {
-              sa = this.startAngle - 0.00001;
-              ea = sa + v + 0.00001;
-          }
-          this.o.cursor
+            var sa, ea;
+            v = this.angle(v);
+            if (this.o.flip) {
+                sa = this.endAngle + 0.00001;
+                ea = sa - v - 0.00001;
+            } else {
+                sa = this.startAngle - 0.00001;
+                ea = sa + v + 0.00001;
+            }
+            this.o.cursor
               && (sa = ea - this.cursorExt)
               && (ea = ea + this.cursorExt);
 
-          return {
-              s: sa,
-              e: ea,
-              d: this.o.flip && !this.o.cursor
-          };
+            return {
+                s: sa,
+                e: ea,
+                d: this.o.flip && !this.o.cursor
+            };
         };
 
         this.draw = function () {

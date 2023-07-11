@@ -71,32 +71,35 @@ textarea {
 
 <?php
 
-include '../include/parse_svxconf.php';
+require '../include/parse_svxconf.php';
 
 //sp0dz based on
 //https://programmierfrage.com/items/convert-array-to-an-ini-file
-function build_ini_string(array $a) {
+function build_ini_string(array $a)
+{
     $out = '';
     $sectionless = '';
     foreach($a as $rootkey => $rootvalue) {
-        if(is_array($rootvalue)){
+        if(is_array($rootvalue)) {
             // find out if the root-level item is an indexed or associative array
             $indexed_root = array_keys($rootvalue) == range(0, count($rootvalue) - 1);
             // associative arrays at the root level have a section heading
-            if(!$indexed_root) $out .= PHP_EOL."[$rootkey]".PHP_EOL;
+            if(!$indexed_root) { $out .= PHP_EOL."[$rootkey]".PHP_EOL;
+            }
             // loop through items under a section heading
             foreach($rootvalue as $key => $value){
-                if(is_array($value)){
+                if(is_array($value)) {
                     // indexed arrays under a section heading will have their key omitted
                     $indexed_item = array_keys($value) == range(0, count($value) - 1);
                     foreach($value as $subkey=>$subvalue){
                         // omit subkey for indexed arrays
-                        if($indexed_item) $subkey = "";
+                        if($indexed_item) { $subkey = "";
+                        }
                         // add this line under the section heading
                         $out .= "{$key}[$subkey] = $subvalue" . PHP_EOL;
                     }
                 }else{
-                    if($indexed_root){
+                    if($indexed_root) {
                         // root level indexed array becomes sectionless
                         $sectionless .= "{$rootkey}[] = $value" . PHP_EOL;
                     }else{
@@ -115,65 +118,63 @@ function build_ini_string(array $a) {
 }
 
 
-if (fopen($nodeInfoFile,'r'))
-{
-	$filedata = file_get_contents($nodeInfoFile);
-	$nodeInfo = json_decode($filedata,true);
-	//print_r($nodeInfo);
+if (fopen($nodeInfoFile, 'r')) {
+    $filedata = file_get_contents($nodeInfoFile);
+    $nodeInfo = json_decode($filedata, true);
+    //print_r($nodeInfo);
 };
 
-if (isset($_POST['btnSave']))
-    {
-	$nodeInfo["Location"] = $_POST['inLocation'];
-	$nodeInfo["Locator"] = $_POST['inLocator'];
-	$nodeInfo["SysOp"] = $_POST['inSysOp'];
-	$nodeInfo["LAT"] = $_POST['inLAT'];
-	$nodeInfo["LONG"] = $_POST['inLONG'];
-	$nodeInfo["RXFREQ"] = $_POST['inRXFREQ'];
-	$nodeInfo["TXFREQ"] = $_POST['inTXFREQ'];
-	$nodeInfo["Website"] = $_POST['inWebsite'];
-	$nodeInfo["Mode"] = $_POST['inMode'];
-	$nodeInfo["Type"] = $_POST['inType'];
-	$nodeInfo["Echolink"] = $_POST['inEcholink'];
-	$nodeInfo["nodeLocation"] = $_POST['innodeLocation'];
-	$nodeInfo["Sysop"] = $_POST['inSysop'];
-	$nodeInfo["Verbund"] = $_POST['inVerbund'];
-	$nodeInfo["CTCSS"] = $_POST['inCTCSS'];
-	$nodeInfo["DefaultTG"] = $_POST['inDefaultTG'];
+if (isset($_POST['btnSave'])) {
+    $nodeInfo["Location"] = $_POST['inLocation'];
+    $nodeInfo["Locator"] = $_POST['inLocator'];
+    $nodeInfo["SysOp"] = $_POST['inSysOp'];
+    $nodeInfo["LAT"] = $_POST['inLAT'];
+    $nodeInfo["LONG"] = $_POST['inLONG'];
+    $nodeInfo["RXFREQ"] = $_POST['inRXFREQ'];
+    $nodeInfo["TXFREQ"] = $_POST['inTXFREQ'];
+    $nodeInfo["Website"] = $_POST['inWebsite'];
+    $nodeInfo["Mode"] = $_POST['inMode'];
+    $nodeInfo["Type"] = $_POST['inType'];
+    $nodeInfo["Echolink"] = $_POST['inEcholink'];
+    $nodeInfo["nodeLocation"] = $_POST['innodeLocation'];
+    $nodeInfo["Sysop"] = $_POST['inSysop'];
+    $nodeInfo["Verbund"] = $_POST['inVerbund'];
+    $nodeInfo["CTCSS"] = $_POST['inCTCSS'];
+    $nodeInfo["DefaultTG"] = $_POST['inDefaultTG'];
 
-	$jsonNodeInfo = json_encode($nodeInfo);
-	file_put_contents("/var/www/html/nodeInfo/node_info.json", $jsonNodeInfo ,FILE_USE_INCLUDE_PATH);
+    $jsonNodeInfo = json_encode($nodeInfo);
+    file_put_contents("/var/www/html/nodeInfo/node_info.json", $jsonNodeInfo, FILE_USE_INCLUDE_PATH);
 
         $retval = null;
         $screen = null;
 
 
-	///file manipulation section
-		//archive the current config
-		exec('sudo cp /etc/svxlink/node_info.json /etc/svxlink/node_info.json.' .date("YmdThis") ,$screen,$retval);
-		//move generated file to current config
-		exec('sudo mv /var/www/html/nodeInfo/node_info.json /etc/svxlink/node_info.json', $screen, $retval);
-        	//Service SVXlink restart
-       		exec('sudo service svxlink restart 2>&1',$screen,$retval);
+    ///file manipulation section
+    //archive the current config
+    exec('sudo cp /etc/svxlink/node_info.json /etc/svxlink/node_info.json.' .date("YmdThis"), $screen, $retval);
+    //move generated file to current config
+    exec('sudo mv /var/www/html/nodeInfo/node_info.json /etc/svxlink/node_info.json', $screen, $retval);
+            //Service SVXlink restart
+               exec('sudo service svxlink restart 2>&1', $screen, $retval);
 
 };
 
-	$inLocation = $nodeInfo["Location"];
-	$inLocator = $nodeInfo["Locator"];
-	$inSysOp = $nodeInfo["SysOp"];
-	$inLAT = $nodeInfo["LAT"];
-	$inLONG = $nodeInfo["LONG"];
-	$inRXFREQ = $nodeInfo["RXFREQ"];
-	$inTXFREQ = $nodeInfo["TXFREQ"];
-	$inWebsite = $nodeInfo["Website"];
-	$inMode = $nodeInfo["Mode"];
-	$inType = $nodeInfo["Type"];
-	$inEcholink = $nodeInfo["Echolink"];
-	$innodeLocation = $nodeInfo["nodeLocation"];
-	$inSysop = $nodeInfo["Sysop"];
-	$inVerbund = $nodeInfo["Verbund"];
-	$inCTCSS = $nodeInfo["CTCSS"];
-	$inDefaultTG = $nodeInfo["DefaultTG"];
+    $inLocation = $nodeInfo["Location"];
+    $inLocator = $nodeInfo["Locator"];
+    $inSysOp = $nodeInfo["SysOp"];
+    $inLAT = $nodeInfo["LAT"];
+    $inLONG = $nodeInfo["LONG"];
+    $inRXFREQ = $nodeInfo["RXFREQ"];
+    $inTXFREQ = $nodeInfo["TXFREQ"];
+    $inWebsite = $nodeInfo["Website"];
+    $inMode = $nodeInfo["Mode"];
+    $inType = $nodeInfo["Type"];
+    $inEcholink = $nodeInfo["Echolink"];
+    $innodeLocation = $nodeInfo["nodeLocation"];
+    $inSysop = $nodeInfo["Sysop"];
+    $inVerbund = $nodeInfo["Verbund"];
+    $inCTCSS = $nodeInfo["CTCSS"];
+    $inDefaultTG = $nodeInfo["DefaultTG"];
 
 ?>
 
@@ -182,23 +183,23 @@ if (isset($_POST['btnSave']))
 <table>
         <tr>
         <th width = "380px">Node Info Input <?php echo "File: ".$nodeInfoFile ; ?></th>
-	<th width = "100px">Action</th>
+    <th width = "100px">Action</th>
         </tr>
 <tr>
 <TD>
-	Location: <input type="text" name="inLocation" style="width: 150px;" value="<?php echo $inLocation;?>">
+    Location: <input type="text" name="inLocation" style="width: 150px;" value="<?php echo $inLocation;?>">
 <BR>
         Locator: <input type="text" name="inLocator" style="width: 150px;" value="<?php echo $inLocator;?>">
 <BR> 
-       	SysOp: <input type="text" name="inSysOp" style="width: 150px;" value="<?php echo $inSysOp;?>">
+           SysOp: <input type="text" name="inSysOp" style="width: 150px;" value="<?php echo $inSysOp;?>">
 <BR>
-	Lat: <input type="text" name="inLAT" style="width: 150px;" value="<?php echo $inLAT;?>">
+    Lat: <input type="text" name="inLAT" style="width: 150px;" value="<?php echo $inLAT;?>">
 <BR>
-	Long: <input type="text" name="inLONG" style="width: 150px;" value="<?php echo $inLONG;?>">
+    Long: <input type="text" name="inLONG" style="width: 150px;" value="<?php echo $inLONG;?>">
 <BR>
-	Rq Freq: <input type="text" name="inRXFREQ" style="width: 150px;" value="<?php echo $inRXFREQ;?>">
+    Rq Freq: <input type="text" name="inRXFREQ" style="width: 150px;" value="<?php echo $inRXFREQ;?>">
 <BR>
-	Tx Freq: <input type="text" name="inTXFREQ" style="width: 150px;" value="<?php echo $inTXFREQ;?>">
+    Tx Freq: <input type="text" name="inTXFREQ" style="width: 150px;" value="<?php echo $inTXFREQ;?>">
 <BR>
         Website: <input type="text" name="inWebsite" style="width: 150px;" value="<?php echo $inWebsite;?>">
 <BR>
@@ -222,7 +223,7 @@ if (isset($_POST['btnSave']))
 
 </td>
 <td> 
-	<button name="btnSave" type="submit" class="red" style="height:100px; width:105px; font-size:12px;">Save <BR><Br> & <BR><BR> ReLoad</button>
+    <button name="btnSave" type="submit" class="red" style="height:100px; width:105px; font-size:12px;">Save <BR><Br> & <BR><BR> ReLoad</button>
 </td>
 </tr>
 </table>

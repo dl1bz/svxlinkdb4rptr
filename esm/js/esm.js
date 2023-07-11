@@ -1,301 +1,325 @@
 var esm = {};
 
 
-esm.getSystem = function() {
+esm.getSystem = function () {
 
     var module = 'system';
     
     esm.reloadBlock_spin(module);
 
-    $.get('libs/'+module+'.php', function(data) {
+    $.get(
+        'libs/'+module+'.php', function (data) {
 
-        var $box = $('.box#esm-'+module+' .box-content tbody');
+            var $box = $('.box#esm-'+module+' .box-content tbody');
 
-        esm.insertDatas($box, module, data);
+            esm.insertDatas($box, module, data);
 
-        esm.reloadBlock_spin(module);
+            esm.reloadBlock_spin(module);
 
-    }, 'json');
+        }, 'json'
+    );
 
 }
 
 
-esm.getLoad_average = function() {
+esm.getLoad_average = function () {
 
     var module = 'load_average';
     
     esm.reloadBlock_spin(module);
 
-    $.get('libs/'+module+'.php', function(data) {
+    $.get(
+        'libs/'+module+'.php', function (data) {
 
-        var $box = $('.box#esm-'+module+' .box-content');
+            var $box = $('.box#esm-'+module+' .box-content');
 
-        esm.reconfigureGauge($('input#load-average_1', $box), data[0]);
-        esm.reconfigureGauge($('input#load-average_5', $box), data[1]);
-        esm.reconfigureGauge($('input#load-average_15', $box), data[2]);
+            esm.reconfigureGauge($('input#load-average_1', $box), data[0]);
+            esm.reconfigureGauge($('input#load-average_5', $box), data[1]);
+            esm.reconfigureGauge($('input#load-average_15', $box), data[2]);
 
-        esm.reloadBlock_spin(module);
+            esm.reloadBlock_spin(module);
 
-    }, 'json');
+        }, 'json'
+    );
 
 }
 
 
-esm.getCpu = function() {
+esm.getCpu = function () {
 
     var module = 'cpu';
     
     esm.reloadBlock_spin(module);
 
-    $.get('libs/'+module+'.php', function(data) {
+    $.get(
+        'libs/'+module+'.php', function (data) {
 
-        var $box = $('.box#esm-'+module+' .box-content tbody');
+            var $box = $('.box#esm-'+module+' .box-content tbody');
 
-        esm.insertDatas($box, module, data);
+            esm.insertDatas($box, module, data);
 
-        esm.reloadBlock_spin(module);
+            esm.reloadBlock_spin(module);
 
-    }, 'json');
+        }, 'json'
+    );
 
 }
 
 
-esm.getMemory = function() {
+esm.getMemory = function () {
 
     var module = 'memory';
     
     esm.reloadBlock_spin(module);
 
-    $.get('libs/'+module+'.php', function(data) {
+    $.get(
+        'libs/'+module+'.php', function (data) {
 
-        var $box = $('.box#esm-'+module+' .box-content tbody');
+            var $box = $('.box#esm-'+module+' .box-content tbody');
 
-        esm.insertDatas($box, module, data);
+            esm.insertDatas($box, module, data);
 
-        esm.reloadBlock_spin(module);
+            esm.reloadBlock_spin(module);
 
-        // Percent bar
-        var $progress = $('.progressbar', $box);
+            // Percent bar
+            var $progress = $('.progressbar', $box);
 
-        $progress
+            $progress
             .css('width', data.percent_used+'%')
             .html(data.percent_used+'%')
             .removeClass('green orange red');
 
-        if (data.percent_used <= 50)
-            $progress.addClass('green');
-        else if (data.percent_used <= 75)
-            $progress.addClass('orange');
-        else
-            $progress.addClass('red');
+            if (data.percent_used <= 50) {
+                $progress.addClass('green');
+            } else if (data.percent_used <= 75) {
+                $progress.addClass('orange');
+            } else {
+                $progress.addClass('red');
+            }
 
-    }, 'json');
+        }, 'json'
+    );
 
 }
 
 
-esm.getSwap = function() {
+esm.getSwap = function () {
 
     var module = 'swap';
     
     esm.reloadBlock_spin(module);
 
-    $.get('libs/'+module+'.php', function(data) {
+    $.get(
+        'libs/'+module+'.php', function (data) {
 
-        var $box = $('.box#esm-'+module+' .box-content tbody');
+            var $box = $('.box#esm-'+module+' .box-content tbody');
 
-        esm.insertDatas($box, module, data);
+            esm.insertDatas($box, module, data);
 
-        // Percent bar
-        var $progress = $('.progressbar', $box);
+            // Percent bar
+            var $progress = $('.progressbar', $box);
 
-        $progress
+            $progress
             .css('width', data.percent_used+'%')
             .html(data.percent_used+'%')
             .removeClass('green orange red');
 
-        if (data.percent_used <= 50)
-            $progress.addClass('green');
-        else if (data.percent_used <= 75)
-            $progress.addClass('orange');
-        else
-            $progress.addClass('red');
+            if (data.percent_used <= 50) {
+                $progress.addClass('green');
+            } else if (data.percent_used <= 75) {
+                $progress.addClass('orange');
+            } else {
+                $progress.addClass('red');
+            }
     
-        esm.reloadBlock_spin(module);
+            esm.reloadBlock_spin(module);
 
-    }, 'json');
+        }, 'json'
+    );
 
 }
 
 
-esm.getDisk = function() {
+esm.getDisk = function () {
 
     var module = 'disk';
     
     esm.reloadBlock_spin(module);
 
-    $.get('libs/'+module+'.php', function(data) {
+    $.get(
+        'libs/'+module+'.php', function (data) {
 
-        var $box = $('.box#esm-'+module+' .box-content tbody');
-        $box.empty();
+            var $box = $('.box#esm-'+module+' .box-content tbody');
+            $box.empty();
 
-        for (var line in data)
-        {
-            var bar_class = '';
+            for (var line in data)
+            {
+                var bar_class = '';
 
-            if (data[line].percent_used <= 50)
-                bar_class = 'green';
-            else if (data[line].percent_used <= 75)
-                bar_class = 'orange';
-            else
-                bar_class = 'red';
+                if (data[line].percent_used <= 50) {
+                    bar_class = 'green';
+                } else if (data[line].percent_used <= 75) {
+                    bar_class = 'orange';
+                } else {
+                    bar_class = 'red';
+                }
 
-            var html = '';
-            html += '<tr>';
+                var html = '';
+                html += '<tr>';
 
-            if (typeof data[line].filesystem != 'undefined')
-                html += '<td class="filesystem">'+data[line].filesystem+'</td>';
+                if (typeof data[line].filesystem != 'undefined') {
+                    html += '<td class="filesystem">'+data[line].filesystem+'</td>';
+                }
 
-            html += '<td>'+data[line].mount+'</td>';
-            html += '<td><div class="progressbar-wrap"><div class="progressbar '+bar_class+'" style="width: '+data[line].percent_used+'%;">'+data[line].percent_used+'%</div></div></td>';
-            html += '<td class="t-center">'+data[line].free+'</td>';
-            html += '<td class="t-center">'+data[line].used+'</td>';
-            html += '<td class="t-center">'+data[line].total+'</td>';
-            html += '</tr>';
+                html += '<td>'+data[line].mount+'</td>';
+                html += '<td><div class="progressbar-wrap"><div class="progressbar '+bar_class+'" style="width: '+data[line].percent_used+'%;">'+data[line].percent_used+'%</div></div></td>';
+                html += '<td class="t-center">'+data[line].free+'</td>';
+                html += '<td class="t-center">'+data[line].used+'</td>';
+                html += '<td class="t-center">'+data[line].total+'</td>';
+                html += '</tr>';
 
-            $box.append(html);
-        }
+                $box.append(html);
+            }
     
-        esm.reloadBlock_spin(module);
+            esm.reloadBlock_spin(module);
 
-    }, 'json');
+        }, 'json'
+    );
 
 }
 
 
-esm.getLast_login = function() {
+esm.getLast_login = function () {
 
     var module = 'last_login';
     
     esm.reloadBlock_spin(module);
 
-    $.get('libs/'+module+'.php', function(data) {
+    $.get(
+        'libs/'+module+'.php', function (data) {
 
-        var $box = $('.box#esm-'+module+' .box-content tbody');
-        $box.empty();
+            var $box = $('.box#esm-'+module+' .box-content tbody');
+            $box.empty();
 
-        for (var line in data)
-        {
-            var html = '';
-            html += '<tr>';
-            html += '<td>'+data[line].user+'</td>';
-            html += '<td class="w50p">'+data[line].date+'</td>';
-            html += '</tr>';
+            for (var line in data)
+            {
+                var html = '';
+                html += '<tr>';
+                html += '<td>'+data[line].user+'</td>';
+                html += '<td class="w50p">'+data[line].date+'</td>';
+                html += '</tr>';
 
-            $box.append(html);
-        }
+                $box.append(html);
+            }
     
-        esm.reloadBlock_spin(module);
+            esm.reloadBlock_spin(module);
 
-    }, 'json');
+        }, 'json'
+    );
 
 }
 
 
-esm.getNetwork = function() {
+esm.getNetwork = function () {
 
     var module = 'network';
     
     esm.reloadBlock_spin(module);
 
-    $.get('libs/'+module+'.php', function(data) {
+    $.get(
+        'libs/'+module+'.php', function (data) {
 
-        var $box = $('.box#esm-'+module+' .box-content tbody');
-        $box.empty();
+            var $box = $('.box#esm-'+module+' .box-content tbody');
+            $box.empty();
 
-        for (var line in data)
-        {
-            var html = '';
-            html += '<tr>';
-            html += '<td>'+data[line].interface+'</td>';
-            html += '<td>'+data[line].ip+'</td>';
-            html += '<td class="t-center">'+data[line].receive+'</td>';
-            html += '<td class="t-center">'+data[line].transmit+'</td>';
-            html += '</tr>';
+            for (var line in data)
+            {
+                var html = '';
+                html += '<tr>';
+                html += '<td>'+data[line].interface+'</td>';
+                html += '<td>'+data[line].ip+'</td>';
+                html += '<td class="t-center">'+data[line].receive+'</td>';
+                html += '<td class="t-center">'+data[line].transmit+'</td>';
+                html += '</tr>';
 
-            $box.append(html);
-        }
+                $box.append(html);
+            }
 
-        esm.reloadBlock_spin(module);
+            esm.reloadBlock_spin(module);
 
-    }, 'json');
+        }, 'json'
+    );
 
 }
 
 
-esm.getPing = function() {
+esm.getPing = function () {
 
     var module = 'ping';
     
     esm.reloadBlock_spin(module);
 
-    $.get('libs/'+module+'.php', function(data) {
+    $.get(
+        'libs/'+module+'.php', function (data) {
 
-        var $box = $('.box#esm-'+module+' .box-content tbody');
-        $box.empty();
+            var $box = $('.box#esm-'+module+' .box-content tbody');
+            $box.empty();
 
-        for (var line in data)
-        {
-            var html = '';
-            html += '<tr>';
-            html += '<td>'+data[line].host+'</td>';
-            html += '<td>'+data[line].ping+' ms</td>';
-            html += '</tr>';
+            for (var line in data)
+            {
+                var html = '';
+                html += '<tr>';
+                html += '<td>'+data[line].host+'</td>';
+                html += '<td>'+data[line].ping+' ms</td>';
+                html += '</tr>';
 
-            $box.append(html);
-        }
+                $box.append(html);
+            }
     
-        esm.reloadBlock_spin(module);
+            esm.reloadBlock_spin(module);
 
-    }, 'json');
+        }, 'json'
+    );
 
 }
 
 
-esm.getServices = function() {
+esm.getServices = function () {
 
     var module = 'services';
     
     esm.reloadBlock_spin(module);
 
-    $.get('libs/'+module+'.php', function(data) {
+    $.get(
+        'libs/'+module+'.php', function (data) {
 
-        var $box = $('.box#esm-'+module+' .box-content tbody');
-        $box.empty();
+            var $box = $('.box#esm-'+module+' .box-content tbody');
+            $box.empty();
 
-        for (var line in data)
-        {
-            var label_color  = data[line].status == 1 ? 'success' : 'error';
-            var label_status = data[line].status == 1 ? 'online' : 'offline';
+            for (var line in data)
+            {
+                var label_color  = data[line].status == 1 ? 'success' : 'error';
+                var label_status = data[line].status == 1 ? 'online' : 'offline';
 
-            var html = '';
-            html += '<tr>';
-            html += '<td class="w15p"><span class="label '+label_color+'">'+label_status+'</span></td>';
-            html += '<td>'+data[line].name+'</td>';
-            html += '<td class="w15p">'+data[line].port+'</td>';
-            html += '</tr>';
+                var html = '';
+                html += '<tr>';
+                html += '<td class="w15p"><span class="label '+label_color+'">'+label_status+'</span></td>';
+                html += '<td>'+data[line].name+'</td>';
+                html += '<td class="w15p">'+data[line].port+'</td>';
+                html += '</tr>';
 
-            $box.append(html);
-        }
+                $box.append(html);
+            }
     
-        esm.reloadBlock_spin(module);
+            esm.reloadBlock_spin(module);
 
-    }, 'json');
+        }, 'json'
+    );
 
 }
 
 
-esm.getAll = function() {
+esm.getAll = function () {
     esm.getSystem();
     esm.getCpu();
     esm.getLoad_average();
@@ -308,13 +332,13 @@ esm.getAll = function() {
     esm.getServices();
 }
 
-esm.reloadBlock = function(block) {
+esm.reloadBlock = function (block) {
 
     esm.mapping[block]();
 
 }
 
-esm.reloadBlock_spin = function(block) {
+esm.reloadBlock_spin = function (block) {
 
     var $module = $('.box#esm-'+block);
 
@@ -323,33 +347,36 @@ esm.reloadBlock_spin = function(block) {
 
 }
 
-esm.insertDatas = function($box, block, datas) {
+esm.insertDatas = function ($box, block, datas) {
     for (var item in datas)
     {
         $('#'+block+'-'+item, $box).html(datas[item]);
     }
 }
 
-esm.reconfigureGauge = function($gauge, newValue) {
+esm.reconfigureGauge = function ($gauge, newValue) {
     // Change colors according to the percentages
     var colors = { green : '#7BCE6C', orange : '#E3BB80', red : '#CF6B6B' };
     var color  = '';
 
-    if (newValue <= 50)
+    if (newValue <= 50) {
         color = colors.green;
-    else if (newValue <= 75)
+    } else if (newValue <= 75) {
         color = colors.orange;
-    else
+    } else {
         color = colors.red;
+    }
 
-    $gauge.trigger('configure', { 
-        'fgColor': color,
-        'inputColor': color,
-        'fontWeight': 'normal',
-        'format' : function (value) {
-            return value + '%';
+    $gauge.trigger(
+        'configure', { 
+            'fgColor': color,
+            'inputColor': color,
+            'fontWeight': 'normal',
+            'format' : function (value) {
+                return value + '%';
+            }
         }
-    });
+    );
 
     // Change gauge value
     $gauge.val(newValue).trigger('change');
