@@ -1,15 +1,22 @@
 ---
 ## Statement 12/15/23
 
+This project has reached the status EOL now, which means end-of-life and I close the development.
+
 I have decided not to continue with this project. So there will be **no update to running with PHP8**.
 According to my own analysis, the effort required to adapt everything to PHP8 is too extensive for me.
 Another reason is the lack of time.
 I'm currently tied up in other projects, so I won't be continuing this one anymore, not now - not later.
 You can take the code and do it by yourself if needed. Feel free with it. Good luck.
-Thanks to everyone who supported this project. I'm out now.
+
+I understand that programming languages always have to evolve.
+But I don't have the time or the desire to go through everything again - and I won't start again.
+It was a very long way to make this version stable and takes a lot of my spare time.
+
+Thanks again to everyone who supported this project and for using it. I'm out now.
 
 73 Heiko, DL1BZ
----
+
 # Dashboard for SVXLINK for public repeaters ###
 
 This is a rework, not fork in the proper sense, based at codebase https://github.com/FM-POLAND/hs_dashboard_pi (created by SP2ONG, SP0DZ).
