@@ -1,11 +1,12 @@
 ---
 ## Statement 12/15/23
 
-I have decided not to continue with this project. So there will be no update to running with PHP8.
+I have decided not to continue with this project. So there will be **no update to running with PHP8**.
 According to my own analysis, the effort required to adapt everything to PHP8 is too extensive for me.
 Another reason is the lack of time.
 I'm currently tied up in other projects, so I won't be continuing this one anymore, not now - not later.
-You can take the code and do it by yourself if needed. Feel free with it. Good luck. I'm out.
+You can take the code and do it by yourself if needed. Feel free with it. Good luck.
+Thanks to everyone who supported this project. I'm out now.
 
 73 Heiko, DL1BZ
 ---
@@ -17,8 +18,7 @@ Many thanks to these guys for their excellent work.
 ## Preamble
 
 This dashboard is re-designed for use with public repeaters (duplex) in hamradio, less for hotspots (I mean FM-simplex systems, but it works too).
-Beware, this all is a **work-in-progress** and I will fix things in the code.
-Please check for regularly updates from time to time of this dashboard, so please keep it up-to-date.
+~~Beware, this all is a **work-in-progress** and I will fix things in the code.~~
 
 ## Changes from the original
 For better use with public repeaters some things are different
