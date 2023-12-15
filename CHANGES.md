@@ -2,6 +2,11 @@
 # Dashboard for SVXLINK for public repeaters #
 
 ## Changes ##
+15.12.2023:
+- project status is now EOL (end-of-life) and development is closed
+- there will be not a version for PHP8, the adjustments for PHP8 exceed my available time
+- this last version works without known issues if using PHP 7.x
+
 01.06.2023:
 - Correction of lastheard list sorting if German date format like 01.01.2023 is defined in svxlink.conf (wrong sorting if
   a new month begun -> FIXED)
