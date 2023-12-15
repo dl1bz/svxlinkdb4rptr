@@ -8,7 +8,7 @@ I'm currently tied up in other projects, so I won't be continuing this one anymo
 You can take the code and do it by yourself if needed. Feel free with it. Good luck. I'm out.
 
 73 Heiko, DL1BZ
-
+---
 # Dashboard for SVXLINK for public repeaters ###
 
 This is a rework, not fork in the proper sense, based at codebase https://github.com/FM-POLAND/hs_dashboard_pi (created by SP2ONG, SP0DZ).
@@ -127,7 +127,7 @@ Have fun with SVXLINK Dashboard for repeater !
 
 ## Known bugs
 
-**Important: Please use ever the latest version of this package and update regularly. I'm constantly working on it and fix bugs.**
+**Important: Please use ever the latest version of this package ~~and update regularly~~. ~~I'm constantly working on it and fix bugs.~~**
 
 - I develop this Dashbaord with Raspian light Bullseye/Debian11 and lighttpd as webserver with enabled PHP support 7.x, **PHP >= 8.x NOT supported**, sorry ! ~~**I prepare a new version, which will be running with PHP8 too**. But it need some major code changes for PHP8, please be patient for that.~~
 - use a Raspberry Pi >= 2B or higher or similiar clones. Slow systems like Raspberry Pi Zero are NOT supported, because a webserver needs some cpu power for good working
@@ -135,11 +135,10 @@ Have fun with SVXLINK Dashboard for repeater !
 - the additional PHP module **php-curl** and **php-xml** need to be installed too, otherwise some functions are not available or don't work
 - For the Dashboard we need a SVXLINK managed by systemd (default setup for SVXLINK), older things like init.d are **NOT** supported !
 - If httpd is nginx, there are some minor problems around PHP, I recommend use lighttpd as httpd
-- if possible, use the latest version of Raspian, which is at this time based at Bullseye/Debian11 and do regularly updates
 
 ## Final words for note ##
 This program is free software; you can redistribute it and/or modify it how you want.
-This codebase is a "work in progress","as is" without any kind of support.
+This codebase is ~~a "work in progress"~~ "as is" without any kind of support.
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 73 Heiko, DL1BZ
