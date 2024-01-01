@@ -2,6 +2,9 @@
 # Dashboard for SVXLINK for public repeaters #
 
 ## Changes ##
+01.01.2024:
+- SVX-Reflector status page of FM-Funknetz.de https://status.thueringen.link no more accessible for public use, so I add a notice and things need to change now in the README
+
 15.12.2023:
 - project status is now EOL (end-of-life) and development is closed
 - there will be not a version for PHP8, the adjustments for PHP8 exceed my available time
