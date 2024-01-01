@@ -60,6 +60,7 @@ API=https://status.thueringen.link
 ```
 
 ### Important notice from 1.1.2024:
+
 For the moment please comment out this line in svxlink.conf:
 ```
 [ReflectorLogic]
@@ -67,9 +68,11 @@ For the moment please comment out this line in svxlink.conf:
 # API=https://status.thueringen.link
 ...
 ```
+
 I got this information from the main operator of FM-Funknetz.de, the SVXLINK reflector statuspage https://status.thueringen.link was deactivated now for public use due to high server load because of too much status queries.
 The dashboard running too without this status page, only the menu NODES is not available.
 If the public access will be back I don't know. Please ask the operators of FM-Funknetz for this and a possible new status URL if all will be available again.
+
 ----
 
 It is strongly recommended, for protect the SDCard if using a Raspberry Pi, that the logging from SVXLINK and from the httpd is running at a ramdisk and, if possible, turn off the swap.
