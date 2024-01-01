@@ -17,6 +17,9 @@ Thanks again to everyone who supported this project and for using it. I'm out no
 
 73 Heiko, DL1BZ
 
+---
+---
+
 # Dashboard for SVXLINK for public repeaters ###
 
 This is a rework, not fork in the proper sense, based at codebase https://github.com/FM-POLAND/hs_dashboard_pi (created by SP2ONG, SP0DZ).
