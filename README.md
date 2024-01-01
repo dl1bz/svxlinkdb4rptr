@@ -74,7 +74,7 @@ For the moment please comment out or delete this line in svxlink.conf:
 ```
 
 This information came from the main operator of FM-Funknetz.de, that the SVXLINK reflector statuspage https://status.thueringen.link was **deactivated now for public use due to high server load** because of too much status queries.
-Up to now we were using the URL https://status.thueringen.link with this dashboard, but the dashboard can be running without this status page too, only the menu *NODES* will be not available or accessible, because it's making no sense without the status data from reflector.
+Up to now we were using also the URL https://status.thueringen.link with this dashboard, but the dashboard can be running without this status page too, only the menu *NODES* will be not available or accessible, because it's making no sense without the status data from reflector.
 If the public access will be back later, I don't know it. Please ask only the operators of FM-Funknetz for this and a possible new status URL if all will be available again.
 
 ----
