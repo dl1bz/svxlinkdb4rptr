@@ -59,7 +59,7 @@ API=https://status.thueringen.link
 ...
 ```
 
-Important notice from 1.1.2024:
+<b><font color="red" size=+2>Important notice from 1.1.2024:</font></b><br>
 For the moment please comment out this line in svxlink.conf:
 ```
 [ReflectorLogic]
