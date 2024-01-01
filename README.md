@@ -164,7 +164,7 @@ Have fun with SVXLINK Dashboard for repeater !
 - If httpd is nginx, there are some minor problems around PHP, I recommend use lighttpd as httpd
 
 ## Final words for note ##
-This program is free software; you can redistribute it and/or modify it how you want.
+This program is free software for personal use, but **not for commercial use**; you can redistribute it and/or modify it how you want.
 This codebase is ~~a "work in progress"~~ "as is" without any kind of support.
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
