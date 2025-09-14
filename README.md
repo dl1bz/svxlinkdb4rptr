@@ -2,8 +2,8 @@
 
 ## Statement 12/15/2023
 
-**This project has reached the status EOL now, which means end-of-life and I close the development.
-That means - no support from me and don't ask me anything about it. I will not answer in this case.**
+This project has reached the status EOL now, which means end-of-life and I close the development.
+That means - no support from me and don't ask me anything about it. I will not answer in this case.
 
 I have decided not to continue with this project. So there will be **no update to running with PHP8**.
 According to my own analysis, the effort required to adapt everything to PHP8 is too extensive for me.
@@ -20,7 +20,7 @@ Thanks again to everyone who supported this project and for using it. I'm out no
 73 Heiko, DL1BZ
 
 ---
----
+
 
 # Dashboard for SVXLINK for public repeaters ###
 
